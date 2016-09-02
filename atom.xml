@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cheshyre.github.io/"/>
-  <updated>2016-09-02T03:25:49.000Z</updated>
+  <updated>2016-09-02T03:27:52.000Z</updated>
   <id>https://cheshyre.github.io/</id>
   
   <author>
@@ -20,11 +20,11 @@
     <link href="https://cheshyre.github.io/2016/09/01/time-for-a-new-blog/"/>
     <id>https://cheshyre.github.io/2016/09/01/time-for-a-new-blog/</id>
     <published>2016-09-02T02:27:52.000Z</published>
-    <updated>2016-09-02T03:25:49.000Z</updated>
+    <updated>2016-09-02T03:27:52.000Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome everyone to the new and reimagined blog. I am trying a couple things differently now. First, I am using Hexo to generate my blog locally, rather than having Jekyll build it after committing to the repo. This has a couple benefits: first, Jekyll (or specifically Liquid) is annoying to deal with; second, I can test things easily without putting chnages into production, allowing me to avoid millions of embarrassing commits; third, I can probably make a better structured site like this.</p>
 <p>For the time being, things will probably continue as normal. I will post on the current theme about anime, sports, school, physics, and other things while working on a new theme that I will write from scratch. This will be the challenge for this iteration of the site, as figuring out exactly what a Hexo theme needs to do, and also what it is capable of, will take some time. Fortunately, between testing, I can just switch themes and everything will work fine, so I won’t be motivated to neglect my writing with the rationalization that changing the aesthetic of the website should change the structure (which was true while I was working with Jekyll).</p>
-<p>I have a couple ideas for the site in the future (in no particular order):<br>~</p>
+<p>I have a couple ideas for the site in the future (in no particular order):</p>
 <ul>
 <li>I will not bring back the guides or HLTB section (at least as they were) because it felt like they were mostly empty and I did not have enough to say on most things to make those worth it</li>
 <li>I will work to do a good job of tagging most of the things I write, so that some form of categories can be used to get indexes of similar posts.</li>
