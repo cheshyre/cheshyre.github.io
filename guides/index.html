@@ -1,0 +1,13 @@
+---
+title: Guides
+layout: default
+categories: guides
+---
+			{% for post in site.posts offset: 0 %}
+			{% if post.categories contains 'guides' and post.categories contains 'index' %}
+			
+				<h2><a href="{{ site.prefix }}{{ post.url }}">{{ post.title }}</a></h2>
+				<p>{{ post.explanation }}<br></p>
+			
+			{% endif %}
+			{% endfor %}

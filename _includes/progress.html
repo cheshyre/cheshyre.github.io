@@ -1,0 +1,16 @@
+          <h2>In Progress</h2>
+          {% assign categories_list = page.progress_categories | split: " " %}{% for category in categories_list %}{% capture posts %}{% for post in site.posts %}{% if post.categories contains 'hltb' and post.categories contains category and post.progress < 100 %}|{{ post.title }}#{{ post.url }}#{{ post.description }}#{{ post.progress }}#{% endif %}{% endfor %}{% endcapture %}
+            {% if posts.size > 0 %}
+            <h3>{{ category | capitalize }}</h3>
+            {% assign sorted_posts = posts | remove_first: "|" | split: '|' | sort %}
+              {% for post in sorted_posts %}
+              {% assign postitems = post | split: '#' %}
+              <h4><a href="{{ site.prefix }}{{ postitems[1] }}">{{ postitems[0] }}</a></h4>
+              <p>{{ postitems[2] }}</p>
+              <div class="progress" role="progressbar" tabindex="0" aria-valuenow="{{ postitems[3] }}" aria-valuemin="0" aria-valuetext="{{ postitems[3] }} percent" aria-valuemax="100">
+              <div class="progress-meter" style="width: {{ postitems[3] }}%"></div>
+              </div>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+          <hr>

@@ -1,0 +1,18 @@
+          <ul class="accordion" data-accordion data-allow-all-closed="true">
+            <li class="accordion-item is-active" data-accordion-item>
+              <a href="#" class="accordion-title">Reviews</a>
+              <div class="accordion-content" data-tab-content >
+                
+                {% capture review_posts %}{% for post in site.posts %}{% if post.categories contains 'hltb' and post.score and post.progress == 100 %}|{{ post.title }}#{{ post.url }}#{{ post.description }}#{% endif %}{% endfor %}{% endcapture %}
+                {% assign sorted_review_posts = review_posts | remove_first: "|" | split: '|' | sort %}
+                {% for post in sorted_review_posts %}
+                    {% assign review_postitems = post | split: '#' %}
+                    {% if review_postitems != "" %}
+                    <h5><a href="{{ site.prefix }}{{ review_postitems[1] }}">{{ review_postitems[0] }}</a></h5>
+                    <p>{{ review_postitems[2] }}</p>
+                    {% endif %}
+                {% endfor %}
+
+              </div>
+            </li>
+          </ul>

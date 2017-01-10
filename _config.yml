@@ -1,0 +1,43 @@
+# Name of site / header at top
+name: Ephemere
+# Description
+description: Physics, programming, video games, anime, and more
+# Defines how many things per page
+paginate: 10
+
+baseurl: https://cheshyre.github.io
+
+# Keywords:
+
+blog-keywords: blog, blog
+guides-keywords: guides, guides
+hltb-keywords: hltb, hltb
+
+#
+# User information:
+#
+
+twitter: cheshyre_
+github: cheshyre
+
+# Config
+
+highlighter: rouge
+permalink: /:categories/:year/:month/:day/:title.html
+
+# Set the Sass partials directory, as we're using @imports
+sass:
+  style: :compressed # You might prefer to minify using :compressed
+
+# Use the following plug-ins
+gems:
+  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
+
+# Exclude these files from your production _site
+exclude:
+    - Gemfile
+    - Gemfile.lock
+    - LICENSE
+    - README.md
+    - CNAME

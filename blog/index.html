@@ -1,0 +1,16 @@
+---
+title: Blog
+layout: default
+categories: blog
+---
+			{% for post in site.posts %}
+			{% if post.categories contains 'blog' %}
+			
+				<h2><a href="{{ site.prefix }}{{ post.url }}">{{ post.title }}</a></h2>
+				<!--{% if post.featured %}<p><center><a href="{{ site.prefix }}{{ post.url }}"><img src="/assets/images/{{ post.featured }}" alt="" align="middle" style="max-width:44rem;width: expression(this.width > 44rem ? 44rem: true);"></a></center></p>{% endif %}-->
+				{{ post.excerpt }}
+				<p><a href="{{ site.prefix }}{{ post.url }}" class="button">Read more</a></p>
+				<br>
+			
+			{% endif %}
+			{% endfor %}
