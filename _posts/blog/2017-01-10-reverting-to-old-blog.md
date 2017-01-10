@@ -1,0 +1,6 @@
+---
+title: Old Blog Format Is Back
+categories: blog
+layout: default
+---
+I'm just going to quickly comment on my changing the blog back to the old format. The plan is still to eventually redo the site in a way where I have done more of the work from the ground up, rather than using some framework to do the heavy lifting for me. However, because the intermediate site I had was just a really boring template, it felt dumb to write anything for a site so bland and lifeless. So, to encourage myself to write more, and also to allow myself to have an echo chamber to write my thoughts (instead of vague, useless tweets on Twitter), I've switched back to this blog format that I liked a lot but eventually didn't really serve my needs. I won't really make use of the guides or HLTB portions, but at the same time, I won't remove them because that requires me to dig through the code that generates the site. But I will post on the blog part and hopefully I will eventually move towards making a new site that better presents my ideas.
