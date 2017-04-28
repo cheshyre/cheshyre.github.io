@@ -1,7 +1,7 @@
 layout: "music"
 ---
 <div class="wrapper">
-	{% for album in site.music %}
+	{% for album in site.music-review %}
 	{% if album.artist_url == page.artist %}
 	<div class="album_wrapper">
 		<img src="/assets/images/music-review/{{ album.artist_url }}/{{ album.title_url }}.{{ album.image_ext }}" class="index_img">
