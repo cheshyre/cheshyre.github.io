@@ -1,6 +1,0 @@
----
-title: "Unplugging: Taking a Break from Twitter and Discord"
-categories: blog
-layout: default
----
-Yesterday, I experimented with not using Twitter and Discord, motivated primarily by my need to get some things done and also somewhat by my frustration at being unable to understand the opinions of some of my peers. I was surprised just by how much I felt the need to tweet some of my thoughts and ideas into the Twitter verse and how much I felt the need to complain about the poor performance of my Ubuntu VM as I was setting it up. It was weird to think that at this point I subconsciously feel the need to broadcast updates to the world about even the most simple things in my life. So I've decided to take it a step further and will continue to stay off Twitter and Discord for a while. I am not sure what it will actually do; it might just lead to me being more productive for a while, but it might also help me be more concentrated in general due to a lack of things that could possibly distract me. We shall see, but for now I am going to withdraw from the online social world and just focus on myself and my goals for a while. Maybe I'll even break my lifting plateaus because of this. Who knows?

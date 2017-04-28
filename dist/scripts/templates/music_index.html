@@ -1,0 +1,16 @@
+layout: "music"
+---
+<div class="wrapper">
+	{% for album in site.music %}
+	{% if album.artist_url == page.artist %}
+	<div class="album_wrapper">
+		<img src="/assets/images/music-review/{{ album.artist_url }}/{{ album.title_url }}.{{ album.image_ext }}" class="index_img">
+		<h1>{{ album.title }}</h1>
+		<h2>{{ album.year }} - {{ album.tracks }}</h2>
+		<div class="album_content_wrapper">
+			{{ album.content }}
+		</div>
+	</div>
+	{% endif %}
+	{% endfor %}
+</div>

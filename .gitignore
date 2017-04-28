@@ -42,6 +42,8 @@ Thumbs.db
 *.todo
 *.note
 
-# PyCharm Being Special #
+# Jekyll-Specific Files #
 #########################
-.idea
+_site
+.sass-cache
+.jekyll-metadata

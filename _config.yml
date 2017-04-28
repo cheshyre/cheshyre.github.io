@@ -1,43 +1,36 @@
-# Name of site / header at top
-name: Ephemere
-# Description
-description: Physics, programming, video games, anime, and more
-# Defines how many things per page
-paginate: 10
-
-baseurl: https://cheshyre.github.io
-
-# Keywords:
-
-blog-keywords: blog, blog
-guides-keywords: guides, guides
-hltb-keywords: hltb, hltb
-
-#
-# User information:
-#
-
-twitter: cheshyre_
-github: cheshyre
-
-# Config
-
-highlighter: rouge
-permalink: /:categories/:year/:month/:day/:title.html
-
-# Set the Sass partials directory, as we're using @imports
-sass:
-  style: :compressed # You might prefer to minify using :compressed
-
-# Use the following plug-ins
+# Gems used
 gems:
-  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
-  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
+  - octopress-minify-html
+  - jekyll-paginate
+  - jekyll-paginate-categories
+  # - octopress-paginate
 
-# Exclude these files from your production _site
-exclude:
-    - Gemfile
-    - Gemfile.lock
-    - LICENSE
-    - README.md
-    - CNAME
+# Site info
+name: Renormalized
+version: v0.0
+
+# Build settings
+source: src
+destination: dist
+env: production
+
+# Set sass config
+sass:
+  sass_dir: _sass
+  style: :compressed # Compressed css
+
+# Collections
+collections:
+  music-review:
+    output: false
+    permalink: /:collection/:path/:name:output_ext
+
+# Pagination settings
+paginate: 5
+paginate_path: "page:num"
+
+# category_dir: "categories"
+# category_layout: "index.html"
+
+paginate_category_basepath: '/:name/'
+paginate_category_layout: 'categories.html'
