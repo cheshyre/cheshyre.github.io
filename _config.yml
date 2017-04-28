@@ -24,7 +24,7 @@ sass:
 # Collections
 collections:
   music-review:
-    output: false
+    output: true
     permalink: /:collection/:path/:name:output_ext
 
 # Pagination settings
