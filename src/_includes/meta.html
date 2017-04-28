@@ -1,1 +1,27 @@
 <!-- meta tags in the head -->
+
+<!-- set character encoding for the document -->
+<meta charset="utf-8">
+
+<!-- flag for ms browsers determining what features to support -->
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- mobile meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- allows control over where resources are loaded from -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+
+<!-- controls the behavior of search engine crawling and indexing -->
+<meta name="robots" content="index,follow,noodp"><!-- All Search Engines -->
+<meta name="googlebot" content="index,follow"><!-- Google Specific -->
+
+<!-- tells Google not to show the sitelinks search box -->
+<meta name="google" content="nositelinkssearchbox">
+
+<!-- Twitter meta tags (go away, Facebook) -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@cheshyre_" />
+<meta name="twitter:title" content="{% if page.title %}{{ page.title }} - {{ site.name}}{% else %}{{ site.name }}{% endif %}" />
+<meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+<!-- <meta name="twitter:image" content="https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg" /> -->
