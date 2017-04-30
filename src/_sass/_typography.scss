@@ -6,7 +6,7 @@ html {
   font-size: $body-size;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: $mobile-breakpoint) {
   html {
     font-size: $body-size-mobile;
   }

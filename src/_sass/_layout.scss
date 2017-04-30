@@ -5,6 +5,7 @@
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-color: $bg-color-1;
 }
 
 /* Content of site does not go full screen width for large screens */
@@ -13,4 +14,5 @@
   max-width: $site-max-width;
   width: 96%;
   margin: 1em auto;
+  background-color: $bg-color-1;
 }
