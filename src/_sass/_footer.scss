@@ -1,1 +1,13 @@
-// TODO
+@import 'variables';
+
+#footer {
+  background-color: $bg-color-2;
+  color: $color-2;
+  text-align: center;
+  padding: 1.5em 0;
+
+  * {
+    font-family: $font-header, sans-serif;
+    font-size: 0.75em;
+  }
+}

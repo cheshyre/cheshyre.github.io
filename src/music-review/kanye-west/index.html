@@ -1,9 +1,10 @@
 ---
 title: "Kanye West"
 artist: "kanye-west"
-layout: "music"
+layout: "default"
 ---
-<div class="wrapper">
+<div class="music_wrapper">
+	<h1>{{ page.title }}</h1>
 	{% for album in site.music-review %}
 	{% if album.artist_url == page.artist %}
 	<div class="album_wrapper">
