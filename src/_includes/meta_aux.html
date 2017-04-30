@@ -13,10 +13,11 @@
 <!-- Twitter meta tags (go away, Facebook) -->
 <meta name="twitter:card" content="summary{% if page.image %}_large_image{% endif %}" />
 <meta name="twitter:site" content="@cheshyre_" />
-<meta name="twitter:title" content="{% if page.title %}{{ page.title }} - {{ site.name}}{% else %}{{ site.name }}{% endif %}" />
-<meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+<meta property="twitter:url" content="{{ site.url }}" />
+<meta property="twitter:title" content="{% if page.title %}{{ page.title }} - {{ site.name}}{% else %}{{ site.name }}{% endif %}" />
+<meta property="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
 {% if page.image %}
-<meta name="twitter:image" content="{{ site.url }}/assets/images/{{ page.image }}" />
+<meta property="twitter:image" content="{{ site.url }}/assets/images/{{ page.image }}" />
 {% else %}
-<meta name="twitter:image" content="{{ site.url }}/assets/images/default.jpg" />
+<meta property="twitter:image" content="{{ site.url }}/assets/images/default.jpg" />
 {% endif %}
