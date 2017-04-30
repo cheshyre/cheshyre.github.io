@@ -5,6 +5,7 @@ gems:
   - jekyll-paginate-categories
   # - pygments.rb
   - rouge
+  # - jekyll-conrefifier
   # - octopress-paginate
 
 # Site info

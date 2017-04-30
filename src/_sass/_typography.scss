@@ -41,7 +41,15 @@ em {
 
 code {
   font-family: $monospace-font;
+  font-size: 0.94em;
   background-color: $inline-highlight-color;
+}
+
+/* Images */
+img {
+  max-width: 95%;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Tables */

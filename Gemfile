@@ -3,5 +3,6 @@ group :jekyll_plugins do
   gem 'jekyll-paginate'
   gem 'jekyll-paginate-categories'
   # gem 'pygments.rb'
+  # gem 'jekyll-conrefifier'
   gem 'rouge'
 end

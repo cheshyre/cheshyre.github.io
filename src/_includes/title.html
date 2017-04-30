@@ -1,1 +1,1 @@
-<title>{% if page.title %}{{ page.title }}{% else %}{{ site.name }}{% endif %}</title>
+<title>{% if page.title %}{{ page.title }}{% elsif page.category %}{{ page.category | capitalize }}{% else %}{{ site.name }}{% endif %}</title>

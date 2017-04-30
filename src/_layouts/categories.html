@@ -3,7 +3,7 @@ layout: default
 ---
 
 <!-- Category title -->
-<h1>Category: {{ page.category }}</h1>
+<h1>Category: {{ page.category | capitalize }}</h1>
 
 <!-- This loops through the paginated posts -->
 {% for post in paginator.posts %}
