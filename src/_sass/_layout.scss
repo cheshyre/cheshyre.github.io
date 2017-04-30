@@ -1,0 +1,16 @@
+@import 'variables';
+
+/* Sticky footer */
+.site_wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* Content of site does not go full screen width for large screens */
+.content_wrapper {
+  flex: 1;
+  max-width: $site-max-width;
+  width: 96%;
+  margin: 1em auto;
+}

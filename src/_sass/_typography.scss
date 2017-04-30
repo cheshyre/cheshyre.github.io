@@ -1,1 +1,54 @@
-// TODO
+@import 'variables';
+
+html {
+  font-family: $font-body, serif;
+  line-height: $body-line-height;
+  font-size: $body-size;
+}
+
+@media screen and (max-width: 640px) {
+  html {
+    font-size: $body-size-mobile;
+  }
+}
+
+a {
+  color: $color-link;
+  text-decoration: none;
+}
+
+a:visited {
+  color: $color-link;
+}
+
+a:hover {
+  color: $color-link-hover;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-header, sans-serif;
+  font-weight: 600;
+  line-height: $header-line-height;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+code {
+  font-family: $monospace-font;
+  background-color: $inline-highlight-color;
+}
+
+/* Tables */
+
+/* Block quotes */
+
+/* Misc */
+*:focus { 
+  outline: 0 
+}

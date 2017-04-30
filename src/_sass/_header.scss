@@ -1,0 +1,67 @@
+@import 'variables';
+
+#header {
+  /* Set header colors to white on off-black */
+  background-color: $bg-color-2;
+  color: $color-2;
+
+  /* Link styling for header */
+  a {
+    color: $color-2;
+    text-decoration: none;
+  }
+  a:visited {
+    color: $color-2;
+  }
+  a:hover {
+    color: $color-3;
+  }
+
+  #logo {
+    font-size: 0.75rem;
+    float: left;
+    display: inline-block;
+    margin: 0 1.3em;
+  }
+  
+  #primary_nav {
+    /* Primary nav on right */
+    float: right;
+
+    /* Set font to header style */
+    * {
+      font-family: $font-header, sans-serif;
+    }
+
+    /* Organize list elements horizontally */
+    li {
+      display: inline-block;
+      margin: 0 1.3em;
+    }
+  }
+
+  /* Handling for mobile screens */
+  @media screen and (max-width: 640px) {
+    /* Center logo and move nav to next line */
+    #logo {
+      display: block;
+      width: 100%;
+      float: right;
+      text-align: center;
+      margin: 0;
+    }
+
+    /* Align nav beneath logo as evenly spaced centered list */
+    #primary_nav {
+      float: left;
+      width: 100%;
+      text-align: center;
+      margin: 0;
+
+      /* Get rid of default padding */
+      ul {
+        padding: 0;
+      }
+    }
+  }
+}

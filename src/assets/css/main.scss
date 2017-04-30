@@ -1,4 +1,11 @@
 ---
 ---
-@charset "utf-8";
-@import "normalize";
+@charset 'utf-8';
+@import 'normalize';
+@import 'typography';
+
+@import 'layout';
+@import 'header';
+@import 'footer';
+
+@import 'syntax';

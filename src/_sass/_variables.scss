@@ -1,0 +1,30 @@
+/* Settings for code font and font-size (margins and padding are relative) */
+$monospace-font: "Droid Sans Mono";
+$monospace-font-size: 1em;
+$inline-highlight-color: #eee;
+
+/* Set theme for syntax highlighting */
+$syntax-hl-theme: tomorrow_light; // Dynamic imports not allowed
+
+/* Settings for main fonts */
+$font-body: "Crimson Text";
+$font-header: "Open Sans";
+$body-size: 16px;
+$body-size-mobile: 14px;
+$body-line-height: 1.5em;
+$header-line-height: 1.15em;
+
+/* Layout */
+$site-max-width: 1000px;
+
+/* Colors */
+$color-1: #333;
+$color-2: #fefefe;
+$color-3: #c6d1d8;
+
+$bg-color-1: #eee;
+$bg-color-2: #2c3840;
+
+/* Links */
+$color-link: #1779ba;
+$color-link-hover: #115888;
