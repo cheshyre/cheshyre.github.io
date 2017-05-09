@@ -1,0 +1,39 @@
+@import 'variables';
+
+.pagination {
+  text-align: center;
+
+  * {
+    font-family: $font-header;
+  }
+
+  /* Button formatting */
+  .button {
+    background-color: $bg-color-2;
+    color: $color-2;
+    padding: 1em 2em;
+    text-align: center;
+    display: inline-block;
+  }
+
+  /* Unused currently */
+  .disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* Make the previous button appear on the left */
+  .previous {
+    float: left;
+  }
+
+  /* Make the next button appear on the right */
+  .next {
+    float: right;
+  }
+
+  /* Put page number display in-line to preserve nice formatting */
+  .page_number {
+    display: inline-block;
+  }
+}

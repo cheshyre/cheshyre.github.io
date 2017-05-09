@@ -1,0 +1,16 @@
+@import 'variables';
+
+.post_index {
+  padding: 0.5em 0;
+
+  .post_title {
+    font-size: 1.2em;
+  }
+
+  .post_author {
+
+    * {
+      font-family: $font-header, sans-serif;
+    }
+  }
+}

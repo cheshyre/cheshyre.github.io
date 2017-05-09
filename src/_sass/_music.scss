@@ -1,0 +1,58 @@
+@import 'variables';
+
+.music_wrapper {
+  font-size: 1.3rem;
+}
+
+.album_wrapper {
+  padding: 1em 0;
+
+  .album_header_wrapper {
+    font-size: 1.1rem;
+    min-height: 15rem;
+    display: block;
+    // vertical-align: middle;
+    // padding: 5% 0;
+
+    .album_header_text {
+      text-align: center;
+      // width: 50%;
+      padding-top: 0.5rem;
+      // width: 100%;
+      // display: inline-block;
+
+      // table {
+      //   // width: 100%;
+      //   height: 100%;
+      //   text-align: center;
+      // }
+
+      h2, h3 {
+        font-family: $font-body, serif;
+        font-weight: 400;
+      }
+    }
+
+    .album_header_img {
+      float: left;
+      width: 30%;
+      text-align: center;
+
+      @media screen and (max-width: $mobile-breakpoint) {
+        float: none;
+        width: 100%;
+      }
+
+      .index_img {
+        max-width: 12rem;
+        max-height: 12rem;
+        // padding: 0 1% 1% 0;
+      }
+    }
+  }
+
+  .album_content_wrapper {
+    font-size: 1.0rem;
+    padding: 0 1em;
+  }
+}

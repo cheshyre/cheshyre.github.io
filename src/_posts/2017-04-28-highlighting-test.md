@@ -3,6 +3,8 @@ layout: default
 title: Testing Features
 ---
 
+This page tests the formatting for code blocks and syntax highlighting for posts. I am using Rouge and a Base16 theme called tomorrow_light to make this work.
+
 ~~~ruby
 require "gem"
 
