@@ -24,10 +24,3 @@ layout: default
     </div>
   </div>
 {% endfor %}
-
-<!-- Pagination links -->
-<div class="pagination">
-  {% if paginator.previous_page %}<a href="{{ paginator.previous_page_path }}" class="button previous">{{ paginator.previous_page }}</a>{% endif %}
-  <h3 class="page_number ">Page {{ paginator.page }} of {{ paginator.total_pages }}</h3>
-  {% if paginator.next_page %}<a href="{{ paginator.next_page_path }}" class="button next">{{ paginator.next_page }}</a>{% endif %}
-</div>
