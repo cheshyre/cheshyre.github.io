@@ -1,7 +1,9 @@
 ---
-layout: default
+layout: post
 title: Post With Big Image
-image: generic_image1.jpg 
+image: generic_image1.jpg
+featured: true
+categories: physics dev
 ---
 
 Lorem ipsum dolor sit amet, stet luptatum vis ut. Id vide nominati postulant vis, qui adhuc delicata ex. Impetus intellegam nec ei. Te brute augue patrioque nam, regione accusam vituperatoribus has te. Pro dicta dictas accusamus ea. Latine mnesarchum cu duo.

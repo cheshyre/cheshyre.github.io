@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<!-- This loops through the paginated posts -->
+{% for post in paginator.posts %}
+  <div class="post_index">
+    <div class="post_title">
+      <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+    </div>
+    <p class="post_author">
+      <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>
+    </p>
+    {% if post.image %}
+    <p class="post_image">
+      <img src="/assets/images/{{ post.image }}">
+    </p>
+    {% endif %}
+    <div class="post_excerpt">
+      {{ post.excerpt }}
+    </div>
+  </div>
+{% endfor %}

@@ -1,0 +1,28 @@
+---
+title: "f(x)"
+artist: "f(x)"
+layout: "default"
+---
+<div class="music_wrapper">
+  <h1>{{ page.title }}</h1>
+  {% assign reviews = site.music-review | sort: 'year' %}
+  {% for album in reviews %}
+  {% if album.artist_url == page.artist %}
+  <div class="album_wrapper">
+     <div class="album_header_wrapper">
+      <div class="album_header_img">
+        <img src="/assets/images/music-review/{{ album.artist_url }}/{{ album.title_url }}.{{ album.image_ext }}" class="index_img">
+      </div>
+      <div class="album_header_text">
+        <h1>{{ album.title }}</h1>
+        <h2>Released in {{ album.year }}</h2>
+        <h3>{{ album.tracks }} tracks</h3>
+      </div>
+    </div>
+    <div class="album_content_wrapper">
+      {{ album.content }}
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>

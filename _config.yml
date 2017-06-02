@@ -57,7 +57,7 @@ collections:
 
 # Pagination settings
 paginate: 5
-paginate_path: "page:num"
+paginate_path: "/blog/page:num"
 
 # category_dir: "categories"
 # category_layout: "index.html"

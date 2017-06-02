@@ -1,0 +1,38 @@
+@import 'variables';
+
+#site_intro {
+  border-bottom: 1px solid $color-3;
+}
+
+#site_categories {
+  * {
+    font-family: $font-header;
+    // font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  .category_wrapper {
+    width: 33%;
+    display: inline-block;
+    text-align: center;
+  }
+
+  @media screen and (max-width: $secondary-breakpoint) {
+    .category_wrapper {
+      width: 50%;
+    }  
+  }
+
+  @media screen and (max-width: $mobile-breakpoint) {
+    .category_wrapper {
+      width: 100%;
+    }  
+  }
+  
+  border-bottom: 1px solid $color-3;
+  padding: 1.4rem 0;
+}
+
+#site_featured:last-child {
+  border-bottom: 0px solid #000;
+}

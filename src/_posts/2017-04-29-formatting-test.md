@@ -1,6 +1,7 @@
 ---
-layout: default
+layout: post
 title: Testing Formatting
+featured: true
 ---
 
 General rules: never start posts with a header; always include a brief, but clear introduction paragraph to serve as an excerpt; code should only appear later in the code to avoid it appearing in the excerpt.

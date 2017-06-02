@@ -3,7 +3,7 @@ layout: default
 ---
 
 <!-- This loops through the paginated posts -->
-{% for post in paginator.posts %}
+<!-- {% for post in paginator.posts %}
   <div class="post_index">
     <div class="post_title">
       <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
@@ -20,4 +20,58 @@ layout: default
       {{ post.excerpt }}
     </div>
   </div>
-{% endfor %}
+{% endfor %} -->
+
+<div id='site_intro'>
+  <p>Some content here eventually </p>
+</div>
+
+<div id='site_categories'>
+  <div class='category_wrapper'>
+    <p><a href='/dev/'><img src='/assets/images/home/dev.jpg'></a></p>
+    <p><a href='/dev/'>Dev</a></p>
+  </div>
+  <div class='category_wrapper'>
+    <p><a href='/physics/'><img src='/assets/images/home/physics.jpg'></a></p>
+    <p><a href='/physics/'>Physics</a></p>
+  </div>
+  <div class='category_wrapper'>
+    <p><a href='/music/'><img src='/assets/images/home/music.jpg'></a></p>
+    <p><a href='/music/'>Music</a></p>
+  </div>
+  <div class='category_wrapper'>
+    <p><a href='/travel/'><img src='/assets/images/home/travel.jpg'></a></p>
+    <p><a href='/travel/'>Travel</a></p>
+  </div>
+  <div class='category_wrapper'>
+    <p><a href='/games/'><img src='/assets/images/home/games.jpg'></a></p>
+    <p><a href='/games/'>Games</a></p>
+  </div>
+  <div class='category_wrapper'>
+    <p><a href='/anime/'><img src='/assets/images/home/anime.jpg'></a></p>
+    <p><a href='/anime/'>Anime</a></p>
+  </div>
+</div>
+
+<div id='site_featured'>
+  {% for post in site.posts %}
+  {% if post.featured %}
+  <div class="post_index">
+    <div class="post_title">
+      <h1><a href="{{ post.url }}">Featured: {{ post.title }}</a></h1>
+    </div>
+    <p class="post_author">
+      <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>
+    </p>
+    {% if post.image %}
+    <p class="post_image">
+      <img src="/assets/images/{{ post.image }}">
+    </p>
+    {% endif %}
+    <div class="post_excerpt">
+      {{ post.excerpt }}
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>

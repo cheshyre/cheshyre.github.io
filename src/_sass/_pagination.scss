@@ -2,6 +2,9 @@
 
 .pagination {
   text-align: center;
+  max-width: $site-max-width;
+  width: 100%;
+  margin: 0 auto;
 
   * {
     font-family: $font-header;
@@ -14,6 +17,13 @@
     padding: 1em 2em;
     text-align: center;
     display: inline-block;
+    border: 1px solid $bg-color-2;
+    border-radius: 6px;
+  }
+
+  .button:hover {
+    background-color: $bg-color-1;
+    color: $bg-color-2;
   }
 
   /* Unused currently */

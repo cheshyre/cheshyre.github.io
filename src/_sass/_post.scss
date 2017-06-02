@@ -1,16 +1,30 @@
 @import 'variables';
 
 .post_index {
-  padding: 0.5em 0;
+  padding: 0.5em 0 1.0em 0;
+  border-bottom: 1px solid $color-3;
 
   .post_title {
     font-size: 1.2em;
   }
 
+  .post_image {
+    img {
+      width: 100%;
+      margin: 0;
+    }
+  }
+
   .post_author {
+    margin: 0;
 
     * {
       font-family: $font-header, sans-serif;
     }
   }
+}
+
+#post_page_title {
+  padding-bottom: 0;
+  border-bottom: 0px solid #000;
 }
