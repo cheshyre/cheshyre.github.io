@@ -55,7 +55,7 @@ There are separate trails leading to the Lower and Upper Yosemite Falls. The tra
 
 The Mist Trail and John Muir Trail loop takes the hiker directly past the Vernal Falls and also gives them views of the Nevada Falls and the round part of Half Dome. Initially, my plan was to just walk the Mist Trail up and down because the John Muir Trail seemed too long for my liking, but I underestimated exactly how wet I would get from the spray coming from Vernal Falls on the way up. This state of being soaked combined with coolness of the cloudy day forced me into walking the John Muir Trail back down. This turned out to be fine and probably a lot safer. I got fantastic views of the upper valley, with the mountain peaks, waterfalls, and interleaved clouds. The John Muir Trail is quite a bit longer and also goes up to a point above Vernal Falls which would not have been necessary for what I had planned. I would recommend to people looking to walk the Mist Trail to bring a change of clothes in a waterproof bag. The falls will soak you through your raincoat and if you are poorly prepared you might end up in a lot worse shape than I did. I fortunately escaped without getting sick, but had it been any colder, windier, or wetter, I would have probably needed to take a couple days to recover.
 
-Yosemite is an incredibly place and the main thing detracting from that is how big of a tourist attraction it is. There are so many people there, even in the off-season. And the more accessible parts of the park are swarming with people that have no idea what they are doing, why they are there, or why it even matters. I think Yosemite would benefit from an approach similar to Zion Canyon, where all visitors park at the beginning of the main attraction (Yosemite Valley) and take park service shuttles to various attractions. This is unfeasible for a couple reasons in Yosemite's case, the main one being, there is nowhere near the valley to park the number of people that Yosemite currently serves (or even a significant fraction of them). I still pains me to know that the most magestic of the USA's parks all suffer from this overcrowding problem, where the noise and activity distract the visitor from the magnitude and greatness of the natural wonder in front of them. Honestly, how are you supposed to feel awe when you have a basic white girl talking about her 'gram on your left, a rich, old Australian complaining about how they aren't meeting their schedule behind you, and a choir of babies crying directly to your right?
+Yosemite is an incredible place and the main thing detracting from that is how big of a tourist attraction it is. There are so many people there, even in the off-season. And the more accessible parts of the park are swarming with people that have no idea what they are doing, why they are there, or why it even matters. I think Yosemite would benefit from an approach similar to Zion Canyon, where all visitors park at the beginning of the main attraction (Yosemite Valley) and take park service shuttles to various attractions. This is unfeasible for a couple reasons in Yosemite's case, the main one being, there is nowhere near the valley to park the number of people that Yosemite currently serves (or even a significant fraction of them). I still pains me to know that the most magestic of the USA's parks all suffer from this overcrowding problem, where the noise and activity distract the visitor from the magnitude and greatness of the natural wonder in front of them. Honestly, how are you supposed to feel awe when you have a basic white girl talking about her 'gram on your left, a rich, old Australian complaining about how they aren't meeting their schedule behind you, and a choir of babies crying directly to your right?
 
 # Mono Lake
 
@@ -67,11 +67,17 @@ I only spent one day in Death Valley, but I did so much and was so impressed by 
 
 ## Dante's View
 
+Dante's View is a mountaintop outlook with some short paths that looks over the Badwater Basin and many other iconic Death Valley features. It gives an excellent view of the landscape past Death Valley in all directions. This view is what is truly spectacular because the air is so dry there that you can actually see clearly quite far away. The outlook is accessible via car and the paths are wide and easy to hike. I would recommend this outlook to anybody that can afford a two hour detour on their path through Death Valley.
+
 ## Artist's Drive
+
+Like much of the Southwest, the landscape formations in Death Valley often feature heavily tilted plates which reveal the various layers of rock associated with different ages when those minerals were deposited. Artist's Drive is a road that twists and dips through the foothills in front of a mountain. The entire terrain is as I described above, but notably all of the layers here have unique metals or minerals in them that paint the landscape in many different colors. It feels sometimes like you are no longer on Earth, the landscape is so weird.
 
 ## Badwater Basin
 
-conclude here
+Badwater Basin is perhaps the most obvious Death Valley attraction. It is a great salt deposit in the middle of the valley. It occurs around the lowest point in the basin, making it a huge attraction to Death Valley visitors. There is a path to walk out onto the basin, which is a great experience. I was out there at about 2:00 pm, so it was quite hot. One thing that is not really mentioned about Death Valley is that the heat actually is mitigated a little by the incredible dryness and the ever present wind in the valley. It was the dryness of the air that was really surprising for me. Every bead of sweat just immediately got pulled into the air because it is so water-starved.
+
+I didn't touch much on how alien the landscape, vegetation, and climate of Death Valley is, but it really is so strange. The landscape shifts from sand dunes to bush fields to desert with no vegetation to a literal lake of salt. The mountains, the vast expanses with just nothing, the relatively few tourists all leave you feeling that you might truly just be somewhere completely different.
 
 # Utah and Arizona Canyons
 
@@ -108,3 +114,7 @@ s/o to Tyler
 ## Grand Canyon Rim
 
 ## Bright Angel Trail
+
+# Las Vegas
+
+# Trip Conclusion
