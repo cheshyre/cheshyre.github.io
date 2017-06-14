@@ -81,19 +81,22 @@ I didn't touch much on how alien the landscape, vegetation, and climate of Death
 
 # Utah and Arizona Canyons
 
+Between Death Valley and a final stay in Las Vegas, I traveled through the incredibly varied canyon region in the middle of the southwest, mostly Utah and Arizona.
+
 ## Zion Canyon
 
-Emerald pool
+My time in Zion Canyon was only limited to half a day, but that alone was enough to impress me. Zion Canyon is structured so that all visitors attempting to enter the scenic portion of the canyon, the main attraction, need to park at the beginning of the national park and take the parks internal shuttle service up and down the canyon. This is an *excellent* system. It lowers congestion up canyon from people driving and taking pictures and it isolates the park problem to the part of the park where parking is available everywhere. Taking the shuttle, I visited several stops walking between some of them along the riverbank. There were also two hikes I did: the first was up to Weeping Rock, which is a mountainside where water comes out along some harder rock layer and a hanging garden is formed where this stream offers sufficient moisture; the second hike was up to the emerald pool. This hike offered great views of the general canyon layout. The pools were nice, but definitely not the nicest thing to see. I did not get to hike up to Angel's Landing due to time constraints, but I plan on doing this when I return. Zion Canyon impressed me, so much so that I would consider it one of my top two favorite things on the trip.
 
 ## Kolob Canyon
 
-Taylor creek trail
+On the other half of Zion Canyon National Park, there is another canyon called Kolob Canyon. It is a bit less impressive in terms of the rock walls and the stream flowing through is much less impressive, so it attracts fewer people, but that is one of its charms. While here, I hiked the Taylor Creek Trail, which takes you up the canyon along the Taylor Creek up to a hollow of sorts. This hike was incredibly scenic and peaceful. There were so few people here it was actually possible to feel isolated. While not as impressive as Zion, the rock formations here were still quite impressive, and it was one of the few locations I really felt compelled to take out my phone and take a couple pictures.
 
 ## Bryce Canyon
 
-Fairyland trail
+Bryce Canyon might be the second most iconic southwestern canyon, following the Grand Canyon, of course. And it lives up to its reputation. The amphitheatre part of the park is well shuttled, but to get out along the extended road to Rainbow Point, you have no choice but to drive. This drive along the rim is filled with many scenic views, not only of the incredible rock formations, but the general landlayout of the Grand Staircase area. The spires give way to trees and shrubs, which in turn give way to vast expanses of dry desert land.
 
-Rainbow point
+The highlight of my time in Bryce was not the rim views or even the area around the amphitheatre. It was the Fairyland Trail hike which takes you down into the canyon and around the Boat Mesa. It is a relatively long trail and it takes you up and down a bit, but it is not technically difficult by any means. It is also much less crowded than the amphitheatre, which allows for the atmosphere to really sink in. What I mean by the atmosphere is the sense of being somewhere completely foreign. You get the sense that you might as well be on Mars with how incredible the landscape is here. The spires, the rounded canyon and mesa walls, the vegetation, the idea of the water just slowly receding and flowing to create this place makes for a great hike. This contends with Zion Canyon for my favorite experience on the trip.
+Fairyland trail
 
 ## Grand Staircase
 
