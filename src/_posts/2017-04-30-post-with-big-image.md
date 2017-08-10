@@ -2,7 +2,6 @@
 layout: post
 title: Post With Big Image
 image: generic_image1.jpg
-featured: true
 categories: physics dev
 ---
 

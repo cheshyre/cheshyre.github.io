@@ -2,6 +2,7 @@
 title: "Report: Week 6 at LLNL"
 categories: travel
 layout: post
+featured: true
 ---
 For this summer, I came out to Livermore, California to work at Lawrence Livermore National Lab with Dr. Soltz on heavy-ion data and specifically improved detection of jets and jet quenching in heavy-ion collisions. I have just begun my seventh week, which means I have passed the halfway point for the internship. So it seems that now is as good a time as ever to review what I'm working on and what my thoughts at this stage are.
 
