@@ -19,3 +19,9 @@ Welcome to my personal site. While I am not particularly interested in writing m
 - Style block quotes
 - Decision regarding blog and main page (samples of blog, dev, and music posts?)
 - Footer
+- Prev/next buttons
+- Read-more buttons for posts
+- Image left right asymmetry
+- About page
+- Home page
+- Come up with good handling for categories
