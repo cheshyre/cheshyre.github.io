@@ -30,6 +30,10 @@ With that I had specialized, and my time as a bad/mediocre jack-of-all-trades at
 
 After letting my positions in DDY and Saizen (a different group where I did QC) fade, I got into Commie through the help of Jing, who worked on Zankyou no Terror. I then joined scibbles on a project that failed to work out at Commie, joined caffeine (half of the remnants of Kaylith) after Kaylith imploded, joined Hiryuu through some connections with Kaylith, and joined FFF off another recommendation from Jing. After this, I had spent a few seasons doing projects in well-regarded groups (Commie and FFF were both large groups that subbed relatively speaking a lot of shows), and I had in some sense gained the visibility within fansubbing that I had wished for, even if I didn't realize it. I was approached by the leaders of Underwater, Vivid, and Asenshi, which are all relatively small groups with only seasoned veterans on their staff, to work on projects there. But, in my mind, this wasn't quite what I wanted.
 
+#### Note:
+
+I don't think Asenshi was on par with Vivid and Underwater in terms of quality, but the essential point is that all three groups were very exclusive and only possible to get into via personal recruitment. 
+
 ## Part 3: The Bitter Burnout
 
 There are some things about my role, typesetting, that are important to understand. The demand-to-availability ratio for typesetters at this time was higher than it was for any other role besides translators. Typesetting anime is often a non-trivial task that varies in the amount of work from episode to episode. Being able to manage 30-50 sign episodes alone is not easy, and I am still proud when I think of my ability to do this, even as I let my other responsibilities in life slip. Additionally, the bar for "good enough" for typesetting is fairly high, given the tools that people have to work with and the results they are expected to achieve in terms of visual fidelity. As a result, typesetters were fairly rare to begin with, and they burned out fast because they were so in demand.
