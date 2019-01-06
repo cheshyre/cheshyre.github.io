@@ -6,6 +6,9 @@
     {% include meta_aux.html %}
     {% include fonts.html %}
     <link rel="stylesheet" href="/assets/css/main.css">
+    {% if page.include_math %}
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+    {% endif %}
     {% include link.html %}
   </head>
   <body>
