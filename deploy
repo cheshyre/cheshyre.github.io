@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/bin/bash
 # ./src/scripts/musicgen.sh
 ./build
 git subtree split --prefix dist -b master
