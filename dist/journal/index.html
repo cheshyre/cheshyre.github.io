@@ -24,6 +24,11 @@
           </div>
         </div>
       </div>
+      <div class="container">
+        <div class="row" id="randomSelection">
+          <h3>The lucky person is:</h3>
+          <button onclick="selectRandomName()" type="button" class="btn btn-primary">Pick</button>
+          <h1 id="selectionResult"></h1>
     </main>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -46,10 +51,19 @@
     }
 
     function appendToNamesListDark() {
-      console.log("Called event listener");
       var name = document.getElementById("nameInput").value;
       var listItem = $("<li class=\"list-group-item list-group-item-dark\">" + name + "</li>");
+      $("#namesList").append(listItem);
       document.getElementById("nameInput").value = "";
+    }
+
+    function selectRandomName() {
+      var list = [];
+      for (var listItem in document.getElementById("namesList").children) {
+        list.push(listItem.innerText)
+      }
+      var selection = list[Math.floor(Math.random() * list.length)];
+      document.getElementById("selectionResult").innerText = selection;
     }
 
   </script>
