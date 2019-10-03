@@ -32,9 +32,7 @@
 		request.responseType = "json";
 		request.send();
 		request.onload = function() {
-			var json = request.response;
-			console.log(json);
-			var dataObject = JSON.parse(json);
+			var dataObject = request.response;
 			var namesList = dataObject["names"];
 			namesList.forEach(appendToNamesListLight);
 		};
