@@ -62,8 +62,11 @@
     function selectRandomName() {
       var list = [];
       for (var listItem in document.getElementById("namesList").children) {
-        list.push(listItem.innerText)
+        console.log(listItem.innerText);
+        list.push(listItem.innerText);
       }
+      console.log(list);
+      console.log(list.length);
       var selection = list[Math.floor(Math.random() * list.length)];
       document.getElementById("selectionResult").innerText = selection;
     }
