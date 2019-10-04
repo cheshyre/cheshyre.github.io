@@ -25,7 +25,7 @@ $$
  \hline
  \textbf{1} & 0.7 & 0.3 \\
  \textbf{2} & 0.2 & 0.8
-\end{array}
+\end{array}.
 $$
 
 Here the row represents the current state and the column represents the potential next state so $M_{ij} = P(j_{t+1}\|i_{t})$. I will be using the transition matrix going forward, leaving off state labels after discussing briefly what the state space looks like.
@@ -39,14 +39,14 @@ $$
 0 & 0.5 & 0 & 0.5 & 0 \\
 0 & 0 & 0.5 & 0 & 0.5 \\
 0 & 0 & 0 & 0 & 1
-\end{pmatrix}
+\end{pmatrix}.
 $$
 
 So we get a square transition matrix with dimension $2B + 1$. Now we want to compute the expected time to reach a final state from this. We can rephrase is this as how many steps is a state $x$ away from the goal on average and define that for states $-B$ and $B$ this is 0. Using notation from Rick Durrett's "Essentials of Stochastic Processes", we define $g(x)$ to be the expected time to the boundary for a state $x$. Thus, $g(-B)=0$ and $g(B)=0$. By considering the state $0$, we can see that:
 
 $$
 \begin{equation}
-g(0) = 1 + 0.5 g(1) + 0.5 g(-1)
+g(0) = 1 + 0.5 g(1) + 0.5 g(-1).
 \end{equation}
 $$
 
@@ -80,14 +80,14 @@ $$
 1 & -0.5 & 0 \\
 -0.5 & 1 & -0.5 \\
 0 & -0.5 & 1
-\end{pmatrix}
+\end{pmatrix}.
 $$
 
 This is a tri-diagonal Toeplitz matrix that is invertible and there is an analytic expression for the inverse. Computing this inverse for general $B$ is beyond me, so I won't discuss it here. The inverse is symmetric, depends on its dimension $n$, and is defined for $j \geq i$ as:
 
 $$
 \begin{equation}
-(T_n)_{ij}^{-1} = 2 i \frac{n+1-j}{n+1}
+(T_n)_{ij}^{-1} = 2 i \frac{n+1-j}{n+1}.
 \end{equation}
 $$
 
@@ -114,14 +114,15 @@ The distribution is given by:
 
 $$
 \begin{equation}
-f(N) = \tau T^{N - 1} g
+f(N) = \tau T^{N - 1} \textbf{T}^0.
 \end{equation}
 $$
 
-This can be computed for fairly small systems and gives the distribution below.
+Here $\textbf{T}^0$ is given by $\textbf{T}^0 = (I - T)\textbf{1}$. The interpretation for this formula is that we evolve our initial state $\tau$ via the transition matrix $N - 1$ times and then evolve one more step and project on the final state with $\textbf{T}^0$.
+This can be computed for fairly small systems and gives the distribution below, shown for $B=30$.
 
-IMAGE TO BE INCLUDED LATER
+![Distribution](/assets/images/post/2019-bounded-random-walk/distribution.svg)
 
 # Conclusion
 
-This was a hopefully understandable explanation of how to arrive correctly at the $B^2$ value for the expectation time. I found it interesting to learn about Markov chains and stocastic processes, and I plan on looking at more complex random walks in my free time in the future.
+This was a hopefully understandable explanation of how to arrive correctly at the $B^2$ value for the expectation time. I found it interesting to learn about Markov chains and stochastic processes, and I plan on looking at more complex random walks in my free time in the future.
