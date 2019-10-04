@@ -1,5 +1,5 @@
 # Gems used
-gems:
+plugins:
   - octopress-minify-html
   - jekyll-paginate
   - jekyll-paginate-categories
