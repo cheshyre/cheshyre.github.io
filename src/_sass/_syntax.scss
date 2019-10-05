@@ -6,7 +6,7 @@
   font-family: $monospace-font, monospace;
 }
 
-.highlight {
+div.highlight {
   font-size: $monospace-font-size;
   line-height: 1.4em;
   margin: 0.75em;
@@ -18,18 +18,30 @@
   /* Scroll when code is too wide for screen */
   overflow: auto;
   
-  .code {
+  .rouge-code {
     padding: 0 0.75em;
+
+	pre {
+		margin: 0.2em;
+	}
   }
 
   /* Formatting for line numbers (border, padding, text-alignment) */
-  .gutter {
+  .rouge-gutter {
     min-width: 1.5em;
     text-align: right;
-    padding: 0 0.75em;
+    padding: 0 0.75em 0 0;
     border-right: 1px solid $base05;
     border-radius: 0;
   }
+}
+
+pre.highlight {
+	margin: 0em;
+}
+
+.lineno {
+	margin: 0em;
 }
 
 /* Apply syntax highlighting colors from theme */
