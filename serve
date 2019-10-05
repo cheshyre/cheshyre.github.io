@@ -1,3 +1,3 @@
 #!/bin/bash
 # ./src/scripts/musicgen.sh
-jekyll serve --incremental
+jekyll serve --incremental --watch
