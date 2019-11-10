@@ -2,7 +2,7 @@
 title: An Exposure to K-Pop
 categories: music
 layout: post
-featured: true
+featured: false
 ---
 I've made no secret of my guilty pleasure of listening to Korean pop music. One night, a couple of my friends and I were tossing around recommendations and we eventually started just posting a little bit of everything, just for exposure, so that people could find what they liked best. I've decided to aggregate the results of that discussion in a couple Youtube playlists for people who happen to be looking for something new or for people are just looking to go on a nostalgia trip.
 
