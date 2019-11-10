@@ -3,7 +3,7 @@ title: "The Bounded Random Walk"
 categories: physics
 layout: post
 include_math: true
-excerpt: I discuss a new problem I encountered through my brother, the bounded random walk. I found that naive physics intuition gives reasonable intuition about expectation values, but I wanted to learn more about how to formally deal with such a system. In the end, I arrived at a result through some methods from stochastic processes, which I showcase here.
+excerpt: "<p>I discuss a new problem I encountered through my brother, the bounded random walk. I found that naive physics intuition gives reasonable intuition about expectation values, but I wanted to learn more about how to formally deal with such a system. In the end, I arrived at a result through some methods from stochastic processes, which I showcase here.</p>"
 ---
 
 Recently, my brother and I discussed a problem which could effectively be phrased as follows:
