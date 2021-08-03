@@ -1,6 +1,6 @@
 # Renormalized
 
-Welcome to my personal site. While I am not particularly interested in writing much, occasionally I will use this to say things that I feel need to be said, usually relating to topics in physics, music, and computer science. The primary goal of the site, however, is for me to get some hands on experience in developing a lean, optimized, yet feature-rich, static site.
+Welcome to my personal site. While I am not particularly interested in writing much, occasionally I will use this to say things that I feel need to be said, usually relating to topics in physics, music, and computer science. The primary goal of the site, however, is for me to get some hands on experience in developing a lean, optimized, yet feature-rich static site.
 
 ## Setting Up the Repo
 
@@ -11,7 +11,7 @@ gem install bundler jekyll
 bundle install
 ```
 
-If you do not have permissions to write to your RubyGems directory, either run the install with `sudo` or use a virtual environment. How to set up the virutal environment, if you choose to go that route, is on you.
+If you do not have permissions to write to your RubyGems directory, either run the install with `sudo` or use a virtual environment. How to set up the virtual environment, if you choose to go that route, is on you.
 
 ## Building the Site
 
