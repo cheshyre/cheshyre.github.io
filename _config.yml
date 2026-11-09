@@ -14,7 +14,7 @@ author:
 
 # Home page profile. Leave a value empty ("") to hide that link.
 # The photo goes in assets/img/ (square, at least 352 x 352 px).
-photo: ""
+photo: /assets/img/portrait.jpg
 links:
   email: ""
   inspire: ""
