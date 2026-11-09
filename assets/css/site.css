@@ -1,0 +1,135 @@
+/* Design C, "Quiet modern". One stylesheet, no cards, shadows, gradients, or animations. */
+
+:root {
+  --bg: #fafaf9;
+  --text: #18181b;
+  --text-2: #52525b;
+  --muted: #71717a;
+  --rule: #e7e5e4;
+  --accent: #2f45b5;
+  --accent-hover: #1d2c7a;
+  --max: 880px;
+  --pad: 24px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+img { max-width: 100%; height: auto; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); }
+
+/* Top bar */
+.topbar { border-bottom: 1px solid var(--rule); }
+.topbar-inner {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 8px 24px; padding-top: 18px; padding-bottom: 18px;
+}
+.site-name { color: var(--text); font-weight: 600; font-size: 15px; }
+.site-name:hover { color: var(--text); }
+.nav { display: flex; flex-wrap: wrap; gap: 4px 22px; font-size: 14px; }
+.nav a { color: var(--text-2); }
+.nav a[aria-current="page"] { color: var(--text); font-weight: 500; }
+
+/* Main column */
+.main { padding-top: 64px; padding-bottom: 80px; }
+.main h1 { margin: 0; font-size: 44px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+.main p { margin: 16px 0 0; }
+.main ul { margin: 16px 0 0; padding-left: 20px; }
+
+/* Section labels: 13px uppercase accent */
+.label, .main h2 {
+  margin: 64px 0 16px; font-size: 13px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent);
+}
+
+/* Home: intro */
+.hero { display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 32px 48px; }
+.hero-text { flex: 1 1 420px; min-width: 0; }
+.position { margin-top: 12px !important; font-size: 17px; color: #3f3f46; }
+.statement { margin-top: 20px !important; font-size: 17px; color: #27272a; max-width: 58ch; }
+.links { margin-top: 20px !important; font-size: 14px; display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.photo {
+  flex: 0 0 176px; width: 176px; height: 176px; border-radius: 50%; object-fit: cover;
+  background: var(--rule); color: #57534e; font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+}
+.hero + .section .label { margin-top: 72px; }
+
+/* Home: research interests */
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px; }
+.item-title { margin: 0 !important; font-weight: 600; }
+.item-text { margin: 4px 0 0 !important; font-size: 15px; color: var(--text-2); }
+
+/* Section header with a link on the right */
+.section-head {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+  gap: 8px; margin: 64px 0 16px;
+}
+.section-head .label { margin: 0; }
+.section-head a { font-size: 14px; }
+
+/* Publication and talk rows */
+.pubs { border-bottom: 1px solid var(--rule); }
+.pub {
+  display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px;
+  padding: 16px 0; border-top: 1px solid var(--rule);
+}
+.pub-year { font-size: 14px; color: var(--muted); }
+.pub-title { margin: 0 !important; font-weight: 500; }
+.pub-meta { margin: 2px 0 0 !important; font-size: 14px; color: var(--text-2); }
+.pub-links::before { content: " · "; }
+
+/* Honors and Funding side by side */
+.split { display: flex; flex-wrap: wrap; gap: 0 56px; }
+.split > div { flex: 1 1 360px; min-width: 0; }
+.split > div + div { flex-basis: 240px; }
+.split .label { margin-bottom: 14px; }
+.dated, .plain { list-style: none; padding: 0 !important; margin: 0 !important; display: flex; flex-direction: column; gap: 8px; font-size: 15px; }
+.dated li { display: grid; grid-template-columns: 56px minmax(0, 1fr); }
+.dated .year { color: var(--muted); }
+.plain { color: #3f3f46; }
+
+.placeholder { color: var(--muted); }
+
+/* Footer */
+.footer { border-top: 1px solid var(--rule); }
+.footer p { margin: 0 auto; padding-top: 20px; padding-bottom: 20px; font-size: 13px; color: var(--muted); }
+
+/* Phones */
+@media (max-width: 600px) {
+  :root { --pad: 16px; }
+  body { line-height: 1.6; }
+  .topbar-inner { display: block; padding-top: 14px; padding-bottom: 4px; }
+  .nav { gap: 0 18px; margin-top: 6px; }
+  .nav a { padding: 10px 0; }
+  .main { padding-top: 32px; padding-bottom: 48px; }
+  .main h1 { font-size: 32px; line-height: 1.15; }
+  .hero { gap: 20px; }
+  .photo { flex-basis: 112px; width: 112px; height: 112px; font-size: 13px; }
+  .position { margin-top: 8px !important; font-size: 15px; }
+  .statement, .links { margin-top: 16px !important; font-size: 16px; }
+  .links { font-size: 14px; gap: 4px 16px; }
+  .label, .main h2, .section-head { margin-top: 48px; }
+  .hero + .section .label { margin-top: 48px; }
+  .grid-2 { grid-template-columns: 1fr; gap: 16px; }
+  .item-text { margin-top: 2px !important; }
+  .pub { grid-template-columns: 1fr; gap: 2px; padding: 14px 0; }
+  .pub-year { font-size: 13px; }
+  .pub-links { display: block; }
+  .pub-links::before { content: none; }
+  .split .label { margin-top: 40px; }
+}

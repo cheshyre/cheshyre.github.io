@@ -1,66 +1,40 @@
-# Gems used
+# Site settings. Restart `bundle exec jekyll serve` after editing this file.
+title: Matthias Heinz
+description: >-
+  Matthias Heinz, nuclear theorist. Ab initio calculations of atomic nuclei
+  with the in-medium similarity renormalization group.
+url: https://matthiasheinz.com
+baseurl: ""
+lang: en
+timezone: Asia/Tokyo
+
+author:
+  name: Matthias Heinz
+  position: Research Scientist, RIKEN Nishina Center for Accelerator-Based Science
+
+# Home page profile. Leave a value empty ("") to hide that link.
+# The photo goes in assets/img/ (square, at least 352 x 352 px).
+photo: ""
+links:
+  email: ""
+  inspire: ""
+  orcid: ""
+  github: https://github.com/cheshyre
+
+# Only plugins supported by the github-pages gem.
 plugins:
-  - octopress-minify-html
-  - jekyll-paginate
-  - jekyll-paginate-categories
-  # - pygments.rb
-  - rouge
-  # - jekyll-conrefifier
-  # - octopress-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
-# Site info
-name: Renormalized
-url: https://cheshyre.github.io
-description: Physics, music, tech, and much more
-version: v0.0
-
-# Build settings
-source: src
-destination: dist
-env: production
-
-# Syntax highlighting settings
 markdown: kramdown
-# !github-pages! mandatory › https://help.github.com/articles/using-jekyll-with-pages/#configuration-settings-you-cannot-change
-# Since Jekyll 3 the default highlighter is Rouge (replaced Pygments.rb in v44)
-highlighter: rouge
-
-# More › http://kramdown.gettalong.org/quickref.html
-# Options › http://kramdown.gettalong.org/options.html
 kramdown:
-  input:          GFM
-  # https://github.com/jekyll/jekyll/pull/4090
-  syntax_highlighter: rouge
+  input: GFM
 
-  # Rouge Highlighter in Kramdown › http://kramdown.gettalong.org/syntax_highlighter/rouge.html
-  # span, block element options fall back to global
-  syntax_highlighter_opts:
-    # Rouge Options › https://github.com/jneen/rouge#full-options
-    css_class: 'highlight'
-    # line_numbers: true # bad idea, spans don't need linenos and would inherit this option
-    span:
-      line_numbers: false
-    block:
-      line_numbers: true
-      start_line: 1
-
-# Set sass config
-sass:
-  sass_dir: _sass
-  style: :compressed # Compressed css
-
-# Collections
-collections:
-  music-review:
-    output: true
-    permalink: /:collection/:path/:name:output_ext
-
-# Pagination settings
-paginate: 5
-paginate_path: "/blog/page:num"
-
-# category_dir: "categories"
-# category_layout: "index.html"
-
-paginate_category_basepath: '/:name/'
-paginate_category_layout: 'categories.html'
+exclude:
+  - README.md
+  - LICENSE
+  - LICENSE-CONTENT.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
