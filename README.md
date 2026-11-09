@@ -79,3 +79,8 @@ American spelling, the Oxford comma, and ", e.g., " and ", i.e., " set off with 
 ## Limits
 
 Only plugins supported by the `github-pages` gem (currently `jekyll-seo-tag` and `jekyll-sitemap`). No secrets, tokens, or private details in this repository: it is public.
+
+## License
+
+- Code (layouts, includes, stylesheet, and configuration): MIT License, see [`LICENSE`](LICENSE).
+- Content (page text, publication and talk lists, and the CV): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), see [`LICENSE-CONTENT.md`](LICENSE-CONTENT.md). Photographs and third-party material are excluded.
