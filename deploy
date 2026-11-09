@@ -1,5 +1,0 @@
-#!/bin/bash
-# ./src/scripts/musicgen.sh
-./build
-git subtree split --prefix dist -b master
-git push origin master

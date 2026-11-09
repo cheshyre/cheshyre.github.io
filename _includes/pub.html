@@ -1,0 +1,22 @@
+{%- comment -%}
+  One publication row. Usage: {% include pub.html pub=p %}
+  Fields (see README.md): title, authors (list), journal, volume, page,
+  year, doi, arxiv, note. Every article gets a DOI and an arXiv link where available.
+{%- endcomment -%}
+{%- assign p = include.pub -%}
+<div class="pub">
+  <span class="pub-year">{{ p.year }}</span>
+  <div>
+    <p class="pub-title">{{ p.title }}</p>
+    <p class="pub-meta">
+      {%- if p.authors %}{{ p.authors | join: ", " }}{% endif -%}
+      {%- if p.journal %} · <i>{{ p.journal }}</i>{% if p.volume %} {{ p.volume }}{% endif %}{% if p.page %}, {{ p.page }}{% endif %}{% endif -%}
+      {%- if p.note %} · {{ p.note }}{% endif -%}
+      {%- if p.doi or p.arxiv %}<span class="pub-links">
+        {%- if p.doi %}<a href="https://doi.org/{{ p.doi }}">DOI</a>{% endif -%}
+        {%- if p.doi and p.arxiv %} · {% endif -%}
+        {%- if p.arxiv %}<a href="https://arxiv.org/abs/{{ p.arxiv }}">arXiv:{{ p.arxiv }}</a>{% endif -%}
+      </span>{% endif -%}
+    </p>
+  </div>
+</div>

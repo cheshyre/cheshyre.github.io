@@ -1,60 +1,81 @@
-# Renormalized
+# matthiasheinz.com
 
-Welcome to my personal site. While I am not particularly interested in writing much, occasionally I will use this to say things that I feel need to be said, usually relating to topics in physics, music, and computer science. The primary goal of the site, however, is for me to get some hands on experience in developing a lean, optimized, yet feature-rich static site.
+Source of my research website. GitHub Pages builds it with Jekyll from the `main` branch and serves it at <https://cheshyre.github.io> (and at <https://matthiasheinz.com> once the custom domain is connected).
 
-## Setting Up the Repo
+Design C, "Quiet modern": one layout (`_layouts/default.html`), one stylesheet (`assets/css/site.css`), no JavaScript. Placeholder text is marked `[like this]`.
 
-First, you need to install [RubyGems](https://rubygems.org/), clone this repo, and navigate into it. Then, execute these commands:
+## Files
 
-```commandline
-gem install bundler jekyll
-bundle install
+| Path | What it holds |
+| --- | --- |
+| `_config.yml` | Title, description, position line, photo path, and profile links (email, INSPIRE, ORCID, GitHub) |
+| `_data/nav.yml` | Top bar navigation |
+| `_data/publications.json` | Publications; entries with `"selected": true` also appear on the home page |
+| `_data/talks.json` | Talks |
+| `_includes/pub.html` | How one publication row is rendered |
+| `index.md`, `research.md`, `publications.md`, `cv.md`, `teaching.md` | The five pages |
+| `assets/cv.pdf` | The CV download (add it) |
+| `assets/img/` | The portrait photo (add it, then set `photo:` in `_config.yml`) |
+
+## Preview locally
+
+Needs Ruby 3 and Bundler.
+
+```sh
+bundle install                 # once; installs the github-pages gem, the same Jekyll GitHub uses
+bundle exec jekyll serve       # then open http://localhost:4000
 ```
 
-If you do not have permissions to write to your RubyGems directory, either run the install with `sudo` or use a virtual environment. How to set up the virtual environment, if you choose to go that route, is on you.
+The page reloads on refresh after edits; restart the server after changing `_config.yml`. A warning that GitHub Metadata found no API authentication is harmless.
 
-## Building the Site
+## Add a paper
 
-To give space for the local build approach taken on this site, the default branch for development is `src`. The `master` branch is a subtree based off the dist directory. This logic is handled entirely by the `build` and `deploy` scripts in the root directory.
+Add an object to `_data/publications.json` (valid JSON: commas between entries, none after the last):
 
-To build the site, execute:
-
-```commandline
-./build
+```json
+{
+  "title": "In-medium similarity renormalization group with three-body operators",
+  "authors": ["M. Heinz", "A. Tichai", "J. Hoppe", "K. Hebeler", "A. Schwenk"],
+  "journal": "Phys. Rev. C",
+  "volume": "103",
+  "page": "044318",
+  "year": 2021,
+  "doi": "10.1103/PhysRevC.103.044318",
+  "arxiv": "2102.11172",
+  "selected": true
+}
 ```
 
-To run the site (you can see it at http://localhost:4000), execute:
+`doi` and `arxiv` are the bare identifiers; the links are built from them. Every article gets both where available. Optional: `note` (e.g., "Letter" or "submitted"). Lists are sorted by `year`, newest first.
 
-```commandline
-./serve
+## Add a talk
+
+Add an object to `_data/talks.json`:
+
+```json
+{
+  "title": "Talk title",
+  "event": "Workshop or conference name",
+  "location": "City, Country",
+  "date": "2026-11-09",
+  "type": "Invited talk",
+  "url": "",
+  "slides": ""
+}
 ```
 
-To deploy the site, which includes a push to `origin/master`, execute:
+Use absolute dates (`YYYY-MM-DD`). `url`, `slides`, and `type` are optional.
 
-```commandline
-./deploy
-```
+## Update the CV
 
-## Goals
+1. Replace `assets/cv.pdf` with the new PDF (keep the file name so the link stays the same).
+2. Update the HTML summary in `cv.md` if positions, education, or honors changed.
+3. Commit and push to `main`; GitHub Pages rebuilds within a minute or two.
 
-### Long-term
+## Writing conventions
 
-- Styling
-- Service workers
-- Javascript science demos (double pendulum, Ising model)
+American spelling, the Oxford comma, and ", e.g., " and ", i.e., " set off with commas. Dates are absolute.
 
-### Short-term
+## Limits
 
-- Meta tags (Done, mostly)
-- Decisions regarding images (idea: default profile for no image, otherwise use big image twitter card and use that)
-- Decisions regarding categories (will probably be fairly general)
-- Style tables
-- Style block quotes
-- Decision regarding blog and main page (samples of blog, dev, and music posts?)
-- Footer
-- Prev/next buttons
-- Read-more buttons for posts
-- Image left right asymmetry
-- About page
-- Home page
-- Come up with good handling for categories
+Only plugins supported by the `github-pages` gem (currently `jekyll-seo-tag` and `jekyll-sitemap`). No secrets, tokens, or private details in this repository: it is public.
