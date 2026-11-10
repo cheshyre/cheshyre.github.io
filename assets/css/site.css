@@ -30,6 +30,9 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 
 img { max-width: 100%; height: auto; }
 
+sup, sub { font-size: 0.75em; line-height: 0; }
+.nowrap { white-space: nowrap; }
+
 .wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); }
 
 /* Top bar */
@@ -60,6 +63,7 @@ img { max-width: 100%; height: auto; }
 .hero { display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 32px 48px; }
 .hero-text { flex: 1 1 420px; min-width: 0; }
 .position { margin-top: 12px !important; font-size: 17px; color: #3f3f46; }
+.previously { margin-top: 2px !important; font-size: 15px; color: var(--muted); }
 .statement { margin-top: 20px !important; font-size: 17px; color: #27272a; max-width: 58ch; }
 .links { margin-top: 20px !important; font-size: 14px; display: flex; flex-wrap: wrap; gap: 4px 18px; }
 .photo {
@@ -91,6 +95,8 @@ img { max-width: 100%; height: auto; }
 .pub-year { font-size: 14px; color: var(--muted); }
 .pub-title { margin: 0 !important; font-weight: 500; }
 .pub-meta { margin: 2px 0 0 !important; font-size: 14px; color: var(--text-2); }
+.pub-meta strong { font-weight: 600; color: var(--text); }
+.pub-note { color: var(--muted); }
 .pub-links::before { content: " · "; }
 
 /* Honors and Funding side by side */
@@ -100,6 +106,7 @@ img { max-width: 100%; height: auto; }
 .split .label { margin-bottom: 14px; }
 .dated, .plain { list-style: none; padding: 0 !important; margin: 0 !important; display: flex; flex-direction: column; gap: 8px; font-size: 15px; }
 .dated li { display: grid; grid-template-columns: 56px minmax(0, 1fr); }
+.dated.wide li { grid-template-columns: 112px minmax(0, 1fr); }
 .dated .year { color: var(--muted); }
 .plain { color: #3f3f46; }
 

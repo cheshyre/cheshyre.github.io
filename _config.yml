@@ -10,15 +10,20 @@ timezone: Asia/Tokyo
 
 author:
   name: Matthias Heinz
-  position: Research Scientist, RIKEN Nishina Center for Accelerator-Based Science
+  # Your name as it appears in author lists in _data/publications.json; set in bold there.
+  short_name: M. Heinz
+  position: Research Scientist, RIKEN Nishina Center
+  # Shown under the position as "Previously ..."; delete the line to hide it.
+  previously: Eugene P. Wigner Fellow, Oak Ridge National Laboratory
 
 # Home page profile. Leave a value empty ("") to hide that link.
 # The photo goes in assets/img/ (square, at least 352 x 352 px).
 photo: /assets/img/portrait.jpg
 links:
-  email: ""
-  inspire: ""
-  orcid: ""
+  email: matthias.heinz@riken.jp
+  inspire: "https://inspirehep.net/authors/1817590?ui-citation-summary=true"
+  orcid: https://orcid.org/0000-0002-6363-0056
+  scholar: "https://scholar.google.com/citations?user=sGGqLqsAAAAJ&hl=en"
   github: https://github.com/cheshyre
 
 # Only plugins supported by the github-pages gem.
@@ -38,3 +43,4 @@ exclude:
   - Gemfile.lock
   - vendor
   - .bundle
+  - scripts/
