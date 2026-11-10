@@ -1,22 +1,54 @@
 {%- comment -%}
-  One publication row. Usage: {% include pub.html pub=p %}
-  Fields (see README.md): title, authors (list), journal, volume, page,
-  year, doi, arxiv, note. Every article gets a DOI and an arXiv link where available.
+  One publication row. Usage: {% include pub.html pub=p %}; add hide_year=true to leave the
+  year column empty (the publications page shows each year once).
+  Fields (see README.md): title, authors, journal, volume, pages, year, doi, arxiv, type,
+  selected; optional school (theses) and note. Your own name (author.short_name in _config.yml)
+  is set in bold. Lists of more than 10 authors show the first five, your name, and "et al."
+  A journal without volume and pages is shown as "(in press)".
 {%- endcomment -%}
 {%- assign p = include.pub -%}
+{%- assign me = site.author.short_name -%}
+{%- assign n = p.authors | size -%}
+{%- capture authors -%}
+  {%- if n > 10 -%}
+    {%- assign mine = 0 -%}
+    {%- for a in p.authors -%}{%- if a == me -%}{%- assign mine = forloop.index -%}{%- break -%}{%- endif -%}{%- endfor -%}
+    {%- for a in p.authors limit: 5 -%}
+      {%- if a == me -%}<strong>{{ a | replace: " ", "&nbsp;" }}</strong>{%- else -%}{{ a | escape | replace: " ", "&nbsp;" }}{%- endif -%}{{ ", " }}
+    {%- endfor -%}
+    {%- if mine > 6 -%}…, {% endif -%}
+    {%- if mine > 5 -%}<strong>{{ me | replace: " ", "&nbsp;" }}</strong>{%- if mine < n -%}, et al.{%- endif -%}
+    {%- else -%}et al.{%- endif -%}
+  {%- else -%}
+    {%- for a in p.authors -%}
+      {%- if a == me -%}<strong>{{ a | replace: " ", "&nbsp;" }}</strong>{%- else -%}{{ a | escape | replace: " ", "&nbsp;" }}{%- endif -%}
+      {%- unless forloop.last -%}{{ ", " }}{%- endunless -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+{%- capture source -%}
+  {%- if p.journal -%}
+    <i>{{ p.journal | escape }}</i>{% if p.volume %} {{ p.volume }}{% endif %}{% if p.pages %}, {{ p.pages }}{% endif %}{% unless p.volume or p.pages %} (in press){% endunless %}
+  {%- elsif p.type == "thesis" -%}
+    PhD thesis{% if p.school %}, {{ p.school | escape }}{% endif %}
+  {%- else -%}
+    Preprint
+  {%- endif -%}
+{%- endcapture -%}
 <div class="pub">
-  <span class="pub-year">{{ p.year }}</span>
+  <span class="pub-year">{% unless include.hide_year %}{{ p.year }}{% endunless %}</span>
   <div>
     <p class="pub-title">{{ p.title }}</p>
-    <p class="pub-meta">
-      {%- if p.authors %}{{ p.authors | join: ", " }}{% endif -%}
-      {%- if p.journal %} · <i>{{ p.journal }}</i>{% if p.volume %} {{ p.volume }}{% endif %}{% if p.page %}, {{ p.page }}{% endif %}{% endif -%}
-      {%- if p.note %} · {{ p.note }}{% endif -%}
+    <p class="pub-meta">{{ authors }}</p>
+    <p class="pub-meta">{{ source }}
       {%- if p.doi or p.arxiv %}<span class="pub-links">
         {%- if p.doi %}<a href="https://doi.org/{{ p.doi }}">DOI</a>{% endif -%}
         {%- if p.doi and p.arxiv %} · {% endif -%}
         {%- if p.arxiv %}<a href="https://arxiv.org/abs/{{ p.arxiv }}">arXiv:{{ p.arxiv }}</a>{% endif -%}
       </span>{% endif -%}
     </p>
+    {%- if p.note %}
+    <p class="pub-meta pub-note">{{ p.note }}</p>
+    {%- endif %}
   </div>
 </div>
