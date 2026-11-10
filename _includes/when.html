@@ -1,0 +1,14 @@
+{%- comment -%}
+  Years of a CV item that has "date", or "start" and "end" (no end means ongoing).
+  Usage: {% include when.html item=x %} gives "2024" or "2024–2026" or "2024–present";
+  add start_only=true for just the first year.
+{%- endcomment -%}
+{%- assign w = include.item -%}
+{%- if w.date -%}
+  {{- w.date | slice: 0, 4 -}}
+{%- elsif w.start -%}
+  {{- w.start | slice: 0, 4 -}}
+  {%- unless include.start_only -%}
+    –{% if w.end %}{{ w.end | slice: 0, 4 }}{% else %}present{% endif %}
+  {%- endunless -%}
+{%- endif -%}

@@ -1,0 +1,23 @@
+[
+  {
+    "title": "AI/ML-Ready Data Labeling for Low Energy Nuclear Physics",
+    "pi": "Mario Cromaz",
+    "amount_usd": 2000000,
+    "start": "2025",
+    "end": "2026"
+  },
+  {
+    "title": "STREAMLINE 2: Machine Learning for Nuclear Many-Body Systems",
+    "pi": "Dean Lee",
+    "amount_usd": 1370000,
+    "start": "2025",
+    "end": "2027"
+  },
+  {
+    "title": "ORNL LDRD Grant",
+    "role": "single PI",
+    "amount_usd": 603800,
+    "start": "2024",
+    "end": "2027"
+  }
+]

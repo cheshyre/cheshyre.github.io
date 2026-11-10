@@ -1,0 +1,11 @@
+{%- comment -%}
+  A whole number with thousands separators. Usage: {% include thousands.html n=603800 %} gives 603,800.
+{%- endcomment -%}
+{%- assign digits = include.n | append: "" | split: "" | reverse -%}
+{%- capture reversed -%}
+  {%- for d in digits -%}
+    {%- assign k = forloop.index0 | modulo: 3 -%}
+    {%- if forloop.index0 > 0 and k == 0 -%},{%- endif -%}{{ d }}
+  {%- endfor -%}
+{%- endcapture -%}
+{{- reversed | split: "" | reverse | join: "" -}}
