@@ -34,7 +34,7 @@ The page reloads on refresh after edits; restart the server after changing `_con
 
 ## Update publications, talks, and CV data
 
-Everything on the site that describes you comes from the CV data, except the photo, the GitHub link, the research highlights, and the page and section texts. `scripts/update_pubs.py` needs only Python 3.8 or later. Run it from the repository root, check the diff, and commit.
+Everything on the site that describes you comes from the CV data, except the photo, the GitHub link, the research interests, the research highlights, and the page and section texts. `scripts/update_pubs.py` needs only Python 3.8 or later. Run it from the repository root, check the diff, and commit.
 
 ```sh
 python3 scripts/update_pubs.py --cv ../resume/data # everything from the CV data folder
@@ -54,7 +54,7 @@ Do not copy the CV's `talks.json` or `publications_inspire.json` into `_data/` d
 | CV file | Used for |
 | --- | --- |
 | `profile.json` | Name, position line, email, INSPIRE, ORCID, Google Scholar, your name in author lists (`author_name`), the research summary (research page) and its first two sentences (home page) |
-| `appointments.json` | Appointments on the home and CV pages; the most recent finished one is also the "Previously" line on the home page |
+| `appointments.json` | Appointments on the home and CV pages |
 | `awards.json` | CV awards; those with `"highlight": true` are the home page's honors (`hidden` entries are left out everywhere) |
 | `funding.json`, `computing.json` | CV funding and computing grants; current entries also on the home page |
 | `education.json` | Education on the home and CV pages |
@@ -67,7 +67,7 @@ Do not copy the CV's `talks.json` or `publications_inspire.json` into `_data/` d
 
 None of these are in the CV data yet:
 
-- `profile.json`: `research_summary_first_person` (used as is instead of the automatic conversion of `research_summary`), `interests` (a list of `{"title": ..., "text": ...}`, shown as the home page's research interests instead of the drafts), and `links.github`.
+- `profile.json`: `research_summary_first_person` (used as is instead of the automatic conversion of `research_summary`), `interests` (a list of `{"title": ..., "text": ...}`, shown as the home page's research interests instead of the four written in `index.md`), and `links.github`.
 - `publications_inspire.json`, per entry: `hidden` (`true` leaves the entry off the site).
 - `talks.json`, per talk: `slides` (URL, shown as a link) and `hidden`.
 

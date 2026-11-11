@@ -5,9 +5,8 @@ title: Home
 {%- comment -%}
 Home page, built from the CV data in _data (see README.md):
   name, position, email, INSPIRE, ORCID, Google Scholar: profile.json
-  "Previously" line: the most recent appointment in appointments.json that has an end year
   statement: first two sentences of the research summary (derived.json, from profile.json)
-  research interests: "interests" in profile.json if present, else the drafts below
+  research interests: "interests" in profile.json if present, else the four below
   selected publications: publications.json entries with "selected": true, in file order
   education, appointments: education.json and appointments.json, in file order
   honors: entries of awards.json with "highlight": true, in file order
@@ -17,15 +16,10 @@ HTML here is kept flush left so Markdown does not turn indented lines into code 
 {%- endcomment -%}
 {%- assign profile = site.data.profile -%}
 {%- assign name = profile.name | default: site.author.name -%}
-{%- assign current = site.data.appointments | where_exp: "a", "a.end == nil" | first -%}
-{%- assign previous = site.data.appointments | where_exp: "a", "a.end != nil" | first -%}
 <section class="hero">
 <div class="hero-text">
 <h1>{{ name }}</h1>
 <p class="position">{{ profile.position }}, {{ profile.institution }}</p>
-{%- if current and previous %}
-<p class="previously">Previously {{ previous.title }}, {{ previous.institution }}</p>
-{%- endif %}
 <p class="statement">{{ site.data.derived.research_statement | escape }}</p>
 <p class="links">
 {%- assign email = profile.emails | first -%}
@@ -52,10 +46,10 @@ HTML here is kept flush left so Markdown does not turn indented lines into code 
 <div><p class="item-title">{{ i.title | default: i }}</p>{% if i.text %}<p class="item-text">{{ i.text }}</p>{% endif %}</div>
 {%- endfor %}
 {%- else %}
-<div><p class="item-title">Precision many-body methods</p><p class="item-text">IMSRG(3) and controlled estimates of many-body uncertainties.</p></div>
+<div><p class="item-title">Precision many-body methods</p><p class="item-text">Scalable and systematically improvable ab initio calculations.</p></div>
 <div><p class="item-title">Heavy and neutron-rich nuclei</p><p class="item-text">Shell structure, charge radii, and neutron skins.</p></div>
-<div><p class="item-title">Physics beyond the Standard Model</p><p class="item-text">Nuclear matrix elements for dark matter and symmetry tests.</p></div>
-<div><p class="item-title">Computing for nuclear theory</p><p class="item-text">Quantum algorithms and GPU-scale simulations.</p></div>
+<div><p class="item-title">Physics beyond the Standard Model</p><p class="item-text">Nuclear matrix elements for searches for new physics in atoms and nuclei.</p></div>
+<div><p class="item-title">Computing for nuclear theory</p><p class="item-text">Advanced computational technologies, including quantum computing and leadership computing.</p></div>
 {%- endif %}
 </div>
 </section>
