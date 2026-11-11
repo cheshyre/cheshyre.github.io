@@ -5,7 +5,8 @@ title: Home
 {%- comment -%}
 Home page, built from the CV data in _data (see README.md):
   name, position, email, INSPIRE, ORCID, Google Scholar: profile.json
-  statement: first two sentences of the research summary (derived.json, from profile.json)
+  statement: "statement" in _config.yml; if empty, the first two sentences of the research
+    summary (derived.json, from profile.json)
   research interests: "interests" in profile.json if present, else the four below
   selected publications: publications.json entries with "selected": true, in file order
   education, appointments: education.json and appointments.json, in file order
@@ -13,7 +14,7 @@ Home page, built from the CV data in _data (see README.md):
   funding: logos of current funders from _data/funders.json, in file order (not in the CV data;
     the CV page lists all funding and computing grants from funding.json and computing.json)
   link to the research highlights: shown once _data/highlights.json has entries
-Set in _config.yml: the photo and the GitHub link (not in the CV data).
+Set in _config.yml: the photo, the GitHub link, and the statement (not in the CV data).
 HTML here is kept flush left so Markdown does not turn indented lines into code blocks.
 {%- endcomment -%}
 {%- assign profile = site.data.profile -%}
@@ -22,7 +23,7 @@ HTML here is kept flush left so Markdown does not turn indented lines into code 
 <div class="hero-text">
 <h1>{{ name }}</h1>
 <p class="position">{{ profile.position }}, {{ profile.institution }}</p>
-<p class="statement">{{ site.data.derived.research_statement | escape }}</p>
+<p class="statement">{{ site.statement | default: site.data.derived.research_statement | escape }}</p>
 <p class="links">
 {%- assign email = profile.emails | first -%}
 {%- assign github = profile.links.github | default: site.links.github -%}
