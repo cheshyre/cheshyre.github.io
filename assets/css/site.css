@@ -108,6 +108,10 @@ sup, sub { font-size: 0.75em; line-height: 0; }
 .dated .year { color: var(--muted); }
 .plain { color: #3f3f46; }
 
+/* Funding logos */
+.logos { list-style: none; padding: 0 !important; margin: 0 !important; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px; }
+.logos img { display: block; width: auto; height: 112px; }
+
 .placeholder { color: var(--muted); }
 
 /* Footer */
@@ -137,4 +141,5 @@ sup, sub { font-size: 0.75em; line-height: 0; }
   .pub-links { display: block; }
   .pub-links::before { content: none; }
   .split .label { margin-top: 40px; }
+  .logos img { height: 96px; }
 }

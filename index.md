@@ -10,7 +10,8 @@ Home page, built from the CV data in _data (see README.md):
   selected publications: publications.json entries with "selected": true, in file order
   education, appointments: education.json and appointments.json, in file order
   honors: entries of awards.json with "highlight": true, in file order
-  funding: entries of funding.json and computing.json that end this year or later, or are ongoing
+  funding: logos of current funders from _data/funders.json, in file order (not in the CV data;
+    the CV page lists all funding and computing grants from funding.json and computing.json)
 Set in _config.yml: the photo and the GitHub link (not in the CV data).
 HTML here is kept flush left so Markdown does not turn indented lines into code blocks.
 {%- endcomment -%}
@@ -100,24 +101,15 @@ HTML here is kept flush left so Markdown does not turn indented lines into code 
 </ul>
 </div>
 {%- endif %}
+{%- if site.data.funders.size > 0 %}
 <div>
 <h2 class="label">Funding</h2>
-<ul class="plain">
-{%- assign this_year = site.time | date: "%Y" | plus: 0 %}
-{%- for f in site.data.funding %}
-{%- assign until = f.end | default: f.date %}
-{%- assign until_year = until | slice: 0, 4 | plus: 0 %}
-{%- if until == nil or until_year >= this_year %}
-<li>{{ f.title }}{% if f.role %} ({{ f.role }}){% elsif f.pi %} (PI: {{ f.pi }}){% endif %}, <span class="nowrap">{% include when.html item=f %}</span></li>
-{%- endif %}
-{%- endfor %}
-{%- for c in site.data.computing %}
-{%- assign until = c.end | default: c.date %}
-{%- assign until_year = until | slice: 0, 4 | plus: 0 %}
-{%- if until == nil or until_year >= this_year %}
-<li>Computing grant: {{ c.resource }} ({% if c.program %}{{ c.program }} {% endif %}project {{ c.project }}), <span class="nowrap">{% include when.html item=c %}</span></li>
-{%- endif %}
+<ul class="logos">
+{%- for f in site.data.funders %}
+{%- capture alt %}{{ f.name }}{% if f.full_name %} ({{ f.full_name }}){% endif %}{% endcapture %}
+<li>{% if f.url %}<a href="{{ f.url }}">{% endif %}<img src="{{ f.logo | relative_url }}" alt="{{ alt | escape }}">{% if f.url %}</a>{% endif %}</li>
 {%- endfor %}
 </ul>
 </div>
+{%- endif %}
 </section>

@@ -14,11 +14,12 @@ Design C, "Quiet modern": one layout (`_layouts/default.html`), one stylesheet (
 | `_data/talks.json` | Talks and posters |
 | `_data/appointments.json`, `awards.json`, `computing.json`, `education.json`, `funding.json`, `lectures.json`, `profile.json`, `students.json` | Copies of the CV data (repository `cheshyre/resume`), used by every page |
 | `_data/derived.json` | Research summary in the first person and its first two sentences, written by the script from `profile.json` |
+| `_data/funders.json` | Funding logos on the home page (not part of the CV data) |
 | `_includes/pub.html`, `_includes/talk.html` | How one publication or talk row is rendered |
 | `_includes/when.html`, `_includes/thousands.html` | Small helpers: years of a CV item, and numbers with thousands separators |
 | `index.md`, `research.md`, `publications.md`, `cv.md`, `teaching.md` | The five pages |
 | `assets/cv.pdf` | The CV download (copied by the script from `cv_public.pdf`) |
-| `assets/img/` | The portrait photo |
+| `assets/img/` | The portrait photo and funding logos (`funding/`) |
 | `scripts/update_pubs.py` | Regenerates the data files from INSPIRE or from the CV data (not published) |
 
 ## Preview locally
@@ -34,7 +35,7 @@ The page reloads on refresh after edits; restart the server after changing `_con
 
 ## Update publications, talks, and CV data
 
-Everything on the site that describes you comes from the CV data, except the photo, the GitHub link, the research interests, the research highlights, and the page and section texts. `scripts/update_pubs.py` needs only Python 3.8 or later. Run it from the repository root, check the diff, and commit.
+Everything on the site that describes you comes from the CV data, except the photo, the GitHub link, the research interests, the research highlights, the funding logos, and the page and section texts. `scripts/update_pubs.py` needs only Python 3.8 or later. Run it from the repository root, check the diff, and commit.
 
 ```sh
 python3 scripts/update_pubs.py --cv ../resume/data # everything from the CV data folder
@@ -56,7 +57,7 @@ Do not copy the CV's `talks.json` or `publications_inspire.json` into `_data/` d
 | `profile.json` | Name, position line, email, INSPIRE, ORCID, Google Scholar, your name in author lists (`author_name`), the research summary (research page) and its first two sentences (home page) |
 | `appointments.json` | Appointments on the home and CV pages |
 | `awards.json` | CV awards; those with `"highlight": true` are the home page's honors (`hidden` entries are left out everywhere) |
-| `funding.json`, `computing.json` | CV funding and computing grants; current entries also on the home page |
+| `funding.json`, `computing.json` | CV funding and computing grants (the home page shows the logos in `_data/funders.json` instead) |
 | `education.json` | Education on the home and CV pages |
 | `lectures.json`, `students.json` | Teaching page |
 | `publications_inspire.json` | Publications page and the home page's selected publications |
@@ -114,6 +115,21 @@ The file is sorted newest year first, preprints first within a year; the pages s
 ```
 
 `date` is `YYYY-MM` and shown as month and year. `invited` is `true` for invited talks, plenary talks, seminars, and colloquia. Optional: `type` (`invited`, `invited_parallel`, `plenary`, `seminar`, `colloquium`, `contributed`, or `poster`; sets the label, e.g., "Invited talk" or "Poster"), `virtual`, `award`, `slides`, and `hidden`. Without a `type`, invited talks are labeled "Invited". Talks are listed newest first, in file order.
+
+## Funding logos
+
+The home page's Funding section shows the logos in `_data/funders.json`, in file order, each linked to the funder's page. List current funding only; the CV page lists all funding and computing grants from the CV data.
+
+```json
+{
+  "name": "RIKEN TRIP",
+  "full_name": "Transformative Research Innovation Platform of RIKEN platforms",
+  "logo": "/assets/img/funding/riken-trip.svg",
+  "url": "https://trip.riken.jp/en/"
+}
+```
+
+`name` and the optional `full_name` form the alt text; `url` is optional. Logos are shown 112 px high (96 px on phones), so crop them to the drawing; SVG works best. `riken-trip.svg` was converted from the vector PDF of the logo with `pdftocairo -svg`, cropped to the drawing, and compacted.
 
 ## Update the CV
 
