@@ -1,1 +1,519 @@
-[]
+[
+  {
+    "title": "NuLattice: Computations of nuclei on lattices",
+    "event": "CRC 1245 Workshop",
+    "city": "Mainz, Germany",
+    "date": "2026-09",
+    "invited": true,
+    "type": "invited"
+  },
+  {
+    "title": "Ab initio analysis of parity-violating electron scattering",
+    "event": "University of Tennessee Nuclear Physics Seminar",
+    "city": "University of Tennessee, Knoxville, TN, USA",
+    "date": "2026-09",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "Improving precision and reach of ab initio nuclear theory",
+    "event": "Low Energy Community Meeting 2026",
+    "city": "Argonne National Laboratory, Lemont, IL, USA",
+    "date": "2026-08",
+    "invited": true,
+    "type": "plenary",
+    "award": "FRIB Achievement Award for Early Career Researchers"
+  },
+  {
+    "title": "Ab initio theory for nuclear densities and parity-violating electron scattering",
+    "event": "Nuclear, Atomic, Molecular, and Optical Physics Workshop",
+    "city": "Argonne National Laboratory, Lemont, IL, USA",
+    "date": "2026-08",
+    "invited": true,
+    "type": "invited"
+  },
+  {
+    "title": "NuLattice: Computations of nuclei on lattices",
+    "event": "SciDAC PI Meeting 2026",
+    "city": "Rockville, MD, USA",
+    "date": "2026-08",
+    "invited": true,
+    "type": "invited"
+  },
+  {
+    "title": "Computations of parity-violating electron scattering off <sup>48</sup>Ca and <sup>208</sup>Pb",
+    "event": "SciDAC PI Meeting 2026",
+    "city": "Rockville, MD, USA",
+    "date": "2026-08",
+    "invited": false,
+    "type": "poster"
+  },
+  {
+    "title": "NuLattice: Computations of nuclei on lattices",
+    "event": "International Symposium on Lattice Field Theory (Lattice 2026)",
+    "city": "University of Maryland, College Park, MD, USA",
+    "date": "2026-07",
+    "invited": false,
+    "type": "contributed"
+  },
+  {
+    "title": "Computing Nuclei from First Principles: Quantum Computations, AI Emulation, Deformation, and Fundamental Symmetries",
+    "event": "Atoms to Applications Symposium",
+    "city": "Oak Ridge National Laboratory, Oak Ridge, TN, USA",
+    "date": "2026-06",
+    "invited": false,
+    "type": "poster"
+  },
+  {
+    "title": "Hamiltonians for neutron densities and lattice calculations",
+    "event": "INT Program: Nuclear Hamiltonians for Advancing Nuclear Physics and Beyond",
+    "city": "Institute for Nuclear Theory, Seattle, WA, USA",
+    "date": "2026-04",
+    "invited": true,
+    "type": "invited"
+  },
+  {
+    "title": "Towards precise ab initio predictions of neutron densities and skins",
+    "event": "University of Tsukuba, Nuclear Physics Seminar",
+    "city": "University of Tsukuba, Tsukuba, Japan",
+    "date": "2026-03",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "Towards precise ab initio predictions of neutron densities and skins",
+    "event": "Notre Dame Nuclear Physics Seminar",
+    "city": "University of Notre Dame, Notre Dame, IN, USA",
+    "date": "2026-03",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "Neutron radii and densities and skins, oh my!",
+    "event": "University of Tennessee Nuclear Physics Seminar",
+    "city": "University of Tennessee, Knoxville, TN, USA",
+    "date": "2026-03",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "Nuclear radii from ab initio calculations: Successes and challenges",
+    "event": "Workshop: Precise nuclear charge radii and beyond",
+    "city": "Max Planck Institute for Nuclear Physics, Heidelberg, Germany",
+    "date": "2026-01",
+    "invited": true,
+    "type": "invited"
+  },
+  {
+    "title": "Precise neutron densities of nuclei and what this means for neutron skins",
+    "event": "Hirschegg 2026 – Challenges in effective field theory descriptions of nuclei",
+    "city": "Hirschegg, Austria",
+    "date": "2026-01",
+    "invited": true,
+    "type": "invited"
+  },
+  {
+    "title": "Nuclear densities, neutron skins, and IMSRG on the lattice",
+    "event": "IMSRG Workshop: Flow and Tell",
+    "city": "University of Notre Dame, Notre Dame, IN, USA",
+    "date": "2025-10",
+    "invited": true,
+    "type": "invited"
+  },
+  {
+    "title": "Leadership computing for atomic nuclei and fundamental physics",
+    "event": "Smoky Mountains Computational Sciences and Engineering Conference",
+    "city": "Chattanooga, TN, USA",
+    "date": "2025-08",
+    "invited": false,
+    "type": "poster"
+  },
+  {
+    "title": "Developing precise predictions of electroweak structure of nuclei",
+    "event": "Workshop on Precision Measurements with Radioisotopes",
+    "city": "Texas A&M University, College Station, TX, USA",
+    "date": "2025-08",
+    "invited": true,
+    "type": "invited"
+  },
+  {
+    "title": "Improving reach and precision of ab initio theory for new physics studies",
+    "event": "Nuclear and Chemical Sciences Division Seminar",
+    "city": "LLNL, Livermore, CA, USA",
+    "date": "2025-07",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "Nuclei on quantum computers",
+    "event": "ORNL Physics Division Summer Lecture Series",
+    "city": "ORNL, Oak Ridge, TN, USA",
+    "date": "2025-07",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "First-principles nuclear structure theory and implications for fundamental physics",
+    "event": "ESNT Workshop: “Theoretical and experimental developments for symmetry-violating nuclear properties”",
+    "city": "CEA Paris-Saclay, Saclay, France",
+    "date": "2025-06",
+    "invited": true,
+    "type": "invited"
+  },
+  {
+    "title": "Improving reach and precision of ab initio nuclear structure predictions",
+    "event": "Gordon Research Conference on Nuclear Chemistry",
+    "city": "Colby-Sawyer College, New London, NH, USA",
+    "date": "2025-06",
+    "invited": true,
+    "type": "invited"
+  },
+  {
+    "title": "Exploring new physics and nuclear structure with ytterbium isotope shifts",
+    "event": "Conference on the Intersection of Nuclear and Particle Physics 2025",
+    "city": "University of Wisconsin, Madison, WI, USA",
+    "date": "2025-06",
+    "invited": true,
+    "type": "invited_parallel"
+  },
+  {
+    "title": "Ab initio overlap integrals for muon to electron conversion in nuclei",
+    "event": "Conference on the Intersection of Nuclear and Particle Physics 2025",
+    "city": "University of Wisconsin, Madison, WI, USA",
+    "date": "2025-06",
+    "invited": true,
+    "type": "invited_parallel"
+  },
+  {
+    "title": "Ab initio overlap integrals for mu to e conversion",
+    "event": "NUCLEI Collaboration Meeting 2025",
+    "city": "University of North Carolina, Chapel Hill, NC, USA",
+    "date": "2025-06",
+    "invited": false,
+    "type": "contributed"
+  },
+  {
+    "title": "Improving reach and precision of ab initio theory for new physics studies",
+    "event": "ANL PHY Division Theory Seminar",
+    "city": "Argonne National Laboratory, Lemont, IL, USA",
+    "date": "2025-06",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "Ab initio nuclear structure for searches for μ → <i>e</i> conversion",
+    "event": "ECT* Workshop on “Lepton flavor change in nuclei”",
+    "city": "ECT*, Trento, Italy",
+    "date": "2025-04",
+    "invited": true,
+    "type": "invited"
+  },
+  {
+    "title": "Improving reach and precision of ab initio theory for new physics studies",
+    "event": "Ohio University, INPP Seminar",
+    "city": "Ohio University, Athens, OH, USA",
+    "date": "2025-04",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "Perturbative treatment of subleading interactions in ab initio calculations",
+    "event": "INT Workshop on “Chiral EFT: New Perspectives”",
+    "city": "Institute for Nuclear Theory, Seattle, WA, USA",
+    "date": "2025-03",
+    "invited": true,
+    "type": "invited"
+  },
+  {
+    "title": "Ab initio nuclear structure for searches for μ → <i>e</i> conversion",
+    "event": "Progress in Ab Initio Nuclear Theory 2025",
+    "city": "TRIUMF, Vancouver, Canada",
+    "date": "2025-02",
+    "invited": true,
+    "type": "invited"
+  },
+  {
+    "title": "Probing new physics with ytterbium isotope shifts",
+    "event": "CERN Workshop on “Nuclear Shapes and BSM Searches at Colliders”",
+    "city": "CERN, Geneva, Switzerland",
+    "date": "2025-01",
+    "invited": true,
+    "type": "invited",
+    "virtual": true
+  },
+  {
+    "title": "New bosons in ytterbium isotope shifts? An ab initio nuclear theory perspective",
+    "event": "University of Tennessee Nuclear Physics Seminar",
+    "city": "University of Tennessee, Knoxville, TN, USA",
+    "date": "2024-11",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "Ab initio nuclear theory for new physics searches in ytterbium and beyond",
+    "event": "ORNL Radioactive Molecules Workshop",
+    "city": "Oak Ridge National Laboratory, Oak Ridge, TN, USA",
+    "date": "2024-09",
+    "invited": true,
+    "type": "invited"
+  },
+  {
+    "title": "Ab initio nuclear structure calculations for new physics searches in ytterbium isotope shifts",
+    "event": "Quark Confinement and the Hadron Spectrum Conference 2024",
+    "city": "Cairns, Australia",
+    "date": "2024-08",
+    "invited": true,
+    "type": "invited_parallel"
+  },
+  {
+    "title": "Improved ab initio description of neutron-rich calcium isotopes",
+    "event": "Direct Reactions in Exotic Beams 2024",
+    "city": "Wiesbaden, Germany",
+    "date": "2024-06",
+    "invited": false,
+    "type": "poster",
+    "award": "1st Place Theory Poster Award"
+  },
+  {
+    "title": "Improved ab initio nuclear structure of neutron-rich calcium isotopes",
+    "event": "R2S2 Seminar",
+    "city": "Rising Researchers Seminar Series",
+    "date": "2024-06",
+    "invited": true,
+    "type": "seminar",
+    "virtual": true
+  },
+  {
+    "title": "Precision ab initio structure and implications for fundamental physics",
+    "event": "Spring Meeting of the Deutsche Physikalische Gesellschaft",
+    "city": "Gießen, Germany",
+    "date": "2024-03",
+    "invited": false,
+    "type": "contributed"
+  },
+  {
+    "title": "Improved medium-mass nuclear structure and responses with the IMSRG",
+    "event": "Progress in Ab Initio Nuclear Theory 2024",
+    "city": "TRIUMF, Vancouver, Canada",
+    "date": "2024-02",
+    "invited": true,
+    "type": "invited"
+  },
+  {
+    "title": "First-principles nuclear structure theory and implications for fundamental physics",
+    "event": "TRIUMF NP Seminar",
+    "city": "TRIUMF, Vancouver, Canada",
+    "date": "2024-02",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "First-principles nuclear structure theory and implications for fundamental physics",
+    "event": "S@INT Seminar",
+    "city": "Institute for Nuclear Theory, Seattle, WA, USA",
+    "date": "2024-02",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "First-principles nuclear structure theory and implications for fundamental physics",
+    "event": "TRIUMF Interview Seminar",
+    "city": "TRIUMF, Vancouver, Canada",
+    "date": "2024-01",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "First-principles nuclear structure calculations and implications for fundamental physics",
+    "event": "ORNL – Distinguished Staff Fellowship Program – NCCS Seminar",
+    "city": "Oak Ridge National Laboratory, Oak Ridge, TN, USA",
+    "date": "2023-12",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "First-principles nuclear structure theory and implications for fundamental physics",
+    "event": "FRIB Theory Seminar",
+    "city": "FRIB, East Lansing, MI, USA",
+    "date": "2023-12",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "First-principles nuclear structure theory and implications for fundamental physics",
+    "event": "Subatomic, High Energy and Plasma Physics Seminar",
+    "city": "Chalmers University of Technology, Göteborg, Sweden",
+    "date": "2023-11",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "First-principles nuclear structure theory and implications for fundamental physics",
+    "event": "ITP Seminar",
+    "city": "Universität Bern, Bern, Switzerland",
+    "date": "2023-11",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "IMSRG developments and medium-mass and heavy nuclei",
+    "event": "CRC 1245 Workshop",
+    "city": "Technische Universität Darmstadt, Darmstadt, Germany",
+    "date": "2023-09",
+    "invited": true,
+    "type": "invited"
+  },
+  {
+    "title": "Diagrammatic resummations for the in-medium similarity renormalization group",
+    "event": "ESNT Workshop “Automated tools for many-body theory”",
+    "city": "CEA Paris-Saclay, Saclay, France",
+    "date": "2023-06",
+    "invited": true,
+    "type": "invited"
+  },
+  {
+    "title": "Precision nuclear structure with the in-medium similarity renormalization group",
+    "event": "Physics Seminar",
+    "city": "Yonsei University, Seoul, South Korea",
+    "date": "2023-05",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "Ab initio nuclear structure with the in-medium similarity renormalization group",
+    "event": "Spring Doctoral Forum of the Studienstiftung",
+    "city": "Berlin, Germany",
+    "date": "2023-04",
+    "invited": false,
+    "type": "contributed"
+  },
+  {
+    "title": "Ab initio structure of neutron-rich calcium isotopes",
+    "event": "Spring Meeting of the Deutsche Physikalische Gesellschaft",
+    "city": "Dresden, Germany",
+    "date": "2023-03",
+    "invited": false,
+    "type": "contributed"
+  },
+  {
+    "title": "IMSRG with three-body operators",
+    "event": "Progress in Ab Initio Nuclear Theory 2023",
+    "city": "TRIUMF, Vancouver, Canada",
+    "date": "2023-03",
+    "invited": false,
+    "type": "contributed"
+  },
+  {
+    "title": "Precision nuclear structure with the in-medium similarity renormalization group",
+    "event": "Triangle Nuclear Theory Colloquium",
+    "city": "North Carolina State University, Raleigh, NC, USA",
+    "date": "2023-03",
+    "invited": true,
+    "type": "colloquium"
+  },
+  {
+    "title": "Precision nuclear structure with the in-medium similarity renormalization group",
+    "event": "LANL T-2 Nuclear Theory Seminar",
+    "city": "Los Alamos National Laboratory, Los Alamos, NM, USA",
+    "date": "2023-03",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "Improved ab initio nuclear structure for medium-mass and heavy nuclei",
+    "event": "Arbeitstreffen Kernphysik 2023",
+    "city": "Schleching, Germany",
+    "date": "2023-02",
+    "invited": true,
+    "type": "invited"
+  },
+  {
+    "title": "Recent progress on in-medium similarity renormalization group calculations with three-body operators",
+    "event": "Hirschegg 2023 – Effective field theories for nuclei and nuclear matter",
+    "city": "Hirschegg, Austria",
+    "date": "2023-01",
+    "invited": false,
+    "type": "contributed"
+  },
+  {
+    "title": "Recent progress in ab initio nuclear structure calculations with the in-medium similarity renormalization group",
+    "event": "MPIK Seminar – Stored and Cooled Ions",
+    "city": "Max-Planck-Institut für Kernphysik, Heidelberg, Germany",
+    "date": "2022-11",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "Progress on IMSRG with 3-body operators",
+    "event": "ORNL Nuclear Structure Theory Group Seminar",
+    "city": "Oak Ridge National Laboratory, Oak Ridge, TN, USA",
+    "date": "2022-08",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "Analysis of three-body effects in the IMSRG",
+    "event": "ANL Physics Theory Group Seminar",
+    "city": "Argonne National Laboratory, Lemont, IL, USA",
+    "date": "2022-07",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
+    "title": "Extension and acceleration of the in-medium similarity renormalization group",
+    "event": "Spring Meeting of the Deutsche Physikalische Gesellschaft",
+    "city": "Mainz, Germany",
+    "date": "2022-03",
+    "invited": false,
+    "type": "contributed",
+    "virtual": true
+  },
+  {
+    "title": "Approximations and uncertainties in the in-medium similarity renormalization group",
+    "event": "ISNET 8",
+    "city": "Facility for Rare Isotope Beams, East Lansing, MI, USA",
+    "date": "2021-12",
+    "invited": false,
+    "type": "contributed"
+  },
+  {
+    "title": "Recent developments in the in-medium similarity renormalization group",
+    "event": "CRC 1245 Workshop",
+    "city": "Technische Universität Darmstadt, Darmstadt, Germany",
+    "date": "2021-03",
+    "invited": true,
+    "type": "invited"
+  },
+  {
+    "title": "Exploring alternative SRG generators in one dimension",
+    "event": "Spring Meeting of the Deutsche Physikalische Gesellschaft",
+    "city": "Munich, Germany",
+    "date": "2019-03",
+    "invited": false,
+    "type": "contributed"
+  },
+  {
+    "title": "Understanding uncertainties in jet quenching in high-energy nucleus-nucleus collisions",
+    "event": "Fall Meeting of the Division of Nuclear Physics",
+    "city": "Pittsburgh, PA, USA",
+    "date": "2017-10",
+    "invited": false,
+    "type": "poster"
+  },
+  {
+    "title": "Exploration of similarity renormalization group generators in 1-dimensional potentials",
+    "event": "Fall Meeting of the Division of Nuclear Physics",
+    "city": "Vancouver, Canada",
+    "date": "2016-10",
+    "invited": false,
+    "type": "poster"
+  },
+  {
+    "title": "Exploration of similarity renormalization group generators in 1-dimensional potentials",
+    "event": "Fall Meeting of the Division of Nuclear Physics",
+    "city": "Santa Fe, NM, USA",
+    "date": "2015-10",
+    "invited": false,
+    "type": "poster"
+  }
+]

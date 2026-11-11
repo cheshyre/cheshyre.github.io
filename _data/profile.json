@@ -1,0 +1,15 @@
+{
+  "name": "Matthias Heinz",
+  "author_name": "M. Heinz",
+  "position": "Research Scientist",
+  "institution": "RIKEN Nishina Center",
+  "emails": [
+    "matthias.heinz@riken.jp"
+  ],
+  "orcid": "0000-0002-6363-0056",
+  "links": {
+    "google_scholar": "https://scholar.google.com/citations?user=sGGqLqsAAAAJ&hl=en",
+    "inspire": "https://inspirehep.net/authors/1817590?ui-citation-summary=true"
+  },
+  "research_summary": "Matthias Heinz researches the theoretical description of atomic nuclei. His specific interests are in understanding nuclear forces, simulating how the structure and dynamics of nuclei emerge from nuclear forces, and predicting how the structure of nuclei impacts fundamental processes in nature, including the synthesis of heavy elements and possible new physics processes beyond the standard model. Matthias employs effective field theories, ab initio quantum many-body methods, Bayesian statistics, and emulators based on machine learning techniques in his research. Matthias is also exploring how quantum computing can accelerate quantum many-body simulations."
+}

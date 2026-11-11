@@ -1,0 +1,54 @@
+[
+  {
+    "resource": "Jülich Supercomputing Centre",
+    "program": "GCS",
+    "project": "scalannm",
+    "start": "2024",
+    "end": null,
+    "allocations": [
+      {
+        "year": "2026",
+        "cpu_core_hours": 4300000,
+        "gpu_core_hours": 1300000
+      },
+      {
+        "year": "2025",
+        "cpu_core_hours": 5500000,
+        "gpu_core_hours": 1100000
+      }
+    ]
+  },
+  {
+    "resource": "Lichtenberg II Cluster",
+    "project": "2455",
+    "date": "2024",
+    "allocations": [
+      {
+        "cpu_core_hours": 300000
+      }
+    ]
+  },
+  {
+    "resource": "Jülich Supercomputing Centre",
+    "program": "GCS",
+    "project": "tensornuclei",
+    "start": "2021",
+    "end": "2024",
+    "allocations": [
+      {
+        "cpu_core_hours": 7500000,
+        "gpu_core_hours": 2800000
+      }
+    ]
+  },
+  {
+    "resource": "Lichtenberg II Cluster",
+    "project": "1949",
+    "date": "2022",
+    "allocations": [
+      {
+        "cpu_core_hours": 1000000
+      }
+    ]
+  }
+]

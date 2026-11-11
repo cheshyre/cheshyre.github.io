@@ -1,0 +1,63 @@
+[
+  {
+    "name": "Nuclear Physics Tortoise Lecture Series",
+    "location": "Seoul, South Korea",
+    "date": "2027-01",
+    "topic": "Quantum computing in nuclear physics",
+    "lectures": {
+      "count": 10,
+      "minutes": 75
+    },
+    "exercises": {
+      "count": 5,
+      "minutes": 90,
+      "kind": "programming"
+    }
+  },
+  {
+    "name": "Exotic Beam Summer School",
+    "location": "Oak Ridge, TN, USA",
+    "date": "2026-06",
+    "topic": "Modern nuclear structure theory",
+    "lectures": {
+      "count": 2,
+      "minutes": 60
+    }
+  },
+  {
+    "name": "Multi-Particle Summer School Berkeley",
+    "location": "Berkeley, CA, USA",
+    "date": "2025-07",
+    "topic": "Ab initio computations of nuclei",
+    "lectures": {
+      "count": 5,
+      "minutes": 40
+    }
+  },
+  {
+    "name": "Nuclear Physics Turtle Lecture Series",
+    "location": "Busan, South Korea",
+    "date": "2025-01",
+    "topic": "Ab initio Hartree-Fock calculations of nuclei",
+    "lectures": {
+      "count": 6,
+      "minutes": 75
+    },
+    "exercises": {
+      "count": 3,
+      "minutes": 90,
+      "kind": "programming"
+    }
+  },
+  {
+    "name": "Arbeitstreffen Kernphysik",
+    "location": "Schleching, Germany",
+    "date": "2023-02",
+    "topic": "Modern nuclear structure",
+    "lectures": {
+      "count": 3,
+      "minutes": 75,
+      "kind": "main speaker"
+    }
+  }
+]

@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Vivek Booshan",
+    "ongoing": true
+  },
+  {
+    "name": "Ben Johnson-Toth",
+    "program": "summer",
+    "date": "2025"
+  },
+  {
+    "name": "Aidan O'Bryan",
+    "program": "summer",
+    "date": "2026"
+  },
+  {
+    "name": "Tom Plies",
+    "theses": [
+      {
+        "degree": "B.Sc.",
+        "date": "2022"
+      },
+      {
+        "degree": "M.Sc.",
+        "date": "2024"
+      }
+    ]
+  },
+  {
+    "name": "Maxwell Rothman",
+    "ongoing": true
+  }
+]

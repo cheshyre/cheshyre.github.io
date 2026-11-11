@@ -30,6 +30,9 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 
 img { max-width: 100%; height: auto; }
 
+sup, sub { font-size: 0.75em; line-height: 0; }
+.nowrap { white-space: nowrap; }
+
 .wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); }
 
 /* Top bar */
@@ -91,15 +94,17 @@ img { max-width: 100%; height: auto; }
 .pub-year { font-size: 14px; color: var(--muted); }
 .pub-title { margin: 0 !important; font-weight: 500; }
 .pub-meta { margin: 2px 0 0 !important; font-size: 14px; color: var(--text-2); }
+.pub-meta strong { font-weight: 600; color: var(--text); }
 .pub-links::before { content: " · "; }
 
-/* Honors and Funding side by side */
+/* Two lists side by side: Education and Appointments, Honors and Funding */
 .split { display: flex; flex-wrap: wrap; gap: 0 56px; }
 .split > div { flex: 1 1 360px; min-width: 0; }
 .split > div + div { flex-basis: 240px; }
 .split .label { margin-bottom: 14px; }
 .dated, .plain { list-style: none; padding: 0 !important; margin: 0 !important; display: flex; flex-direction: column; gap: 8px; font-size: 15px; }
 .dated li { display: grid; grid-template-columns: 56px minmax(0, 1fr); }
+.dated.wide li { grid-template-columns: 112px minmax(0, 1fr); }
 .dated .year { color: var(--muted); }
 .plain { color: #3f3f46; }
 

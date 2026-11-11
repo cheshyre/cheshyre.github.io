@@ -4,38 +4,50 @@ title: Publications and talks
 permalink: /publications/
 ---
 {%- comment -%}
-Lists every entry in _data/publications.json and _data/talks.json, newest first.
-See README.md for the fields of each entry.
+Articles (grouped by year), then theses, then talks, in the order of _data/publications.json and
+_data/talks.json (both newest first; scripts/update_pubs.py keeps them sorted). Entries with
+"hidden": true are left out. See README.md for the fields.
 {%- endcomment -%}
 
 # Publications and talks
 
-[One sentence pointing to your INSPIRE profile for the complete, up-to-date list.]
+My publications are also listed, with citation counts, on [INSPIRE]({{ site.data.profile.links.inspire }}) and [Google Scholar]({{ site.data.profile.links.google_scholar }}).
 
-## Publications
+{% assign shown = site.data.publications | where_exp: "p", "p.hidden != true" -%}
+{%- assign articles = shown | where_exp: "p", "p.type != 'thesis'" -%}
+{%- assign theses = shown | where: "type", "thesis" -%}
 
-{% assign pubs = site.data.publications | sort: "year" | reverse -%}
+## Articles
+
 <div class="pubs">
-{%- for p in pubs %}
-{% include pub.html pub=p %}
-{%- else %}
-<div class="pub"><span class="pub-year">[year]</span><div><p class="pub-title placeholder">[Publications appear here from _data/publications.json]</p></div></div>
+{%- assign last = "" -%}
+{%- for p in articles -%}
+{%- assign y = p.year | append: "" -%}
+{%- if y == last -%}{%- assign hide = true -%}{%- else -%}{%- assign hide = false -%}{%- endif %}
+{% include pub.html pub=p hide_year=hide %}
+{%- assign last = y -%}
 {%- endfor %}
 </div>
 
-## Talks
+{% if theses.size > 0 -%}
+## {% if theses.size > 1 %}Theses{% else %}Thesis{% endif %}
 
-{% assign talks = site.data.talks | sort: "date" | reverse -%}
 <div class="pubs">
-{%- for t in talks %}
-<div class="pub">
-<span class="pub-year">{{ t.date | slice: 0, 4 }}</span>
-<div>
-<p class="pub-title">{% if t.url %}<a href="{{ t.url }}">{{ t.title }}</a>{% else %}{{ t.title }}{% endif %}</p>
-<p class="pub-meta">{{ t.event }}{% if t.location %}, {{ t.location }}{% endif %}{% if t.date %} · {{ t.date | date: "%B %-d, %Y" }}{% endif %}{% if t.type %} · {{ t.type }}{% endif %}{% if t.slides %} · <a href="{{ t.slides }}">Slides</a>{% endif %}</p>
+{%- for p in theses %}
+{% include pub.html pub=p %}
+{%- endfor %}
 </div>
-</div>
-{%- else %}
-<div class="pub"><span class="pub-year">[year]</span><div><p class="pub-title placeholder">[Talks appear here from _data/talks.json]</p></div></div>
+{%- endif %}
+
+## Talks and posters
+
+{% assign talks = site.data.talks | where_exp: "t", "t.hidden != true" -%}
+<div class="pubs">
+{%- assign last = "" -%}
+{%- for t in talks -%}
+{%- assign y = t.date | slice: 0, 4 -%}
+{%- if y == last -%}{%- assign hide = true -%}{%- else -%}{%- assign hide = false -%}{%- endif %}
+{% include talk.html talk=t hide_year=hide %}
+{%- assign last = y -%}
 {%- endfor %}
 </div>

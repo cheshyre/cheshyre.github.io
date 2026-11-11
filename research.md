@@ -3,10 +3,14 @@ layout: default
 title: Research
 permalink: /research/
 ---
+{%- comment -%}
+The summary is research_summary from the CV's profile.json, in the first person;
+scripts/update_pubs.py writes it to _data/derived.json. The highlights are written here by hand.
+{%- endcomment -%}
 
 # Research highlights
 
-[One or two sentences introducing your research program.]
+<p>{{ site.data.derived.research_summary | escape }}</p>
 
 ## [Highlight 1 title]
 

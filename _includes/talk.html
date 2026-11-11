@@ -1,0 +1,36 @@
+{%- comment -%}
+  One talk row. Usage: {% include talk.html talk=t %}; add hide_year=true to leave the year
+  column empty. Fields (see README.md): title, event, city, date (YYYY-MM), invited, slides;
+  optional type, virtual, and award. The label comes from type; without a type, invited talks
+  are labeled "Invited".
+{%- endcomment -%}
+{%- assign t = include.talk -%}
+{%- assign months = "January,February,March,April,May,June,July,August,September,October,November,December" | split: "," -%}
+{%- assign parts = t.date | split: "-" -%}
+{%- assign year = parts[0] -%}
+{%- if parts[1] -%}
+  {%- assign m = parts[1] | plus: 0 | minus: 1 -%}
+  {%- assign when = months[m] | append: " " | append: year -%}
+{%- else -%}
+  {%- assign when = year -%}
+{%- endif -%}
+{%- case t.type -%}
+  {%- when "invited" -%}{%- assign kind = "Invited talk" -%}
+  {%- when "invited_parallel" -%}{%- assign kind = "Invited parallel talk" -%}
+  {%- when "plenary" -%}{%- assign kind = "Plenary talk" -%}
+  {%- when "seminar" -%}{%- assign kind = "Seminar" -%}
+  {%- when "colloquium" -%}{%- assign kind = "Colloquium" -%}
+  {%- when "contributed" -%}{%- assign kind = "Contributed talk" -%}
+  {%- when "poster" -%}{%- assign kind = "Poster" -%}
+  {%- else -%}{%- if t.invited -%}{%- assign kind = "Invited" -%}{%- else -%}{%- assign kind = "" -%}{%- endif -%}
+{%- endcase -%}
+<div class="pub">
+  <span class="pub-year">{% unless include.hide_year %}{{ year }}{% endunless %}</span>
+  <div>
+    <p class="pub-title">{{ t.title }}</p>
+    <p class="pub-meta">{{ t.event | escape }}{% if t.city %}, {{ t.city | escape }}{% endif %}{% if t.virtual %} (virtual){% endif %} · <span class="nowrap">{{ when }}</span>
+      {%- if kind != "" %} · <span class="nowrap">{{ kind }}</span>{% if t.award %}: {{ t.award | escape }}{% endif %}{% endif -%}
+      {%- if t.slides %} · <a href="{{ t.slides }}">Slides</a>{% endif -%}
+    </p>
+  </div>
+</div>
