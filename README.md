@@ -22,7 +22,8 @@ Design C, "Quiet modern": one layout (`_layouts/default.html`), one stylesheet (
 | `_includes/when.html`, `_includes/thousands.html` | Small helpers: years of a CV item, and numbers with thousands separators |
 | `index.md`, `research.md`, `publications.md`, `cv.md`, `teaching.md` | The five pages |
 | `assets/cv.pdf` | The CV download (copied by the script from `cv_public.pdf`) |
-| `assets/img/` | The portrait photo, funding logos (`funding/`), and highlight figures (`research/`) |
+| `assets/img/` | The portrait photo, funding logos (`funding/`), highlight figures (`research/`), and the browser-tab icon (`favicon.svg`) |
+| `favicon.ico`, `apple-touch-icon.png` | The tab icon for older browsers (16, 32, and 48 px) and the home-screen icon for phones (180 px); both drawn from the same "MH" monogram as `assets/img/favicon.svg` (the touch icon is square because phones round the corners themselves). Keep them in the root, where browsers look for them |
 | `scripts/update_pubs.py` | Regenerates the data files from INSPIRE or from the CV data (not published) |
 
 ## Preview locally
