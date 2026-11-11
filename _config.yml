@@ -18,6 +18,14 @@ photo: /assets/img/portrait.jpg
 links:
   github: https://github.com/cheshyre
 
+# The statement under your name on the home page (not in the CV data). If empty (""), the home
+# page shows the first two sentences of the research summary (_data/derived.json) instead.
+statement: >-
+  I study the structure of atomic nuclei, refining our understanding of strong interactions in
+  nature. My research connects our understanding of nuclear forces, nuclear structure,
+  fundamental symmetries, and nuclear astrophysics using predictive, systematically improvable
+  computations.
+
 # Only plugins supported by the github-pages gem.
 plugins:
   - jekyll-seo-tag

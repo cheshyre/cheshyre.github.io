@@ -1,6 +1,6 @@
 # matthiasheinz.com
 
-Source of my research website. GitHub Pages builds it with Jekyll from the `main` branch and serves it at <https://cheshyre.github.io> (and at <https://matthiasheinz.com> once the custom domain is connected).
+Source of my research website. GitHub Pages builds it with Jekyll from the `main` branch and serves it at <https://matthiasheinz.com>. The custom domain is set in the repository's Pages settings and stored in the `CNAME` file, which must stay in the repository.
 
 Design C, "Quiet modern": one layout (`_layouts/default.html`), one stylesheet (`assets/css/site.css`), no JavaScript. Placeholder text is marked `[like this]`.
 
@@ -8,12 +8,13 @@ Design C, "Quiet modern": one layout (`_layouts/default.html`), one stylesheet (
 
 | Path | What it holds |
 | --- | --- |
-| `_config.yml` | Title and description for search results, photo path, and GitHub link (everything else about you comes from the CV data) |
+| `_config.yml` | Title and description for search results, photo path, GitHub link, and the home page statement (everything else about you comes from the CV data) |
+| `CNAME` | The custom domain, written by GitHub when the domain is saved in the Pages settings (keep it) |
 | `_data/nav.yml` | Top bar navigation |
 | `_data/publications.json` | Publications; entries with `"selected": true` also appear on the home page |
 | `_data/talks.json` | Talks and posters |
 | `_data/appointments.json`, `awards.json`, `computing.json`, `education.json`, `funding.json`, `lectures.json`, `profile.json`, `students.json` | Copies of the CV data (repository `cheshyre/resume`), used by every page |
-| `_data/derived.json` | Research summary in the first person and its first two sentences, written by the script from `profile.json` |
+| `_data/derived.json` | Research summary in the first person and its first two sentences (the home page statement when `statement` in `_config.yml` is empty), written by the script from `profile.json` |
 | `_data/highlights.json` | Research highlights on the research page (written here, not part of the CV data) |
 | `_data/funders.json` | Funding logos on the home page (not part of the CV data) |
 | `_includes/pub.html`, `_includes/talk.html` | How one publication or talk row is rendered |
@@ -37,7 +38,7 @@ The page reloads on refresh after edits; restart the server after changing `_con
 
 ## Update publications, talks, and CV data
 
-Everything on the site that describes you comes from the CV data, except the photo, the GitHub link, the research interests, the research highlights, the funding logos, and the page and section texts. `scripts/update_pubs.py` needs only Python 3.8 or later. Run it from the repository root, check the diff, and commit.
+Everything on the site that describes you comes from the CV data, except the photo, the GitHub link, the home page statement, the research interests, the research highlights, the funding logos, and the page and section texts. `scripts/update_pubs.py` needs only Python 3.8 or later. Run it from the repository root, check the diff, and commit.
 
 ```sh
 python3 scripts/update_pubs.py --cv ../resume/data # everything from the CV data folder
@@ -57,7 +58,7 @@ Do not copy the CV's `talks.json` or `publications_inspire.json` into `_data/` d
 
 | CV file | Used for |
 | --- | --- |
-| `profile.json` | Name, position line, email, INSPIRE, ORCID, Google Scholar, your name in author lists (`author_name`), the research summary (research page) and its first two sentences (home page) |
+| `profile.json` | Name, position line, email, INSPIRE, ORCID, Google Scholar, your name in author lists (`author_name`), the research summary (research page) and its first two sentences (home page, when `statement` in `_config.yml` is empty) |
 | `appointments.json` | Appointments on the home and CV pages |
 | `awards.json` | CV awards; those with `"highlight": true` are the home page's honors (`hidden` entries are left out everywhere) |
 | `funding.json`, `computing.json` | CV funding and computing grants (the home page shows the logos in `_data/funders.json` instead) |
