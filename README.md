@@ -8,15 +8,16 @@ Design C, "Quiet modern": one layout (`_layouts/default.html`), one stylesheet (
 
 | Path | What it holds |
 | --- | --- |
-| `_config.yml` | Title, description, name as it appears in author lists, position line, photo path, and profile links (email, INSPIRE, ORCID, Google Scholar, GitHub) |
+| `_config.yml` | Title and description for search results, photo path, and GitHub link (everything else about you comes from the CV data) |
 | `_data/nav.yml` | Top bar navigation |
 | `_data/publications.json` | Publications; entries with `"selected": true` also appear on the home page |
 | `_data/talks.json` | Talks and posters |
-| `_data/appointments.json`, `awards.json`, `computing.json`, `education.json`, `funding.json`, `lectures.json`, `students.json` | Copies of the CV data (repository `cheshyre/resume`), used by the home, CV, and teaching pages |
+| `_data/appointments.json`, `awards.json`, `computing.json`, `education.json`, `funding.json`, `lectures.json`, `profile.json`, `students.json` | Copies of the CV data (repository `cheshyre/resume`), used by every page |
+| `_data/derived.json` | Research summary in the first person and its first two sentences, written by the script from `profile.json` |
 | `_includes/pub.html`, `_includes/talk.html` | How one publication or talk row is rendered |
 | `_includes/when.html`, `_includes/thousands.html` | Small helpers: years of a CV item, and numbers with thousands separators |
 | `index.md`, `research.md`, `publications.md`, `cv.md`, `teaching.md` | The five pages |
-| `assets/cv.pdf` | The CV download |
+| `assets/cv.pdf` | The CV download (copied by the script from `cv_public.pdf`) |
 | `assets/img/` | The portrait photo |
 | `scripts/update_pubs.py` | Regenerates the data files from INSPIRE or from the CV data (not published) |
 
@@ -33,20 +34,42 @@ The page reloads on refresh after edits; restart the server after changing `_con
 
 ## Update publications, talks, and CV data
 
-`scripts/update_pubs.py` needs only Python 3.8 or later. Run it from the repository root, check the diff, and commit.
+Everything on the site that describes you comes from the CV data, except the photo, the GitHub link, the research highlights, and the page and section texts. `scripts/update_pubs.py` needs only Python 3.8 or later. Run it from the repository root, check the diff, and commit.
 
 ```sh
-python3 scripts/update_pubs.py                     # publications from INSPIRE (profile 1817590)
 python3 scripts/update_pubs.py --cv ../resume/data # everything from the CV data folder
+python3 scripts/update_pubs.py                     # only publications, from INSPIRE
 python3 scripts/update_pubs.py --dry-run           # report what would change, write nothing
 ```
 
-- **INSPIRE mode** rewrites `_data/publications.json` from the INSPIRE records. Titles already in the file are kept, because INSPIRE often has the arXiv title in Title Case; the script reports titles that differ by more than capitalization.
-- **CV mode** (`--cv DIR`) converts `DIR/publications_inspire.json` and `DIR/talks.json`, and copies the other CV files listed above unchanged. The CV's `selected` flags and titles are used. Point it at the folder that holds the CV's JSON files.
+- **CV mode** (`--cv DIR`) converts `publications_inspire.json` and `talks.json`, copies the other JSON files and `cv_public.pdf` (as `assets/cv.pdf`), and writes `_data/derived.json` from `profile.json`. Point it at the folder that holds the CV's JSON files.
+- **INSPIRE mode** rewrites `_data/publications.json` from the INSPIRE profile linked in `_data/profile.json`. Titles already in the file are kept, because INSPIRE often has the arXiv title in Title Case; the script reports titles that differ by more than capitalization.
 
 Either way, the script keeps what you set by hand in `_data/publications.json`: `selected` (INSPIRE mode), `hidden`, `note`, `keep`, and any field the source leaves empty (e.g., the journal of a paper in press). For talks it keeps `slides` and `hidden`. Entries the source does not have are kept and reported.
 
 Do not copy the CV's `talks.json` or `publications_inspire.json` into `_data/` directly: the site uses different field names, which the script converts.
+
+### What the site reads from each CV file
+
+| CV file | Used for |
+| --- | --- |
+| `profile.json` | Name, position line, email, INSPIRE, ORCID, Google Scholar, your name in author lists (`author_name`), the research summary (research page) and its first two sentences (home page) |
+| `appointments.json` | CV positions; the most recent finished appointment is the "Previously" line on the home page |
+| `awards.json` | CV awards; the first four visible ones are the home page's honors (`hidden` entries are left out) |
+| `funding.json`, `computing.json` | CV funding and computing grants; current entries also on the home page |
+| `education.json` | CV education |
+| `lectures.json`, `students.json` | Teaching page |
+| `publications_inspire.json` | Publications page and the home page's selected publications |
+| `talks.json` | Talks on the publications page |
+| `cv_public.pdf` | The CV download |
+
+### Optional fields the script and pages already understand
+
+Add these to the CV data to replace the remaining hand-kept parts:
+
+- `profile.json`: `research_summary_first_person` (used as is instead of the automatic conversion of `research_summary`), `interests` (a list of `{"title": ..., "text": ...}`, shown as the home page's research interests instead of the drafts), and `links.github`.
+- `publications_inspire.json`, per entry: `journal` for papers in press (shown as "(in press)" while volume and pages are empty), `notes` (a list of strings or `{"label": ..., "text": ..., "url": ...}`, e.g., `{"label": "Press release", "text": "How large is a carbon nucleus?", "url": "https://..."}`), `hidden`, and, for a contribution to a collection, its own `title_text` and `authors` (then delete the `keep` list of that entry in `_data/publications.json`).
+- `talks.json`, per talk: `slides` (URL) and `hidden`.
 
 ## Publication entries
 
@@ -67,7 +90,7 @@ Do not copy the CV's `talks.json` or `publications_inspire.json` into `_data/` d
 ```
 
 - `title` may contain `<sup>`, `<sub>`, and `<i>` for formulas (e.g., `<sup>48</sup>Ca`); the script writes them from INSPIRE's LaTeX.
-- `authors`: your own name, written exactly as `author.short_name` in `_config.yml` (`M. Heinz`), is set in bold. Lists of more than 10 authors show the first five, your name, and "et al."
+- `authors`: your own name, written exactly as `author_name` in `_data/profile.json` (`M. Heinz`), is set in bold. Lists of more than 10 authors show the first five, your name, and "et al."
 - `journal`, `volume`, `pages`: a journal without volume and pages is shown as "(in press)"; no journal shows "Preprint".
 - `doi` and `arxiv` are the bare identifiers; the links are built from them. Every article gets both where available.
 - `type`: `article`, `proceedings`, or `thesis`. Theses get their own section and may have `school`.
@@ -94,9 +117,8 @@ The file is sorted newest year first, preprints and papers in press first within
 
 ## Update the CV
 
-1. Replace `assets/cv.pdf` with the new PDF (keep the file name so the link stays the same).
-2. Run `python3 scripts/update_pubs.py --cv DIR` to refresh the lists on the home, CV, teaching, and publications pages.
-3. Commit and push to `main`; GitHub Pages rebuilds within a minute or two.
+1. Run `python3 scripts/update_pubs.py --cv DIR`; it copies the new `cv_public.pdf` to `assets/cv.pdf` and refreshes every page's data.
+2. Commit and push to `main`; GitHub Pages rebuilds within a minute or two.
 
 ## Writing conventions
 

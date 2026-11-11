@@ -2,12 +2,12 @@
   One publication row. Usage: {% include pub.html pub=p %}; add hide_year=true to leave the
   year column empty (the publications page shows each year once).
   Fields (see README.md): title, authors, journal, volume, pages, year, doi, arxiv, type,
-  selected; optional school (theses) and note. Your own name (author.short_name in _config.yml)
+  selected; optional school (theses) and note. Your own name (author_name in _data/profile.json)
   is set in bold. Lists of more than 10 authors show the first five, your name, and "et al."
   A journal without volume and pages is shown as "(in press)".
 {%- endcomment -%}
 {%- assign p = include.pub -%}
-{%- assign me = site.author.short_name -%}
+{%- assign me = site.data.profile.author_name | default: site.author.short_name -%}
 {%- assign n = p.authors | size -%}
 {%- capture authors -%}
   {%- if n > 10 -%}

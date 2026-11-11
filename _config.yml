@@ -1,8 +1,8 @@
 # Site settings. Restart `bundle exec jekyll serve` after editing this file.
+# title, description, and author.name are used for page titles and search results; Jekyll
+# cannot read them from _data, so they are copied by hand from _data/profile.json.
 title: Matthias Heinz
-description: >-
-  Matthias Heinz, nuclear theorist. Ab initio calculations of atomic nuclei
-  with the in-medium similarity renormalization group.
+description: Matthias Heinz researches the theoretical description of atomic nuclei.
 url: https://matthiasheinz.com
 baseurl: ""
 lang: en
@@ -10,20 +10,12 @@ timezone: Asia/Tokyo
 
 author:
   name: Matthias Heinz
-  # Your name as it appears in author lists in _data/publications.json; set in bold there.
-  short_name: M. Heinz
-  position: Research Scientist, RIKEN Nishina Center
-  # Shown under the position as "Previously ..."; delete the line to hide it.
-  previously: Eugene P. Wigner Fellow, Oak Ridge National Laboratory
 
-# Home page profile. Leave a value empty ("") to hide that link.
-# The photo goes in assets/img/ (square, at least 352 x 352 px).
+# Name, position, email, INSPIRE, ORCID, and Google Scholar come from _data/profile.json.
+# Not in the CV data: the photo (assets/img/, square, at least 352 x 352 px) and GitHub.
+# Leave a value empty ("") to hide it.
 photo: /assets/img/portrait.jpg
 links:
-  email: matthias.heinz@riken.jp
-  inspire: "https://inspirehep.net/authors/1817590?ui-citation-summary=true"
-  orcid: https://orcid.org/0000-0002-6363-0056
-  scholar: "https://scholar.google.com/citations?user=sGGqLqsAAAAJ&hl=en"
   github: https://github.com/cheshyre
 
 # Only plugins supported by the github-pages gem.

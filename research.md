@@ -3,10 +3,14 @@ layout: default
 title: Research
 permalink: /research/
 ---
+{%- comment -%}
+The summary is research_summary from the CV's profile.json, in the first person;
+scripts/update_pubs.py writes it to _data/derived.json. The highlights are written here by hand.
+{%- endcomment -%}
 
 # Research highlights
 
-I research the theoretical description of atomic nuclei. My specific interests are in understanding nuclear forces, simulating how the structure and dynamics of nuclei emerge from nuclear forces, and predicting how the structure of nuclei impacts fundamental processes in nature, including the synthesis of heavy elements and possible new physics processes beyond the standard model. I employ effective field theories, ab initio quantum many-body methods, Bayesian statistics, and emulators based on machine learning techniques in my research. I am also exploring how quantum computing can accelerate quantum many-body simulations.
+<p>{{ site.data.derived.research_summary | escape }}</p>
 
 ## [Highlight 1 title]
 

@@ -3,30 +3,41 @@ layout: default
 title: Home
 ---
 {%- comment -%}
-Home page. Position, profile links, and the photo are set in _config.yml.
-Selected publications are the entries in _data/publications.json with "selected": true, in file order.
-Honors are the first four visible entries of _data/awards.json; Funding lists the current entries of
-_data/funding.json and _data/computing.json (those ending this year or later, or ongoing).
+Home page, built from the CV data in _data (see README.md):
+  name, position, email, INSPIRE, ORCID, Google Scholar: profile.json
+  "Previously" line: the most recent appointment in appointments.json that has an end year
+  statement: first two sentences of the research summary (derived.json, from profile.json)
+  research interests: "interests" in profile.json if present, else the drafts below
+  selected publications: publications.json entries with "selected": true, in file order
+  honors: the first four visible entries of awards.json
+  funding: entries of funding.json and computing.json that end this year or later, or are ongoing
+Set in _config.yml: the photo and the GitHub link (not in the CV data).
 HTML here is kept flush left so Markdown does not turn indented lines into code blocks.
 {%- endcomment -%}
+{%- assign profile = site.data.profile -%}
+{%- assign name = profile.name | default: site.author.name -%}
+{%- assign current = site.data.appointments | where_exp: "a", "a.end == nil" | first -%}
+{%- assign previous = site.data.appointments | where_exp: "a", "a.end != nil" | first -%}
 <section class="hero">
 <div class="hero-text">
-<h1>{{ site.author.name }}</h1>
-<p class="position">{{ site.author.position }}</p>
-{%- if site.author.previously %}
-<p class="previously">Previously {{ site.author.previously }}</p>
+<h1>{{ name }}</h1>
+<p class="position">{{ profile.position }}, {{ profile.institution }}</p>
+{%- if current and previous %}
+<p class="previously">Previously {{ previous.title }}, {{ previous.institution }}</p>
 {%- endif %}
-<p class="statement">I compute the structure of atomic nuclei from nuclear forces, developing the in-medium similarity renormalization group to make ab initio predictions more precise and to quantify their uncertainties.</p>
+<p class="statement">{{ site.data.derived.research_statement | escape }}</p>
 <p class="links">
-{%- if site.links.email != "" %}<a href="mailto:{{ site.links.email }}">Email</a>{% else %}<span class="placeholder">[email]</span>{% endif -%}
-{%- if site.links.inspire != "" %}<a href="{{ site.links.inspire }}">INSPIRE</a>{% else %}<span class="placeholder">[INSPIRE link]</span>{% endif -%}
-{%- if site.links.orcid != "" %}<a href="{{ site.links.orcid }}">ORCID</a>{% else %}<span class="placeholder">[ORCID link]</span>{% endif -%}
-{%- if site.links.scholar and site.links.scholar != "" %}<a href="{{ site.links.scholar }}">Google Scholar</a>{% endif -%}
-{%- if site.links.github != "" %}<a href="{{ site.links.github }}">GitHub</a>{% endif -%}
+{%- assign email = profile.emails | first -%}
+{%- assign github = profile.links.github | default: site.links.github -%}
+{%- if email %}<a href="mailto:{{ email }}">Email</a>{% endif -%}
+{%- if profile.links.inspire %}<a href="{{ profile.links.inspire }}">INSPIRE</a>{% endif -%}
+{%- if profile.orcid %}<a href="https://orcid.org/{{ profile.orcid }}">ORCID</a>{% endif -%}
+{%- if profile.links.google_scholar %}<a href="{{ profile.links.google_scholar }}">Google Scholar</a>{% endif -%}
+{%- if github and github != "" %}<a href="{{ github }}">GitHub</a>{% endif -%}
 </p>
 </div>
 {%- if site.photo != "" %}
-<img class="photo" src="{{ site.photo | relative_url }}" alt="Portrait of {{ site.author.name }}" width="176" height="176">
+<img class="photo" src="{{ site.photo | relative_url }}" alt="Portrait of {{ name }}" width="176" height="176">
 {%- else %}
 <div class="photo" role="img" aria-label="Portrait placeholder">[Photo]</div>
 {%- endif %}
@@ -35,10 +46,16 @@ HTML here is kept flush left so Markdown does not turn indented lines into code 
 <section class="section">
 <h2 class="label">Research interests</h2>
 <div class="grid-2">
+{%- if profile.interests %}
+{%- for i in profile.interests %}
+<div><p class="item-title">{{ i.title | default: i }}</p>{% if i.text %}<p class="item-text">{{ i.text }}</p>{% endif %}</div>
+{%- endfor %}
+{%- else %}
 <div><p class="item-title">Precision many-body methods</p><p class="item-text">IMSRG(3) and controlled estimates of many-body uncertainties.</p></div>
 <div><p class="item-title">Heavy and neutron-rich nuclei</p><p class="item-text">Shell structure, charge radii, and neutron skins.</p></div>
 <div><p class="item-title">Physics beyond the Standard Model</p><p class="item-text">Nuclear matrix elements for dark matter and symmetry tests.</p></div>
 <div><p class="item-title">Computing for nuclear theory</p><p class="item-text">Quantum algorithms and GPU-scale simulations.</p></div>
+{%- endif %}
 </div>
 </section>
 

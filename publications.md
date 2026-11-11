@@ -11,7 +11,7 @@ _data/talks.json (both newest first; scripts/update_pubs.py keeps them sorted). 
 
 # Publications and talks
 
-My publications are also listed, with citation counts, on [INSPIRE]({{ site.links.inspire }}) and [Google Scholar]({{ site.links.scholar }}).
+My publications are also listed, with citation counts, on [INSPIRE]({{ site.data.profile.links.inspire }}) and [Google Scholar]({{ site.data.profile.links.google_scholar }}).
 
 {% assign shown = site.data.publications | where_exp: "p", "p.hidden != true" -%}
 {%- assign articles = shown | where_exp: "p", "p.type != 'thesis'" -%}

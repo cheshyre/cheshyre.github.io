@@ -1,32 +1,40 @@
 #!/usr/bin/env python3
-"""Regenerate the site's publication and talk data.
+"""Regenerate the site's data from the CV data or from INSPIRE-HEP.
 
 Run from the repository root:
 
-    python3 scripts/update_pubs.py              # publications from the INSPIRE-HEP API
     python3 scripts/update_pubs.py --cv DIR     # everything from the CV data folder DIR
+    python3 scripts/update_pubs.py              # only publications, from the INSPIRE-HEP API
     python3 scripts/update_pubs.py --dry-run    # report what would change, write nothing
-
-INSPIRE mode rewrites _data/publications.json from the author's INSPIRE records.
 
 CV mode (--cv DIR) reads the JSON data of the CV (repository cheshyre/resume):
     DIR/publications_inspire.json  ->  _data/publications.json  (converted)
     DIR/talks.json                 ->  _data/talks.json         (converted)
+    DIR/profile.json               ->  _data/derived.json       (research summary in the first
+                                                                 person, and its first two
+                                                                 sentences for the home page)
     DIR/<name>.json                ->  _data/<name>.json        (copied unchanged, for the
-                                       names in COPIED_FILES below)
+                                                                 names in COPIED_FILES below)
+    DIR/cv_public.pdf              ->  assets/cv.pdf            (copied)
+
+INSPIRE mode rewrites _data/publications.json from the INSPIRE records of the profile linked in
+_data/profile.json (links.inspire).
 
 Kept from the current _data/publications.json, entry by entry (matched by INSPIRE record id,
 then DOI, then arXiv id):
     selected  shown on the home page (in CV mode the CV's own flags are used instead)
-    hidden    true to leave the entry off the site
-    note      one line under the entry; HTML allowed, e.g., a press-release link
+    hidden    true to leave the entry off the site (or set "hidden" in the CV export)
+    note      one line under the entry; HTML allowed (replaced by "notes" from the CV export,
+              when it has them)
     keep      list of field names this script must not change, e.g., ["title", "authors"]
     title     INSPIRE mode only, because INSPIRE often has the arXiv title in Title Case;
               the script reports titles that differ by more than capitalization
 Fields the source leaves empty keep their current value, so a journal added by hand for a
 paper in press stays until the source has it. Entries the source does not have (added by
 hand) are kept and reported. From the current _data/talks.json, "slides" and "hidden" are
-kept for talks with the same date and title.
+kept for talks with the same date, title, and event, unless the CV export has them.
+
+Your name in author lists (set in bold) is "author_name" in profile.json.
 
 Standard library only; Python 3.8 or later.
 """
@@ -46,16 +54,22 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PUBS_FILE = ROOT / "_data" / "publications.json"
 TALKS_FILE = ROOT / "_data" / "talks.json"
+PROFILE_FILE = ROOT / "_data" / "profile.json"
+DERIVED_FILE = ROOT / "_data" / "derived.json"
+PDF_FILE = ROOT / "assets" / "cv.pdf"
 
-INSPIRE_API = "https://inspirehep.net/api/literature"
-INSPIRE_AUTHOR = "Matthias.Heinz.1"  # INSPIRE author identifier (BAI) of the profile
-INSPIRE_RECID = 1817590              # https://inspirehep.net/authors/1817590
-OWN_NAME = "M. Heinz"                # must equal author.short_name in _config.yml (shown in bold)
+INSPIRE_API = "https://inspirehep.net/api"
+# Used only when _data/profile.json does not say otherwise (links.inspire and author_name).
+INSPIRE_RECID = 1817590
+INSPIRE_AUTHOR = "Matthias.Heinz.1"  # INSPIRE author identifier (BAI)
+OWN_NAME = "M. Heinz"
 
 CV_PUBS = "publications_inspire.json"
 CV_TALKS = "talks.json"
+CV_PROFILE = "profile.json"
+CV_PDF = "cv_public.pdf"
 COPIED_FILES = ["appointments", "awards", "computing", "education", "funding",
-                "lectures", "students"]
+                "lectures", "profile", "students"]
 
 # Full journal names, keyed by INSPIRE's abbreviation (matched ignoring case, spaces, and dots).
 JOURNALS = {
@@ -231,6 +245,87 @@ def title_to_html(title):
     return text
 
 
+def notes_html(notes):
+    """CV export notes -> one HTML line. Each note is a string or
+    {"label": "Press release", "text": "How large is a carbon nucleus?", "url": "https://..."}."""
+    if not notes:
+        return None
+    if isinstance(notes, (str, dict)):
+        notes = [notes]
+    parts = []
+    for n in notes:
+        if isinstance(n, str):
+            n = {"text": n}
+        text = html.escape(latex_to_unicode(n.get("text", "")).strip(), quote=False)
+        if n.get("url"):
+            link = '<a href="%s">%s</a>' % (html.escape(n["url"]), text)
+            text = "“%s”" % link if n.get("label") else link
+        if n.get("label"):
+            text = "%s: %s" % (html.escape(n["label"], quote=False), text)
+        parts.append(text)
+    return " · ".join(parts)
+
+
+# --- Research summary in the first person ----------------------------------------------------
+
+IRREGULAR_VERBS = {"is": "am", "has": "have", "does": "do", "was": "was", "goes": "go",
+                   "focuses": "focus"}
+ADVERBS = ["also", "currently", "now", "mainly", "primarily", "often", "additionally",
+           "further", "recently", "especially", "increasingly"]
+
+
+def _first_person_verb(verb):
+    low = verb.lower()
+    if low in IRREGULAR_VERBS:
+        return IRREGULAR_VERBS[low]
+    if re.search(r"(ss|sh|ch|x|z|o)es$", low):
+        return verb[:-2]
+    if low.endswith("ies") and len(low) > 4:
+        return verb[:-3] + "y"
+    if low.endswith("s") and not low.endswith("ss"):
+        return verb[:-1]
+    return verb
+
+
+def first_person(text, name):
+    """'Matthias Heinz researches ... His ... Matthias is also ...' -> 'I research ... My ...
+    I am also ...'. Simple rules for a third-person summary; check the result after edits."""
+    names = "|".join(re.escape(n) for n in (name, name.split()[0]) if n)
+    text = re.sub(r"\b(?:%s)(?:['’]s\b|['’](?!\w))" % names, "my", text)
+    text = re.sub(r"\b(?:%s|He|he)\b\s+((?:(?:%s)\s+)?)([A-Za-z]+)" % (names, "|".join(ADVERBS)),
+                  lambda m: "I " + m.group(1) + _first_person_verb(m.group(2)), text)
+    for old, new in (("himself", "myself"), ("his", "my"), ("him", "me")):
+        text = re.sub(r"\b%s\b" % old, new, text)
+        text = re.sub(r"\b%s\b" % old.capitalize(), new.capitalize(), text)
+    return re.sub(r"(^|[.!?]\s+)my\b", lambda m: m.group(1) + "My", text)
+
+
+def derive_text(profile):
+    """Texts for the research and home pages, from profile.json."""
+    summary = profile.get("research_summary_first_person")
+    if not summary and profile.get("research_summary") and profile.get("name"):
+        summary = first_person(profile["research_summary"], profile["name"])
+        left = re.findall(r"\b(?:%s|he|his|him|himself)\b" % "|".join(
+            re.escape(n) for n in profile["name"].split()), summary, re.I)
+        if left:
+            print("warning: the first-person research summary still contains %s; add "
+                  "research_summary_first_person to profile.json" % ", ".join(sorted(set(left))))
+    if not summary:
+        return {}
+    sentences = re.split(r"(?<=[.!?])\s+(?=[A-Z])", summary.strip())
+    return {"research_summary": summary.strip(), "research_statement": " ".join(sentences[:2])}
+
+
+def set_identity(profile):
+    """Own name (author_name) and INSPIRE profile (links.inspire) from profile.json."""
+    global OWN_NAME, INSPIRE_RECID
+    if profile.get("author_name"):
+        OWN_NAME = profile["author_name"]
+    m = re.search(r"/authors/(\d+)", (profile.get("links") or {}).get("inspire") or "")
+    if m:
+        INSPIRE_RECID = int(m.group(1))
+
+
 def plain(text):
     """Comparison key: title without tags, case, punctuation, or spacing."""
     text = re.sub(r"<[^>]+>", "", html.unescape(text or ""))
@@ -302,13 +397,22 @@ def fetch_json(url):
         return json.load(response)
 
 
+def inspire_bai(recid):
+    """INSPIRE author identifier (BAI) of the profile, e.g., Matthias.Heinz.1."""
+    try:
+        ids = fetch_json("%s/authors/%d" % (INSPIRE_API, recid))["metadata"].get("ids", [])
+        return next(i["value"] for i in ids if i.get("schema") == "INSPIRE BAI")
+    except Exception:  # network or format problem: fall back to the constant above
+        return INSPIRE_AUTHOR
+
+
 def records_from_inspire():
     fields = ["control_number", "titles", "authors.full_name", "authors.record", "dois",
               "arxiv_eprints", "document_type", "publication_info", "imprints",
               "preprint_date", "earliest_date", "thesis_info"]
-    query = {"q": "a " + INSPIRE_AUTHOR, "size": "250", "sort": "mostrecent",
+    query = {"q": "a " + inspire_bai(INSPIRE_RECID), "size": "250", "sort": "mostrecent",
              "fields": ",".join(fields)}
-    url = INSPIRE_API + "?" + urllib.parse.urlencode(query)
+    url = INSPIRE_API + "/literature?" + urllib.parse.urlencode(query)
     records = []
     while url:
         data = fetch_json(url)
@@ -383,6 +487,8 @@ def record_from_cv(p):
         "school": INSTITUTIONS.get(school, school) if school else None,
         "date": p.get("date") or "",
         "selected": bool(p["selected"]) if "selected" in p else None,
+        "note": notes_html(p.get("notes")) or p.get("note"),
+        "hidden": True if p.get("hidden") else None,
     }
 
 
@@ -402,6 +508,9 @@ def entry_from_record(r):
     if r["type"] == "thesis" and r.get("school"):
         e["school"] = r["school"]
     e["selected"] = r.get("selected")  # None: the source has no flags; keep the file's
+    for k in ("note", "hidden"):  # only the CV export has these
+        if r.get(k):
+            e[k] = r[k]
     e["inspire"] = r["recid"]
     e["_date"] = r.get("date") or ""
     return e
@@ -426,7 +535,7 @@ def merge_pubs(new, old, cv_mode):
             continue
         used.add(id(o))
         for k in ("hidden", "note", "keep"):
-            if k in o:
+            if k in o and k not in e:  # the CV export's note and hidden flag win
                 e[k] = o[k]
         if e["selected"] is None:
             e["selected"] = bool(o.get("selected"))
@@ -480,12 +589,16 @@ def talks_from_cv(cv_talks, old):
             e["virtual"] = True
         if t.get("award"):
             e["award"] = t["award"]
+        if t.get("slides"):
+            e["slides"] = t["slides"]
+        if t.get("hidden"):
+            e["hidden"] = True
         matches = old_by_key.get(match_key(e))
         o = matches.pop(0) if matches else None
         if o is None and old:
             report.append("new talk: %s (%s)" % (plain_title(e), e["date"]))
         for k in ("slides", "hidden"):
-            if o and k in o:
+            if o and k in o and k not in e:  # the CV export's values win
                 e[k] = o[k]
         out.append(ordered(e, TALK_KEYS))
     for rest in old_by_key.values():
@@ -519,19 +632,30 @@ def dumps(entries):
     return "\n".join(lines) + "\n"
 
 
-def load(path):
-    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+def load(path, empty=None):
+    if path.exists():
+        return json.loads(path.read_text(encoding="utf-8"))
+    return [] if empty is None else empty
 
 
-def save(path, entries, dry_run):
-    text = dumps(entries)
+def save(path, entries, dry_run, text=None):
+    text = text if text is not None else dumps(entries)
+    what = "%d entries" % len(entries)
     if path.exists() and path.read_text(encoding="utf-8") == text:
-        print("%s: unchanged (%d entries)" % (path.relative_to(ROOT), len(entries)))
+        print("%s: unchanged (%s)" % (path.relative_to(ROOT), what))
     elif dry_run:
-        print("%s: would write %d entries" % (path.relative_to(ROOT), len(entries)))
+        print("%s: would write %s" % (path.relative_to(ROOT), what))
     else:
         path.write_text(text, encoding="utf-8")
-        print("%s: wrote %d entries" % (path.relative_to(ROOT), len(entries)))
+        print("%s: wrote %s" % (path.relative_to(ROOT), what))
+
+
+def copy_file(src, dst, dry_run):
+    if not src.exists() or (dst.exists() and dst.read_bytes() == src.read_bytes()):
+        return
+    print("%s: %s" % (dst.relative_to(ROOT), "would copy" if dry_run else "copied"))
+    if not dry_run:
+        shutil.copyfile(src, dst)
 
 
 def main(argv=None):
@@ -540,6 +664,10 @@ def main(argv=None):
                     help="read the CV data folder instead of the INSPIRE API")
     ap.add_argument("--dry-run", action="store_true", help="report changes, write nothing")
     args = ap.parse_args(argv)
+
+    profile_path = args.cv / CV_PROFILE if args.cv else PROFILE_FILE
+    profile = load(profile_path, empty={})
+    set_identity(profile)
 
     if args.cv:
         cv = json.loads((args.cv / CV_PUBS).read_text(encoding="utf-8"))
@@ -565,14 +693,14 @@ def main(argv=None):
             save(TALKS_FILE, talks, args.dry_run)
         for name in COPIED_FILES:
             src, dst = args.cv / (name + ".json"), ROOT / "_data" / (name + ".json")
-            if not src.exists():
-                continue
-            json.loads(src.read_text(encoding="utf-8"))  # stop here if it is not valid JSON
-            if dst.exists() and dst.read_bytes() == src.read_bytes():
-                continue
-            print("%s: %s" % (dst.relative_to(ROOT), "would copy" if args.dry_run else "copied"))
-            if not args.dry_run:
-                shutil.copyfile(src, dst)
+            if src.exists():
+                json.loads(src.read_text(encoding="utf-8"))  # stop here if it is not valid JSON
+                copy_file(src, dst, args.dry_run)
+        derived = derive_text(profile)
+        if derived:
+            text = json.dumps(derived, ensure_ascii=False, indent=2) + "\n"
+            save(DERIVED_FILE, derived, args.dry_run, text=text)
+        copy_file(args.cv / CV_PDF, PDF_FILE, args.dry_run)
 
 
 if __name__ == "__main__":
