@@ -1,0 +1,30 @@
+{%- comment -%}
+  One research highlight. Usage: {% include highlight.html highlight=h %}
+  Fields (see README.md): title, text, papers, and optionally figure and alt.
+  papers: identifiers of entries in _data/publications.json (INSPIRE record id, DOI, or arXiv
+  id); each is looked up there and shown as a publication row, so paper details are never
+  retyped. An identifier with no entry is shown as a bracketed note, so the gap is visible.
+  title and text may contain <sup>, <sub>, and <i>; text may also contain links. Without a
+  figure (the current entries have none), the text takes the full width.
+{%- endcomment -%}
+{%- assign hl = include.highlight -%}
+<article class="highlight{% unless hl.figure %} no-figure{% endunless %}">
+<h2 class="highlight-title">{{ hl.title }}</h2>
+{%- if hl.figure %}
+<figure class="highlight-figure"><img src="{{ hl.figure | relative_url }}" alt="{{ hl.alt | escape }}" loading="lazy"></figure>
+{%- endif %}
+<p class="highlight-text">{{ hl.text }}</p>
+<div class="highlight-refs">
+{%- for id in hl.papers %}
+{%- assign key = id | append: "" %}
+{%- assign paper = site.data.publications | where: "inspire", key | first %}
+{%- unless paper %}{% assign paper = site.data.publications | where: "doi", key | first %}{% endunless %}
+{%- unless paper %}{% assign paper = site.data.publications | where: "arxiv", key | first %}{% endunless %}
+{%- if paper %}
+{% include pub.html pub=paper %}
+{%- else %}
+<p class="pub-title placeholder">[No entry in _data/publications.json for {{ key }}]</p>
+{%- endif %}
+{%- endfor %}
+</div>
+</article>

@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Neutron skins from parity-violating electron scattering",
+    "text": "We perform the first ab initio calculations of the parity-violating asymmetries measured by CREX for <sup>48</sup>Ca and PREX-II for <sup>208</sup>Pb and find only a mild global tension of 1.9σ with experiment. Using consistent charge and weak densities, we infer from the measured asymmetry a neutron skin of <sup>208</sup>Pb of <span class=\"nowrap\">0.187(25)(18) fm</span>, substantially smaller than the PREX-II result, which suggests that the tension between the two experiments was overstated.",
+    "papers": [3172517]
+  },
+  {
+    "title": "Saturation of nuclei on the lattice",
+    "text": "We test whether lattice Hamiltonians with purely attractive two- and three-nucleon interactions saturate. Using Hartree-Fock calculations, we find that two-body Hamiltonians do not saturate properly and that earlier auxiliary-field Monte Carlo simulations did not solve them accurately. An attractive three-body force gives a nearly constant binding energy per nucleon, but this saturation comes from the kinetic energy of nucleons densely packed on the lattice rather than from repulsion: it is a lattice artifact.",
+    "papers": [3167501]
+  },
+  {
+    "title": "Uncertainties for low-resolution nuclear forces",
+    "text": "Low-resolution Hamiltonians such as <span class=\"nowrap\">1.8/2.0 (EM)</span> have been very successful in nuclear structure theory, but their effective field theory (EFT) truncation uncertainties are difficult to quantify, because the renormalization group evolution removes their explicit operator structure. We recover an operator basis from singular value decompositions, which makes Bayesian inference possible and lets us propagate EFT uncertainties to nuclei such as <sup>24,28</sup>O and <sup>48</sup>Ca.",
+    "papers": [2974290]
+  },
+  {
+    "title": "Ab initio computations of nuclei on a laptop",
+    "text": "NuLattice is a Python package for ab initio computations of nuclei on spatial lattices, with Hartree-Fock, coupled-cluster, in-medium similarity renormalization group, and full configuration interaction solvers. Its algorithms exploit the sparsity and locality of lattice interactions, so that computations can run on a laptop, which could make ab initio computations accessible to students and educators. The code is available on <a href=\"https://github.com/NuLattice/NuLattice\">GitHub</a>.",
+    "papers": [2968608]
+  },
+  {
+    "title": "Scalable quantum computations of nuclei on lattices",
+    "text": "On a position-space lattice, nuclear interactions are local, and the number of Pauli terms in the Hamiltonian grows only linearly with the number of lattice sites. Using an adaptive variational ansatz, our quantum simulations reproduce exact benchmarks for <sup>2</sup>H and <sup>3</sup>He within <span class=\"nowrap\">100 keV</span> at modest circuit depths, a scalable route to initial states for quantum phase estimation.",
+    "papers": [2952170]
+  },
+  {
+    "title": "Quantified nuclear structure for μ→e conversion",
+    "text": "Interpreting searches for μ→e conversion, such as Mu2e and COMET, requires nuclear responses, and those coupling to neutrons are not directly constrained by experiment. We combine ab initio calculations with charge distributions from electron scattering, exploiting strong correlations among charge, point-proton, and point-neutron densities, and provide overlap integrals for <sup>27</sup>Al, <sup>48</sup>Ca, and <sup>48</sup>Ti with full covariance matrices. This allows, for the first time, a comprehensive treatment of nuclear structure uncertainties in these searches.",
+    "papers": [2856799]
+  },
+  {
+    "title": "Three-body operators and the structure of calcium isotopes",
+    "text": "We revisit <sup>44,48,52</sup>Ca with the IMSRG(3)-N7, an approximation of the in-medium similarity renormalization group (IMSRG) that includes three-body operators. The improved many-body treatment brings the first 2<sup>+</sup> energy of <sup>48</sup>Ca, a signature of its doubly magic structure, into substantially better agreement with experiment, but it does not resolve the discrepancy for the charge radius difference between <sup>48</sup>Ca and <sup>52</sup>Ca. Based on the size extensivity of the method, we also estimate many-body uncertainties of IMSRG(2) calculations for other systems.",
+    "papers": [2851666]
+  },
+  {
+    "title": "New bosons and nuclear structure from ytterbium isotope shifts",
+    "text": "Precision measurements of mass ratios and isotope shifts in the five stable, spinless ytterbium isotopes make it possible to extract changes in the quartic charge radius along the isotope chain. Our ab initio calculations, the first microscopic description of ytterbium nuclei from chiral effective field theory, are remarkably consistent with the nearly flat experimental trend, and the King plot analysis sets bounds on new bosons coupling electrons and neutrons.",
+    "papers": [2767685]
+  },
+  {
+    "title": "The IMSRG with three-body operators",
+    "text": "The in-medium similarity renormalization group (IMSRG) is usually truncated at two-body operators, the IMSRG(2). We extend it to fully include three-body operators, the IMSRG(3), which improves on the IMSRG(2) in benchmarks against exact results for <sup>4</sup>He and <sup>16</sup>O. Truncations guided by a perturbative scaling analysis recover much of this improvement at lower computational cost, among them the IMSRG(3)-N7 that we later applied to calcium isotopes.",
+    "papers": [1847789]
+  }
+]
