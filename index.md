@@ -47,7 +47,7 @@ HTML here is kept flush left so Markdown does not turn indented lines into code 
 {%- endfor %}
 {%- else %}
 <div><p class="item-title">Precision many-body methods</p><p class="item-text">Scalable and systematically improvable ab initio calculations.</p></div>
-<div><p class="item-title">Heavy and neutron-rich nuclei</p><p class="item-text">Shell structure, charge radii, and neutron skins.</p></div>
+<div><p class="item-title">Heavy and neutron-rich nuclei</p><p class="item-text">Shell structure, charge radii, neutron skins, and the limits of stability.</p></div>
 <div><p class="item-title">Physics beyond the Standard Model</p><p class="item-text">Nuclear matrix elements for searches for new physics in atoms and nuclei.</p></div>
 <div><p class="item-title">Computing for nuclear theory</p><p class="item-text">Advanced computational technologies, including quantum computing and leadership computing.</p></div>
 {%- endif %}
