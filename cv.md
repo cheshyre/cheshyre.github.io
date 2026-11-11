@@ -12,19 +12,19 @@ computing.json (copies of the CV data; see README.md). assets/cv.pdf is the full
 
 [Download the full CV (PDF)]({{ '/assets/cv.pdf' | relative_url }})
 
-## Positions
-
-<ul class="dated wide">
-{%- for a in site.data.appointments %}
-<li><span class="year">{% include when.html item=a %}</span><span>{{ a.title }}, {{ a.institution }}</span></li>
-{%- endfor %}
-</ul>
-
 ## Education
 
 <ul class="dated wide">
 {%- for e in site.data.education %}
 <li><span class="year">{% include when.html item=e %}</span><span>{{ e.degree }}, {{ e.institution }}</span></li>
+{%- endfor %}
+</ul>
+
+## Appointments
+
+<ul class="dated wide">
+{%- for a in site.data.appointments %}
+<li><span class="year">{% include when.html item=a %}</span><span>{{ a.title }}, {{ a.institution }}</span></li>
 {%- endfor %}
 </ul>
 

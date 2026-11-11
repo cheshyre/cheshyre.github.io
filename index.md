@@ -9,6 +9,7 @@ Home page, built from the CV data in _data (see README.md):
   statement: first two sentences of the research summary (derived.json, from profile.json)
   research interests: "interests" in profile.json if present, else the drafts below
   selected publications: publications.json entries with "selected": true, in file order
+  education, appointments: education.json and appointments.json, in file order
   honors: entries of awards.json with "highlight": true, in file order
   funding: entries of funding.json and computing.json that end this year or later, or are ongoing
 Set in _config.yml: the photo and the GitHub link (not in the CV data).
@@ -71,6 +72,25 @@ HTML here is kept flush left so Markdown does not turn indented lines into code 
 {%- else %}
 <div class="pub"><span class="pub-year">[year]</span><div><p class="pub-title placeholder">[Selected publications appear here: entries in _data/publications.json with "selected": true]</p></div></div>
 {%- endfor %}
+</div>
+</section>
+
+<section class="split">
+<div>
+<h2 class="label">Education</h2>
+<ul class="dated wide">
+{%- for e in site.data.education %}
+<li><span class="year">{% include when.html item=e %}</span><span>{{ e.degree }}, {{ e.institution }}</span></li>
+{%- endfor %}
+</ul>
+</div>
+<div>
+<h2 class="label">Appointments</h2>
+<ul class="dated wide">
+{%- for a in site.data.appointments %}
+<li><span class="year">{% include when.html item=a %}</span><span>{{ a.title }}, {{ a.institution }}</span></li>
+{%- endfor %}
+</ul>
 </div>
 </section>
 

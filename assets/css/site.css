@@ -98,7 +98,7 @@ sup, sub { font-size: 0.75em; line-height: 0; }
 .pub-meta strong { font-weight: 600; color: var(--text); }
 .pub-links::before { content: " · "; }
 
-/* Honors and Funding side by side */
+/* Two lists side by side: Education and Appointments, Honors and Funding */
 .split { display: flex; flex-wrap: wrap; gap: 0 56px; }
 .split > div { flex: 1 1 360px; min-width: 0; }
 .split > div + div { flex-basis: 240px; }
