@@ -4,7 +4,8 @@
   papers: identifiers of entries in _data/publications.json (INSPIRE record id, DOI, or arXiv
   id); each is looked up there and shown as a publication row, so paper details are never
   retyped. An identifier with no entry is shown as a bracketed note, so the gap is visible.
-  title and text may contain <sup>, <sub>, and <i>. Without a figure, the text takes the full width.
+  title and text may contain <sup>, <sub>, and <i>; text may also contain links. Without a
+  figure (the current entries have none), the text takes the full width.
 {%- endcomment -%}
 {%- assign hl = include.highlight -%}
 <article class="highlight{% unless hl.figure %} no-figure{% endunless %}">

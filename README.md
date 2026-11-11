@@ -121,21 +121,19 @@ The file is sorted newest year first, preprints first within a year; the pages s
 
 ## Research highlights
 
-The research page shows the entries of `_data/highlights.json` after the research summary, in file order (newest first). Each has a heading, a figure on the right (above the text on phones), one paragraph, and the papers it is based on. Without entries, the page shows only the summary under the title "Research", and the home page leaves out its "Research highlights →" link.
+The research page shows the entries of `_data/highlights.json` after the research summary, in file order (newest first by arXiv date). Each has a heading, one paragraph, and the papers it is based on; the current entries have no figures. Without entries, the page shows only the summary under the title "Research", and the home page leaves out its "Research highlights →" link.
 
 ```json
 {
   "title": "Heading of the highlight",
   "text": "One paragraph on the result and why it matters.",
-  "papers": [2851666],
-  "figure": "/assets/img/research/calcium.png",
-  "alt": "What the figure shows, for readers who cannot see it"
+  "papers": [2851666]
 }
 ```
 
-- `title` and `text` are written by hand and may contain `<sup>`, `<sub>`, and `<i>` (e.g., `<sup>48</sup>Ca`).
+- `title` and `text` are written by hand and may contain `<sup>`, `<sub>`, and `<i>` (e.g., `<sup>48</sup>Ca`); `text` may also contain links (`<a href="...">...</a>`) and `<span class="nowrap">...</span>` to keep a number and its unit on one line (escape the quotes as `\"` in JSON).
 - `papers`: the papers the highlight is based on, as identifiers of entries in `_data/publications.json`: the INSPIRE record id (preferred), the DOI, or the arXiv id. Each is shown as a publication row looked up from that file, so titles, authors, journals, and the DOI and arXiv links are never retyped. An identifier without an entry is shown as a bracketed note, and `scripts/update_pubs.py` reports it.
-- `figure` and `alt`: an image under `assets/img/research/` that you may publish, and its alt text. SVG works best; otherwise PNG or JPEG at least 1000 px wide (shown up to 320 px wide on desktops and at full width on phones). Without a figure, the text takes the full width.
+- Optional `figure` and `alt`: an image under `assets/img/research/` that you may publish, and its alt text. It is shown on the right (above the text on phones), up to 320 px wide on desktops and at full width on phones, so use SVG or PNG/JPEG at least 1000 px wide. Without a figure, the text takes the full width.
 - Optional: `hidden` (`true` leaves the entry off the site).
 
 ## Funding logos
