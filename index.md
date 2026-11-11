@@ -12,6 +12,7 @@ Home page, built from the CV data in _data (see README.md):
   honors: entries of awards.json with "highlight": true, in file order
   funding: logos of current funders from _data/funders.json, in file order (not in the CV data;
     the CV page lists all funding and computing grants from funding.json and computing.json)
+  link to the research highlights: shown once _data/highlights.json has entries
 Set in _config.yml: the photo and the GitHub link (not in the CV data).
 HTML here is kept flush left so Markdown does not turn indented lines into code blocks.
 {%- endcomment -%}
@@ -40,7 +41,15 @@ HTML here is kept flush left so Markdown does not turn indented lines into code 
 </section>
 
 <section class="section">
+{%- assign highlights = site.data.highlights | where_exp: "h", "h.hidden != true" %}
+{%- if highlights.size > 0 %}
+<div class="section-head">
 <h2 class="label">Research interests</h2>
+<a href="{{ '/research/' | relative_url }}">Research highlights →</a>
+</div>
+{%- else %}
+<h2 class="label">Research interests</h2>
+{%- endif %}
 <div class="grid-2">
 {%- if profile.interests %}
 {%- for i in profile.interests %}

@@ -14,12 +14,14 @@ Design C, "Quiet modern": one layout (`_layouts/default.html`), one stylesheet (
 | `_data/talks.json` | Talks and posters |
 | `_data/appointments.json`, `awards.json`, `computing.json`, `education.json`, `funding.json`, `lectures.json`, `profile.json`, `students.json` | Copies of the CV data (repository `cheshyre/resume`), used by every page |
 | `_data/derived.json` | Research summary in the first person and its first two sentences, written by the script from `profile.json` |
+| `_data/highlights.json` | Research highlights on the research page (written here, not part of the CV data) |
 | `_data/funders.json` | Funding logos on the home page (not part of the CV data) |
 | `_includes/pub.html`, `_includes/talk.html` | How one publication or talk row is rendered |
+| `_includes/highlight.html` | How one research highlight is rendered |
 | `_includes/when.html`, `_includes/thousands.html` | Small helpers: years of a CV item, and numbers with thousands separators |
 | `index.md`, `research.md`, `publications.md`, `cv.md`, `teaching.md` | The five pages |
 | `assets/cv.pdf` | The CV download (copied by the script from `cv_public.pdf`) |
-| `assets/img/` | The portrait photo and funding logos (`funding/`) |
+| `assets/img/` | The portrait photo, funding logos (`funding/`), and highlight figures (`research/`) |
 | `scripts/update_pubs.py` | Regenerates the data files from INSPIRE or from the CV data (not published) |
 
 ## Preview locally
@@ -45,6 +47,7 @@ python3 scripts/update_pubs.py --dry-run           # report what would change, w
 
 - **CV mode** (`--cv DIR`) converts `publications_inspire.json` and `talks.json`, copies the other JSON files and `cv_public.pdf` (as `assets/cv.pdf`), and writes `_data/derived.json` from `profile.json`. Point it at the folder that holds the CV's JSON files.
 - **INSPIRE mode** rewrites `_data/publications.json` from the INSPIRE profile linked in `_data/profile.json`. Titles already in the file are kept, because INSPIRE often has the arXiv title in Title Case; the script reports titles that differ by more than capitalization.
+- **Both modes** then report papers cited in `_data/highlights.json` that have no entry, or a hidden one, in the new `_data/publications.json`.
 
 The site shows the CV data as is. CV mode rebuilds `_data/publications.json` and `_data/talks.json` from the export alone, so do not edit them by hand: change the CV data instead (details that only the CV PDF has stay in the PDF). The script lists what changed. INSPIRE mode keeps the `selected` flags, `hidden` flags, and titles already in the file.
 
@@ -115,6 +118,25 @@ The file is sorted newest year first, preprints first within a year; the pages s
 ```
 
 `date` is `YYYY-MM` and shown as month and year. `invited` is `true` for invited talks, plenary talks, seminars, and colloquia. Optional: `type` (`invited`, `invited_parallel`, `plenary`, `seminar`, `colloquium`, `contributed`, or `poster`; sets the label, e.g., "Invited talk" or "Poster"), `virtual`, `award`, `slides`, and `hidden`. Without a `type`, invited talks are labeled "Invited". Talks are listed newest first, in file order.
+
+## Research highlights
+
+The research page shows the entries of `_data/highlights.json` after the research summary, in file order (newest first). Each has a heading, a figure on the right (above the text on phones), one paragraph, and the papers it is based on. Without entries, the page shows only the summary under the title "Research", and the home page leaves out its "Research highlights →" link.
+
+```json
+{
+  "title": "Heading of the highlight",
+  "text": "One paragraph on the result and why it matters.",
+  "papers": [2851666],
+  "figure": "/assets/img/research/calcium.png",
+  "alt": "What the figure shows, for readers who cannot see it"
+}
+```
+
+- `title` and `text` are written by hand and may contain `<sup>`, `<sub>`, and `<i>` (e.g., `<sup>48</sup>Ca`).
+- `papers`: the papers the highlight is based on, as identifiers of entries in `_data/publications.json`: the INSPIRE record id (preferred), the DOI, or the arXiv id. Each is shown as a publication row looked up from that file, so titles, authors, journals, and the DOI and arXiv links are never retyped. An identifier without an entry is shown as a bracketed note, and `scripts/update_pubs.py` reports it.
+- `figure` and `alt`: an image under `assets/img/research/` that you may publish, and its alt text. SVG works best; otherwise PNG or JPEG at least 1000 px wide (shown up to 320 px wide on desktops and at full width on phones). Without a figure, the text takes the full width.
+- Optional: `hidden` (`true` leaves the entry off the site).
 
 ## Funding logos
 

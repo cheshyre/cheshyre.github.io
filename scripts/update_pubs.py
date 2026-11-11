@@ -29,6 +29,9 @@ are reported). Entries INSPIRE does not have are dropped and reported.
 
 Your name in author lists (set in bold) is "author_name" in profile.json.
 
+Both modes then check _data/highlights.json (written by hand, not part of the CV data) and report
+papers it refers to that have no entry, or a hidden one, in the new _data/publications.json.
+
 Standard library only; Python 3.8 or later.
 """
 
@@ -49,6 +52,7 @@ PUBS_FILE = ROOT / "_data" / "publications.json"
 TALKS_FILE = ROOT / "_data" / "talks.json"
 PROFILE_FILE = ROOT / "_data" / "profile.json"
 DERIVED_FILE = ROOT / "_data" / "derived.json"
+HIGHLIGHTS_FILE = ROOT / "_data" / "highlights.json"
 PDF_FILE = ROOT / "assets" / "cv.pdf"
 
 INSPIRE_API = "https://inspirehep.net/api"
@@ -621,6 +625,23 @@ def copy_file(src, dst, dry_run):
         shutil.copyfile(src, dst)
 
 
+def check_highlights(pubs):
+    """Report highlight papers without an entry (or with a hidden one) in the publications."""
+    entries = {}
+    for p in pubs:
+        for key in ("inspire", "doi", "arxiv"):
+            if p.get(key) is not None:
+                entries[str(p[key])] = p
+    for h in load(HIGHLIGHTS_FILE):
+        if h.get("hidden"):
+            continue
+        for ident in h.get("papers", []):
+            p = entries.get(str(ident))
+            if p is None or p.get("hidden"):
+                print("_data/highlights.json: \"%s\" cites %s, which %s in _data/publications.json"
+                      % (plain_title(h), ident, "has no entry" if p is None else "is hidden"))
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--cv", metavar="DIR", type=Path,
@@ -645,6 +666,7 @@ def main(argv=None):
     for line in report:
         print("  " + line)
     save(PUBS_FILE, pubs, args.dry_run)
+    check_highlights(pubs)
 
     if args.cv:
         talks_path = args.cv / CV_TALKS

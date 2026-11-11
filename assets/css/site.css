@@ -84,6 +84,8 @@ sup, sub { font-size: 0.75em; line-height: 0; }
 }
 .section-head .label { margin: 0; }
 .section-head a { font-size: 14px; }
+.hero + .section .section-head { margin-top: 72px; }
+.hero + .section .section-head .label { margin-top: 0; }
 
 /* Publication and talk rows */
 .pubs { border-bottom: 1px solid var(--rule); }
@@ -112,6 +114,25 @@ sup, sub { font-size: 0.75em; line-height: 0; }
 .logos { list-style: none; padding: 0 !important; margin: 0 !important; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px; }
 .logos img { display: block; width: auto; height: 112px; }
 
+/* Research highlights: heading, text, and papers on the left, figure on the right */
+.highlights { margin-top: 48px; }
+.highlight {
+  display: grid; grid-template-columns: minmax(0, 1fr) 320px; column-gap: 40px;
+  grid-template-rows: auto auto auto 1fr;
+  grid-template-areas: "title figure" "text figure" "refs figure" ". figure";
+  padding: 40px 0; border-top: 1px solid var(--rule);
+}
+.highlight.no-figure { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "text" "refs" "."; }
+.main .highlight-title {
+  grid-area: title; margin: 0; font-size: 20px; font-weight: 600; line-height: 1.35;
+  letter-spacing: -0.01em; text-transform: none; color: var(--text);
+}
+.highlight-figure { grid-area: figure; margin: 4px 0 0; }
+.highlight-figure img { display: block; width: 100%; }
+.main .highlight-text { grid-area: text; margin: 10px 0 0; }
+.highlight-refs { grid-area: refs; margin-top: 4px; }
+.highlight-refs .pub { border-top: 0; padding: 12px 0 0; }
+
 .placeholder { color: var(--muted); }
 
 /* Footer */
@@ -133,7 +154,8 @@ sup, sub { font-size: 0.75em; line-height: 0; }
   .statement, .links { margin-top: 16px !important; font-size: 16px; }
   .links { font-size: 14px; gap: 4px 16px; }
   .label, .main h2, .section-head { margin-top: 48px; }
-  .hero + .section .label { margin-top: 48px; }
+  .hero + .section .label, .hero + .section .section-head { margin-top: 48px; }
+  .hero + .section .section-head .label { margin-top: 0; }
   .grid-2 { grid-template-columns: 1fr; gap: 16px; }
   .item-text { margin-top: 2px !important; }
   .pub { grid-template-columns: 1fr; gap: 2px; padding: 14px 0; }
@@ -142,4 +164,8 @@ sup, sub { font-size: 0.75em; line-height: 0; }
   .pub-links::before { content: none; }
   .split .label { margin-top: 40px; }
   .logos img { height: 96px; }
+  .highlights { margin-top: 32px; }
+  .highlight { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; grid-template-areas: "title" "figure" "text" "refs"; padding: 28px 0; }
+  .main .highlight-title { font-size: 18px; }
+  .highlight-figure { margin: 14px 0 0; }
 }
