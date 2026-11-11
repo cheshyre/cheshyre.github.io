@@ -2,13 +2,15 @@
   {
     "name": "FRIB Achievement Award for Early Career Researchers (Theory)",
     "organization": "Facility for Rare Isotope Beams",
-    "date": "2026"
+    "date": "2026",
+    "highlight": true
   },
   {
     "name": "Distinguished Staff Fellowship",
     "organization": "Oak Ridge National Laboratory",
     "start": "2024",
-    "end": "2026"
+    "end": "2026",
+    "highlight": true
   },
   {
     "name": "Giersch Award for an Outstanding Doctoral Thesis",
@@ -18,7 +20,8 @@
   {
     "name": "Gerhard Herzberg Research Prize",
     "organization": "Gerhard Herzberg Society",
-    "date": "2024"
+    "date": "2024",
+    "highlight": true
   },
   {
     "name": "Giersch Excellence Award",
@@ -34,7 +37,8 @@
     "name": "Doctoral Fellowship",
     "organization": "German Academic Scholarship Foundation",
     "start": "2022",
-    "end": "2024"
+    "end": "2024",
+    "highlight": true
   },
   {
     "name": "Merit pregraduation scholarship for international students",

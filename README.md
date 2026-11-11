@@ -55,7 +55,7 @@ Do not copy the CV's `talks.json` or `publications_inspire.json` into `_data/` d
 | --- | --- |
 | `profile.json` | Name, position line, email, INSPIRE, ORCID, Google Scholar, your name in author lists (`author_name`), the research summary (research page) and its first two sentences (home page) |
 | `appointments.json` | CV positions; the most recent finished appointment is the "Previously" line on the home page |
-| `awards.json` | CV awards; the first four visible ones are the home page's honors (`hidden` entries are left out) |
+| `awards.json` | CV awards; those with `"highlight": true` are the home page's honors (`hidden` entries are left out everywhere) |
 | `funding.json`, `computing.json` | CV funding and computing grants; current entries also on the home page |
 | `education.json` | CV education |
 | `lectures.json`, `students.json` | Teaching page |

@@ -9,7 +9,7 @@ Home page, built from the CV data in _data (see README.md):
   statement: first two sentences of the research summary (derived.json, from profile.json)
   research interests: "interests" in profile.json if present, else the drafts below
   selected publications: publications.json entries with "selected": true, in file order
-  honors: the first four visible entries of awards.json
+  honors: entries of awards.json with "highlight": true, in file order
   funding: entries of funding.json and computing.json that end this year or later, or are ongoing
 Set in _config.yml: the photo and the GitHub link (not in the CV data).
 HTML here is kept flush left so Markdown does not turn indented lines into code blocks.
@@ -75,15 +75,17 @@ HTML here is kept flush left so Markdown does not turn indented lines into code 
 </section>
 
 <section class="split">
+{%- assign honors = site.data.awards | where: "highlight", true | where_exp: "a", "a.hidden != true" %}
+{%- if honors.size > 0 %}
 <div>
 <h2 class="label">Honors</h2>
-<ul class="dated">
-{%- assign honors = site.data.awards | where_exp: "a", "a.hidden != true" %}
-{%- for a in honors limit: 4 %}
-<li><span class="year">{% include when.html item=a start_only=true %}</span><span>{{ a.name }}, {{ a.organization }}</span></li>
+<ul class="dated wide">
+{%- for a in honors %}
+<li><span class="year">{% include when.html item=a %}</span><span>{{ a.name }}, {{ a.organization }}</span></li>
 {%- endfor %}
 </ul>
 </div>
+{%- endif %}
 <div>
 <h2 class="label">Funding</h2>
 <ul class="plain">
