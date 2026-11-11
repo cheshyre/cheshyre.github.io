@@ -1,8 +1,14 @@
 # Site settings. Restart `bundle exec jekyll serve` after editing this file.
-# title, description, and author.name are used for page titles and search results; Jekyll
-# cannot read them from _data, so they are copied by hand from _data/profile.json.
+# title, tagline, description, and author.name are used for page titles, search results, and
+# link previews (jekyll-seo-tag). Jekyll cannot read them from _data, so they are written here by
+# hand: title and author.name are the name in _data/profile.json, and description is the first
+# sentence of the statement below, in the third person. The home page's title is
+# "title | tagline"; every other page's title is "page title | title".
 title: Matthias Heinz
-description: Matthias Heinz researches the theoretical description of atomic nuclei.
+tagline: Nuclear physicist
+description: >-
+  Matthias Heinz studies the structure of atomic nuclei, refining our understanding of strong
+  interactions in nature.
 url: https://matthiasheinz.com
 baseurl: ""
 lang: en

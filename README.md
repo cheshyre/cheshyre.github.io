@@ -8,7 +8,7 @@ Design C, "Quiet modern": one layout (`_layouts/default.html`), one stylesheet (
 
 | Path | What it holds |
 | --- | --- |
-| `_config.yml` | Title and description for search results, photo path, GitHub link, and the home page statement (everything else about you comes from the CV data) |
+| `_config.yml` | Title, tagline, and description for page titles, search results, and link previews; photo path, GitHub link, and the home page statement (everything else about you comes from the CV data) |
 | `CNAME` | The custom domain, written by GitHub when the domain is saved in the Pages settings (keep it) |
 | `_data/nav.yml` | Top bar navigation |
 | `_data/publications.json` | Publications; entries with `"selected": true` also appear on the home page |
