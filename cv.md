@@ -57,4 +57,4 @@ computing.json (copies of the CV data; see README.md). assets/cv.pdf is the full
 {%- endfor %}
 </ul>
 
-Publications and talks are listed on the [Publications]({{ '/publications/' | relative_url }}) page; lectures and students are on the [Teaching]({{ '/teaching/' | relative_url }}) page.
+Publications and talks are listed on the [Publications]({{ '/publications/' | relative_url }}) page; teaching and mentoring is on the [Teaching]({{ '/teaching/' | relative_url }}) page.
