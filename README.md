@@ -1,6 +1,6 @@
 # matthiasheinz.com
 
-Source of my research website. GitHub Pages builds it with Jekyll from the `main` branch and serves it at <https://cheshyre.github.io> (and at <https://matthiasheinz.com> once the custom domain is connected).
+Source of my research website. GitHub Pages builds it with Jekyll from the `main` branch and serves it at <https://matthiasheinz.com>. The custom domain is set in the repository's Pages settings and stored in the `CNAME` file, which must stay in the repository.
 
 Design C, "Quiet modern": one layout (`_layouts/default.html`), one stylesheet (`assets/css/site.css`), no JavaScript. Placeholder text is marked `[like this]`.
 
@@ -9,6 +9,7 @@ Design C, "Quiet modern": one layout (`_layouts/default.html`), one stylesheet (
 | Path | What it holds |
 | --- | --- |
 | `_config.yml` | Title and description for search results, photo path, GitHub link, and the home page statement (everything else about you comes from the CV data) |
+| `CNAME` | The custom domain, written by GitHub when the domain is saved in the Pages settings (keep it) |
 | `_data/nav.yml` | Top bar navigation |
 | `_data/publications.json` | Publications; entries with `"selected": true` also appear on the home page |
 | `_data/talks.json` | Talks and posters |
