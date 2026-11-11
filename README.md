@@ -8,7 +8,7 @@ Design C, "Quiet modern": one layout (`_layouts/default.html`), one stylesheet (
 
 | Path | What it holds |
 | --- | --- |
-| `_config.yml` | Title and description for search results, photo path, GitHub link, and the home page statement (everything else about you comes from the CV data) |
+| `_config.yml` | Title, tagline, and description for page titles, search results, and link previews; photo path, GitHub link, and the home page statement (everything else about you comes from the CV data) |
 | `CNAME` | The custom domain, written by GitHub when the domain is saved in the Pages settings (keep it) |
 | `_data/nav.yml` | Top bar navigation |
 | `_data/publications.json` | Publications; entries with `"selected": true` also appear on the home page |
@@ -22,7 +22,8 @@ Design C, "Quiet modern": one layout (`_layouts/default.html`), one stylesheet (
 | `_includes/when.html`, `_includes/thousands.html` | Small helpers: years of a CV item, and numbers with thousands separators |
 | `index.md`, `research.md`, `publications.md`, `cv.md`, `teaching.md` | The five pages |
 | `assets/cv.pdf` | The CV download (copied by the script from `cv_public.pdf`) |
-| `assets/img/` | The portrait photo, funding logos (`funding/`), and highlight figures (`research/`) |
+| `assets/img/` | The portrait photo, funding logos (`funding/`), highlight figures (`research/`), and the browser-tab icon (`favicon.svg`) |
+| `favicon.ico`, `apple-touch-icon.png` | The tab icon for older browsers (16, 32, and 48 px) and the home-screen icon for phones (180 px); both drawn from the same "MH" monogram as `assets/img/favicon.svg` (the touch icon is square because phones round the corners themselves). Keep them in the root, where browsers look for them |
 | `scripts/update_pubs.py` | Regenerates the data files from INSPIRE or from the CV data (not published) |
 
 ## Preview locally

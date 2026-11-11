@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Home
+# No title on purpose: the browser tab and search results then show "title | tagline" from
+# _config.yml ("Matthias Heinz | Physicist") instead of "Home | Matthias Heinz".
 ---
 {%- comment -%}
 Home page, built from the CV data in _data (see README.md):

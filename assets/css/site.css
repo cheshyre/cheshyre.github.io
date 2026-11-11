@@ -28,6 +28,15 @@ body {
 a { color: var(--accent); text-decoration: none; }
 a:hover { color: var(--accent-hover); text-decoration: underline; }
 
+/* Links inside sentences and in publication and talk rows (DOI, arXiv, slides) get a light
+   underline, so they do not rely on color alone (WCAG 1.4.1): the accent is too close to the
+   gray text around them. Navigation, link rows, and section links stay plain. */
+.main p:not([class]) a, .highlight-text a, .pub-meta a, .footer a {
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em;
+  text-decoration-color: rgba(47, 69, 181, 0.4);
+}
+.main p:not([class]) a:hover, .highlight-text a:hover, .pub-meta a:hover, .footer a:hover { text-decoration-color: currentColor; }
+
 img { max-width: 100%; height: auto; }
 
 sup, sub { font-size: 0.75em; line-height: 0; }
