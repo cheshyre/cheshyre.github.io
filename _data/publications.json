@@ -2,7 +2,6 @@
   {
     "title": "Beta decay of potassium-54 reveals the role of two-body currents in neutron-rich nuclei",
     "authors": ["Z. Y. Xu", "R. K. Grzywacz", "M. Heinz", "T. Papenbrock", "W. Ong", "J. Allmond", "B. C. Rasco", "K. P. Rykaczewski", "H. Schatz", "B. M. Sherrill", "O. Tarasov", "P. Gysbers", "G. Hagen", "P. Navrátil", "S. Ajayi", "H. Arora", "A. D. Ayangeakaa", "H. Berg", "J. Berkman", "D. Bleuel", "K. Bosmpotinis", "N. Braukman", "M. P. Carpenter", "G. Cerizza", "A. Chester", "J. Christie", "I. Cox", "H. L. Crawford", "B. Crider", "J. Davis", "A. Doetsch", "J. Garcia-Duarte", "A. Estrade", "A. Fijalkowska", "C. Frantzis", "K. Fukushima", "T. Gaballah", "T. Gray", "E. Good", "K. Haak", "S. Hanai", "J. Harke", "C. Harris", "A. Hartley", "M. Hausmann", "K. Hermansen", "D. Hoff", "D. Hoskins", "J. Huffman", "R. Jain", "M. Karny", "T. King", "N. Kitamura", "K. Kolos", "E. Kwan", "S. N. Liddick", "B. Longfellow", "R. S. Lubna", "S. Lyons", "M. Madurga", "M. Mogannam", "S. Neupane", "T. H. Ogunbeku", "G. Owens-Fryar", "J. Palomino", "M. Portillo", "M. M. Rajabali", "A. Richard", "I. Richardson", "E. Ronning", "G. Rose", "T. Ruland", "N. D. Scielzo", "D. P. Scriven", "D. Seweryniak", "K. Siegl", "M. Smith", "A. Spyrou", "M. Stepaniuk", "A. Sweet", "V. Tripathi", "A. Tsantiri", "S. Uthayakumaar", "W. Walters", "S. Watters", "M. Wolinska-Cichocka", "R. Yokoyama"],
-    "journal": "Nature Communications",
     "year": 2026,
     "arxiv": "2610.36218",
     "type": "article",
@@ -30,7 +29,6 @@
   {
     "title": "Laser spectroscopy illuminates the <i>N</i> = 32 shell closure",
     "authors": ["T. E. Lellinger", "L. V. Rodríguez", "P. Müller", "O. Ahmad", "M. L. Bissell", "K. Blaum", "E. Burbach", "B. Cheal", "T. Fabritz", "R. F. Garcia Ruiz", "M. Heinz", "J. Hughes", "P. Imgram", "K. König", "Y. Liu", "B. Maaß", "E. N. Matthews", "T. Miyagi", "W. Nazarewicz", "R. Neugart", "G. Neyens", "L. Nies", "W. Nörtershäuser", "J. Palmes", "P. Plattner", "P.-G. Reinhard", "L. Renth", "R. Sanchez", "A. Schwenk", "J. Spahn", "X. F. Yang", "D. T. Yordanov"],
-    "journal": "Nature Communications",
     "year": 2026,
     "arxiv": "2608.10943",
     "type": "article",
@@ -76,7 +74,6 @@
   {
     "title": "Similarity renormalization group for nuclear forces",
     "authors": ["M. Heinz"],
-    "journal": "Encyclopedia of Nuclear Physics",
     "year": 2026,
     "arxiv": "2603.04311",
     "type": "article",
@@ -133,7 +130,6 @@
     "arxiv": "2507.14690",
     "type": "article",
     "selected": true,
-    "note": "Editors’ Suggestion",
     "inspire": 2952170
   },
   {
@@ -212,7 +208,6 @@
     "arxiv": "2507.05680",
     "type": "article",
     "selected": false,
-    "note": "Press release: “<a href=\"https://www.tu-darmstadt.de/universitaet/aktuelles_meldungen/einzelansicht_514368.de.jsp\">How large is a carbon nucleus?</a>”",
     "inspire": 2943414
   },
   {
@@ -239,7 +234,6 @@
     "arxiv": "2403.07792",
     "type": "article",
     "selected": true,
-    "note": "Press release: “<a href=\"https://www.physik.tu-darmstadt.de/aktuelles_physik/news_details_103552.en.jsp\">New insights into the structure of atomic nuclei</a>” · Highlighted in <i>Physics World</i>: “<a href=\"https://physicsworld.com/a/atomic-anomaly-explained-without-recourse-to-hypothetical-dark-force/\">Atomic anomaly explained without recourse to hypothetical ‘dark force’</a>”",
     "inspire": 2767685
   },
   {
@@ -292,8 +286,8 @@
     "inspire": 2605166
   },
   {
-    "title": "Perspectives on an open-source toolchain for ab initio nuclear physics",
-    "authors": ["M. Heinz", "T. Duguet", "H. W. Grießhammer", "H. Hergert", "A. Tichai"],
+    "title": "Nuclear forces for precision nuclear physics: A collection of perspectives",
+    "authors": ["I. Tews", "Z. Davoudi", "A. Ekström", "J. D. Holt", "K. S. Becker", "R. Briceño", "D. J. Dean", "W. Detmold", "C. Drischler", "T. Duguet", "E. Epelbaum", "A. Gasparyan", "J. Gegelia", "J. R. Green", "H. W. Grießhammer", "A. D. Hanlon", "M. Heinz", "H. Hergert", "M. Hoferichter", "M. Illa", "D. Kekejian", "A. Kievsky", "S. König", "H. Krebs", "K. D. Launey", "D. Lee", "P. Navrátil", "A. N. Nicholson", "A. Parreño", "D. R. Phillips", "M. Płoszajczak", "X.-L. Ren", "T. R. Richardson", "C. Robin", "G. H. Sargsyan", "M. J. Savage", "M. R. Schindler", "P. E. Shanahan", "R. P. Springer", "A. Tichai", "U. van Kolck", "M. L. Wagman", "A. Walker-Loud", "C.-J. Yang", "X. Zhang"],
     "journal": "Few-Body Systems",
     "volume": "63",
     "pages": "67",
@@ -302,8 +296,6 @@
     "arxiv": "2202.01105",
     "type": "article",
     "selected": false,
-    "note": "Contribution to “Nuclear forces for precision nuclear physics: A collection of perspectives”",
-    "keep": ["title", "authors"],
     "inspire": 2024568
   },
   {

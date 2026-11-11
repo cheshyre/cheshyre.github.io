@@ -96,7 +96,6 @@ sup, sub { font-size: 0.75em; line-height: 0; }
 .pub-title { margin: 0 !important; font-weight: 500; }
 .pub-meta { margin: 2px 0 0 !important; font-size: 14px; color: var(--text-2); }
 .pub-meta strong { font-weight: 600; color: var(--text); }
-.pub-note { color: var(--muted); }
 .pub-links::before { content: " · "; }
 
 /* Honors and Funding side by side */

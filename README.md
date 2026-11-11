@@ -45,7 +45,7 @@ python3 scripts/update_pubs.py --dry-run           # report what would change, w
 - **CV mode** (`--cv DIR`) converts `publications_inspire.json` and `talks.json`, copies the other JSON files and `cv_public.pdf` (as `assets/cv.pdf`), and writes `_data/derived.json` from `profile.json`. Point it at the folder that holds the CV's JSON files.
 - **INSPIRE mode** rewrites `_data/publications.json` from the INSPIRE profile linked in `_data/profile.json`. Titles already in the file are kept, because INSPIRE often has the arXiv title in Title Case; the script reports titles that differ by more than capitalization.
 
-Either way, the script keeps what you set by hand in `_data/publications.json`: `selected` (INSPIRE mode), `hidden`, `note`, `keep`, and any field the source leaves empty (e.g., the journal of a paper in press). For talks it keeps `slides` and `hidden`. Entries the source does not have are kept and reported.
+The site shows the CV data as is. CV mode rebuilds `_data/publications.json` and `_data/talks.json` from the export alone, so do not edit them by hand: change the CV data instead (details that only the CV PDF has stay in the PDF). The script lists what changed. INSPIRE mode keeps the `selected` flags, `hidden` flags, and titles already in the file.
 
 Do not copy the CV's `talks.json` or `publications_inspire.json` into `_data/` directly: the site uses different field names, which the script converts.
 
@@ -65,11 +65,11 @@ Do not copy the CV's `talks.json` or `publications_inspire.json` into `_data/` d
 
 ### Optional fields the script and pages already understand
 
-Add these to the CV data to replace the remaining hand-kept parts:
+None of these are in the CV data yet:
 
 - `profile.json`: `research_summary_first_person` (used as is instead of the automatic conversion of `research_summary`), `interests` (a list of `{"title": ..., "text": ...}`, shown as the home page's research interests instead of the drafts), and `links.github`.
-- `publications_inspire.json`, per entry: `journal` for papers in press (shown as "(in press)" while volume and pages are empty), `notes` (a list of strings or `{"label": ..., "text": ..., "url": ...}`, e.g., `{"label": "Press release", "text": "How large is a carbon nucleus?", "url": "https://..."}`), `hidden`, and, for a contribution to a collection, its own `title_text` and `authors` (then delete the `keep` list of that entry in `_data/publications.json`).
-- `talks.json`, per talk: `slides` (URL) and `hidden`.
+- `publications_inspire.json`, per entry: `hidden` (`true` leaves the entry off the site).
+- `talks.json`, per talk: `slides` (URL, shown as a link) and `hidden`.
 
 ## Publication entries
 
@@ -91,14 +91,14 @@ Add these to the CV data to replace the remaining hand-kept parts:
 
 - `title` may contain `<sup>`, `<sub>`, and `<i>` for formulas (e.g., `<sup>48</sup>Ca`); the script writes them from INSPIRE's LaTeX.
 - `authors`: your own name, written exactly as `author_name` in `_data/profile.json` (`M. Heinz`), is set in bold. Lists of more than 10 authors show the first five, your name, and "et al."
-- `journal`, `volume`, `pages`: a journal without volume and pages is shown as "(in press)"; no journal shows "Preprint".
+- `journal`, `volume`, `pages`: entries without a journal are shown as "Preprint".
 - `doi` and `arxiv` are the bare identifiers; the links are built from them. Every article gets both where available.
 - `type`: `article`, `proceedings`, or `thesis`. Theses get their own section and may have `school`.
 - `selected`: `true` for the entries on the home page (in file order).
-- Optional: `note` (one line under the entry, HTML allowed, e.g., a press-release link), `hidden` (`true` to leave the entry off the site), and `keep` (fields the script must not change, e.g., `["title", "authors"]`).
+- Optional: `hidden` (`true` to leave the entry off the site).
 - `inspire` is the INSPIRE record id; the script uses it to match entries. Leave it out for papers that are not on INSPIRE.
 
-The file is sorted newest year first, preprints and papers in press first within a year; the pages show entries in file order.
+The file is sorted newest year first, preprints first within a year; the pages show entries in file order.
 
 ## Talk entries
 

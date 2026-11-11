@@ -20,19 +20,12 @@ CV mode (--cv DIR) reads the JSON data of the CV (repository cheshyre/resume):
 INSPIRE mode rewrites _data/publications.json from the INSPIRE records of the profile linked in
 _data/profile.json (links.inspire).
 
-Kept from the current _data/publications.json, entry by entry (matched by INSPIRE record id,
-then DOI, then arXiv id):
-    selected  shown on the home page (in CV mode the CV's own flags are used instead)
-    hidden    true to leave the entry off the site (or set "hidden" in the CV export)
-    note      one line under the entry; HTML allowed (replaced by "notes" from the CV export,
-              when it has them)
-    keep      list of field names this script must not change, e.g., ["title", "authors"]
-    title     INSPIRE mode only, because INSPIRE often has the arXiv title in Title Case;
-              the script reports titles that differ by more than capitalization
-Fields the source leaves empty keep their current value, so a journal added by hand for a
-paper in press stays until the source has it. Entries the source does not have (added by
-hand) are kept and reported. From the current _data/talks.json, "slides" and "hidden" are
-kept for talks with the same date, title, and event, unless the CV export has them.
+CV mode writes the data as is: _data/publications.json and _data/talks.json are rebuilt from
+the CV export alone, so edits made to them by hand are overwritten. The script lists what
+changed. INSPIRE mode keeps three things from the current _data/publications.json, matched by
+INSPIRE record id, then DOI, then arXiv id: "selected" flags, "hidden" flags, and titles
+(INSPIRE often has the arXiv title in Title Case; titles that differ by more than capitalization
+are reported). Entries INSPIRE does not have are dropped and reported.
 
 Your name in author lists (set in bold) is "author_name" in profile.json.
 
@@ -103,10 +96,9 @@ INSTITUTIONS = {
 INVITED_TALK_TYPES = {"invited", "invited_parallel", "plenary", "seminar", "colloquium"}
 
 PUB_KEYS = ["title", "authors", "journal", "volume", "pages", "year", "doi", "arxiv", "type",
-            "school", "selected", "note", "hidden", "keep", "inspire"]
+            "school", "selected", "hidden", "inspire"]
 TALK_KEYS = ["title", "event", "city", "date", "invited", "type", "virtual", "award", "slides",
              "hidden"]
-FILLABLE = ["journal", "volume", "pages", "doi", "arxiv", "school"]
 
 
 # --- LaTeX to Unicode and HTML -------------------------------------------------------------
@@ -243,27 +235,6 @@ def title_to_html(title):
     text = "".join(out)
     text = re.sub(r"\s+", " ", text).strip()
     return text
-
-
-def notes_html(notes):
-    """CV export notes -> one HTML line. Each note is a string or
-    {"label": "Press release", "text": "How large is a carbon nucleus?", "url": "https://..."}."""
-    if not notes:
-        return None
-    if isinstance(notes, (str, dict)):
-        notes = [notes]
-    parts = []
-    for n in notes:
-        if isinstance(n, str):
-            n = {"text": n}
-        text = html.escape(latex_to_unicode(n.get("text", "")).strip(), quote=False)
-        if n.get("url"):
-            link = '<a href="%s">%s</a>' % (html.escape(n["url"]), text)
-            text = "“%s”" % link if n.get("label") else link
-        if n.get("label"):
-            text = "%s: %s" % (html.escape(n["label"], quote=False), text)
-        parts.append(text)
-    return " · ".join(parts)
 
 
 # --- Research summary in the first person ----------------------------------------------------
@@ -487,7 +458,6 @@ def record_from_cv(p):
         "school": INSTITUTIONS.get(school, school) if school else None,
         "date": p.get("date") or "",
         "selected": bool(p["selected"]) if "selected" in p else None,
-        "note": notes_html(p.get("notes")) or p.get("note"),
         "hidden": True if p.get("hidden") else None,
     }
 
@@ -508,9 +478,8 @@ def entry_from_record(r):
     if r["type"] == "thesis" and r.get("school"):
         e["school"] = r["school"]
     e["selected"] = r.get("selected")  # None: the source has no flags; keep the file's
-    for k in ("note", "hidden"):  # only the CV export has these
-        if r.get(k):
-            e[k] = r[k]
+    if r.get("hidden"):
+        e["hidden"] = True
     e["inspire"] = r["recid"]
     e["_date"] = r.get("date") or ""
     return e
@@ -525,40 +494,35 @@ def find_old(e, old):
 
 
 def merge_pubs(new, old, cv_mode):
-    report, used = [], set()
+    """CV mode: the export as is. INSPIRE mode: keep selected, hidden, and titles from the file."""
+    report, matched = [], set()
     for e in new:
         o = find_old(e, old)
         if o is None:
-            e["selected"] = bool(e["selected"])
             if old:
                 report.append("new: %s (%s)" % (plain_title(e), e.get("year")))
-            continue
-        used.add(id(o))
-        for k in ("hidden", "note", "keep"):
-            if k in o and k not in e:  # the CV export's note and hidden flag win
-                e[k] = o[k]
-        if e["selected"] is None:
-            e["selected"] = bool(o.get("selected"))
-        if not cv_mode:
-            if o.get("title"):
-                if plain(o["title"]) != plain(e["title"]) and "title" not in o.get("keep", []):
-                    report.append("title differs on INSPIRE, kept yours: %s | INSPIRE: %s"
-                                  % (plain_title(o), plain_title(e)))
-                e["title"] = o["title"]
-        for k in FILLABLE:
-            if not e.get(k) and o.get(k):
-                e[k] = o[k]
-        for k in o.get("keep", []):
-            if k in o:
-                e[k] = o[k]
-        changed = [k for k in PUB_KEYS if k != "inspire" and o.get(k) != e.get(k)]
-        if changed:
-            report.append("changed %s: %s" % (", ".join(changed), plain_title(e)))
-    manual = [dict(o, _date="") for o in old if id(o) not in used]
-    for o in manual:
-        report.append("kept (not in the source): %s" % plain_title(o))
-    entries = new + manual
-    # Newest year first; within a year, preprints and papers in press first; then by date.
+        else:
+            matched.add(id(o))
+            if not cv_mode:
+                if e["selected"] is None:
+                    e["selected"] = bool(o.get("selected"))
+                if o.get("hidden"):
+                    e["hidden"] = True
+                if o.get("title"):
+                    if plain(o["title"]) != plain(e["title"]):
+                        report.append("title differs on INSPIRE, kept yours: %s | INSPIRE: %s"
+                                      % (plain_title(o), plain_title(e)))
+                    e["title"] = o["title"]
+        e["selected"] = bool(e["selected"])
+        if o is not None:
+            changed = [k for k in PUB_KEYS if k != "inspire" and o.get(k) != e.get(k)]
+            if changed:
+                report.append("changed %s: %s" % (", ".join(changed), plain_title(e)))
+    for o in old:
+        if id(o) not in matched:
+            report.append("removed (not in the source): %s" % plain_title(o))
+    entries = list(new)
+    # Newest year first; within a year, preprints first; then by date.
     entries.sort(key=lambda e: e.get("_date", ""), reverse=True)
     entries.sort(key=lambda e: e.get("type") == "thesis" or bool(e.get("volume") or e.get("pages")))
     entries.sort(key=lambda e: e.get("year") or 0, reverse=True)
@@ -597,9 +561,8 @@ def talks_from_cv(cv_talks, old):
         o = matches.pop(0) if matches else None
         if o is None and old:
             report.append("new talk: %s (%s)" % (plain_title(e), e["date"]))
-        for k in ("slides", "hidden"):
-            if o and k in o and k not in e:  # the CV export's values win
-                e[k] = o[k]
+        elif o is not None and ordered(e, TALK_KEYS) != o:
+            report.append("changed talk: %s (%s)" % (plain_title(e), e["date"]))
         out.append(ordered(e, TALK_KEYS))
     for rest in old_by_key.values():
         for o in rest:

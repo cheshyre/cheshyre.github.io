@@ -2,9 +2,9 @@
   One publication row. Usage: {% include pub.html pub=p %}; add hide_year=true to leave the
   year column empty (the publications page shows each year once).
   Fields (see README.md): title, authors, journal, volume, pages, year, doi, arxiv, type,
-  selected; optional school (theses) and note. Your own name (author_name in _data/profile.json)
-  is set in bold. Lists of more than 10 authors show the first five, your name, and "et al."
-  A journal without volume and pages is shown as "(in press)".
+  selected; school for theses. Your own name (author_name in _data/profile.json) is set in bold.
+  Lists of more than 10 authors show the first five, your name, and "et al." Entries without a
+  journal are shown as "Preprint".
 {%- endcomment -%}
 {%- assign p = include.pub -%}
 {%- assign me = site.data.profile.author_name | default: site.author.short_name -%}
@@ -28,7 +28,7 @@
 {%- endcapture -%}
 {%- capture source -%}
   {%- if p.journal -%}
-    <i>{{ p.journal | escape }}</i>{% if p.volume %} {{ p.volume }}{% endif %}{% if p.pages %}, {{ p.pages }}{% endif %}{% unless p.volume or p.pages %} (in press){% endunless %}
+    <i>{{ p.journal | escape }}</i>{% if p.volume %} {{ p.volume }}{% endif %}{% if p.pages %}, {{ p.pages }}{% endif %}
   {%- elsif p.type == "thesis" -%}
     PhD thesis{% if p.school %}, {{ p.school | escape }}{% endif %}
   {%- else -%}
@@ -47,8 +47,5 @@
         {%- if p.arxiv %}<a href="https://arxiv.org/abs/{{ p.arxiv }}">arXiv:{{ p.arxiv }}</a>{% endif -%}
       </span>{% endif -%}
     </p>
-    {%- if p.note %}
-    <p class="pub-meta pub-note">{{ p.note }}</p>
-    {%- endif %}
   </div>
 </div>
