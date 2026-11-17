@@ -1,5 +1,13 @@
 [
   {
+    "title": "New directions for precision ab initio computations of nuclei",
+    "event": "RIKEN Nishina Center Nuclear Many-Body Theory Seminar",
+    "city": "RIKEN Nishina Center, Wako, Japan",
+    "date": "2026-11",
+    "invited": true,
+    "type": "seminar"
+  },
+  {
     "title": "NuLattice: Computations of nuclei on lattices",
     "event": "CRC 1245 Workshop",
     "city": "Mainz, Germany",
